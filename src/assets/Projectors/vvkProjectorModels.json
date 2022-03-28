@@ -1,0 +1,743 @@
+{
+"vvkProjectorModels" :[
+	{
+		"ModelName": "DX881ST",
+		"Resolution": {
+			"Desc" : "XGA",
+			"width": 1024,
+			"height": 768
+		},
+		"Brightness": {
+			"value": 3000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "15,000:1",
+		"Throw Ratio": {"min": 0.62, "max" : 0.62},		
+		"Optional Lens": null,
+		"Weight": {
+			"value": 3.2,
+			"unit": "kg"
+		}, 
+		"Picture" : "Projectors/DX881ST.png",
+		"URL": "https://www.vivitek.eu/Category/Education-Projectors/127/DX881ST"
+	},
+	{
+		"ModelName": "DW882ST",
+		"Resolution": {
+			"Desc" : "WXGA",
+			"width": 1280,
+			"height": 800
+		},
+		"Brightness": {
+			"value": 3600,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "15,000:1",
+		"Throw Ratio": {"min": 0.52, "max" : 0.52},				
+		"Optional Lens": null,
+		"Weight": {
+			"value": 3.2,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DW882ST.png",
+		"URL": "https://www.vivitek.eu/Category/Education-Projectors/128/DW882ST"
+	},
+	{
+		"ModelName": "QUMI Q6",
+		"Resolution": {
+			"Desc" : "WXGA",
+			"width": 1280,
+			"height": 800
+		},
+		"Brightness": {
+			"value": 800,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "30,000:1",	
+		"Throw Ratio": {"min": 1.55, "max" : 1.55},				
+		"Optional Lens": null,
+		"Weight": {
+			"value": 0.475,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/QUMI Q6.png",
+		"URL": "https://www.vivitek.eu/Category/Education-Projectors/150/Qumi-Q6"
+	},
+	{
+		"ModelName": "DH833",
+		"Resolution": {
+			"Desc" : "1080p",
+			"width": 1920,
+			"height": 1080
+		},
+		"Brightness": {
+			"value": 4500,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "15,000:1",
+		"Throw Ratio": {"min": 1.39, "max" : 2.09},						
+		"Optional Lens": null,
+		"Weight": {
+			"value": 3.2,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DH833.png",
+		"URL": "https://www.vivitek.eu/Category/Education-Projectors/163/DH833"
+	},
+	{
+		"ModelName": "DX263",
+		"Resolution": {
+			"Desc" : "XGA",
+			"width": 1024,
+			"height": 768
+		},		
+		"Brightness": {
+			"value": 3500,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "15,000:1",
+		"Throw Ratio": {"min": 1.94, "max" : 2.32},								
+		"Optional Lens": null,
+		"Weight": {
+			"value": 2.6,
+			"unit": "kg"
+		},			
+		"Picture" : "Projectors/DX263.png",
+		"URL": "https://www.vivitek.eu/Category/Education-Projectors/201/DX263"
+	},
+	{
+		"ModelName": "DW265",
+		"Resolution": {
+			"Desc" : "WXGA",
+			"width": 1280,
+			"height": 800
+		},		
+		"Brightness": {
+			"value": 3500,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "15,000:1",
+		"Throw Ratio": {"min": 1.55, "max" : 1.86},										
+		"Optional Lens": null,
+		"Weight": {
+			"value": 2.6,
+			"unit": "kg"
+		},			
+		"Picture" : "Projectors/DW265.png",
+		"URL": "https://www.vivitek.eu/Category/Education-Projectors/202/DW265"
+	},
+	{
+		"ModelName": "DH268",
+		"Resolution": {
+			"Desc" : "1080p",
+			"width": 1920,
+			"height": 1080
+		},		
+		"Brightness": {
+			"value": 3500,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "15,000:1",
+		"Throw Ratio": {"min": 1.37, "max" : 1.64},												
+		"Optional Lens": null,
+		"Weight": {
+			"value": 2.6,
+			"unit": "kg"
+		},			
+		"Picture" : "Projectors/DH268.png",
+		"URL": "https://www.vivitek.eu/Category/Education-Projectors/203/DH268"
+	},
+	{
+		"ModelName": "DW770UST",
+		"Resolution": {
+			"Desc" : "WXGA",
+			"width": 1280,
+			"height": 800
+		},		
+		"Brightness": {
+			"value": 3500,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "10,000:1",
+		"Throw Ratio": {"min": 0.35, "max" : 0.35},														
+		"Optional Lens": null,
+		"Weight": {
+			"value": 5.0,
+			"unit": "kg"
+		},			
+		"Picture" : "Projectors/DW770UST.png",
+		"URL": "https://www.vivitek.eu/Category/Education-Projectors/215/DW770UST"
+	},	
+	{
+		"ModelName": "DW771USTi",
+		"Resolution": {
+			"Desc" : "WXGA",
+			"width": 1280,
+			"height": 800
+		},		
+		"Brightness": {
+			"value": 3500,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "10,000:1",
+		"Throw Ratio": {"min": 0.35, "max" : 0.35},																
+		"Optional Lens": null,
+		"Weight": {
+			"value": 5.0,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DW771USTi.png",
+		"URL": "https://www.vivitek.eu/Category/Education-Projectors/216/DW771USTi"
+	},
+	{
+		"ModelName": "DH772UST",
+		"Resolution": {
+			"Desc" : "1080p",
+			"width": 1920,
+			"height": 1080
+		},				
+		"Brightness": {
+			"value": 3500,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "10,000:1",
+		"Throw Ratio": {"min": 0.33, "max" : 0.33},			
+		"Optional Lens": null,
+		"Weight": {
+			"value": 5.0,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DH772UST.png",
+		"URL": "https://www.vivitek.eu/Category/Education-Projectors/1218/DH772UST"
+	},
+	{
+		"ModelName": "DH773USTi",
+		"Resolution": {
+			"Desc" : "1080p",
+			"width": 1920,
+			"height": 1080
+		},				
+		"Brightness": {
+			"value": 3500,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "10,000:1",
+		"Throw Ratio": {"min": 0.33, "max" : 0.33},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 5.0,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DH773USTi.png",
+		"URL": "https://www.vivitek.eu/Category/Education-Projectors/1219/DH773USTi"
+	},
+	{
+		"ModelName": "H1188",
+		"Resolution": {
+			"Desc" : "1080p",
+			"width": 1920,
+			"height": 1080
+		},				
+		"Brightness": {
+			"value": 2000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "50,000:1",
+		"Throw Ratio": {"min": 1.39, "max" : 2.09},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 3.15,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/H1188.png",
+		"URL": "https://www.vivitek.eu/Category/Home-Cinema-Projectors/143/H1188"
+	},
+	{
+		"ModelName": "HK2200",
+		"Resolution": {
+			"Desc" : "1080p",
+			"width": 1920,
+			"height": 1080
+		},				
+		"Brightness": {
+			"value": 2000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "50,000:1",
+		"Throw Ratio": {"min": 1.13, "max" : 1.47},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 4.2,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/HK2200.png",
+		"URL": "https://www.vivitek.eu/Category/Home-Cinema-Projectors/1217/HK2200"
+	},
+	{
+		"ModelName": "QUMI Q3 PLUS",
+		"Resolution": {
+			"Desc" : "720p",
+			"width": 1280,
+			"height": 720
+		},				
+		"Brightness": {
+			"value": 500,
+			"unit": "ANSI Lumen"
+		},
+		"#Contrast Ratio": "NA",
+		"Throw Ratio": {"min": 1.66, "max" : 1.66},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 460,
+			"unit": "grams"
+		},		
+		"Picture" : "Projectors/QUMI Q3 PLUS.png",
+		"URL": "https://www.vivitek.eu/products/qumi/#q3-plus"
+	},
+	{
+		"ModelName": "QUMI Q8",
+		"Resolution": {
+			"Desc" : "1080p",
+			"width": 1920,
+			"height": 1080
+		},						
+		"Brightness": {
+			"value": 1000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "30,000:1",
+		"Throw Ratio": {"min": 1.5, "max" : 1.5},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 621,
+			"unit": "grams"
+		},			
+		"Picture" : "Projectors/QUMI Q8.png",
+		"URL": "https://www.vivitek.eu/products/qumi/#q8"
+	},
+	{
+		"ModelName": "QUMI Z1V",
+		"Resolution": {
+			"Desc" : "480p",
+			"width": 854,
+			"height": 480
+		},						
+		"Throw Ratio": {"min": 1.2, "max" : 1.2},
+		"Optional Lens": null,
+		"Weight": null,
+		"Picture" : "Projectors/QUMI Z1V.png",
+		"URL": "https://www.vivitek.eu/products/qumi/#z1v"
+	},
+	{
+		"ModelName": "QUMI Z1H",
+		"Resolution": {
+			"Desc" : "720p",
+			"width": 1280,
+			"height": 720
+		},						
+		"#Brightness": {
+			"value": 1000,
+			"unit": "ANSI Lumen"
+		},
+		"#Contrast Ratio": "30,000:1",
+		"Throw Ratio": {"min": 1.33, "max" : 1.33},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 660,
+			"unit": "grams"
+		},		
+		"Picture" : "Projectors/QUMI Z1H.png",
+		"URL": "https://www.vivitek.eu/products/qumi/#z1h"
+	},
+	{
+		"ModelName": "DW832",
+		"Resolution": {
+			"Desc" : "WXGA",
+			"width": 1280,
+			"height": 800
+		},				
+		"Brightness": {
+			"value": 5000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "15,000:1",
+		"Throw Ratio": {"min": 1.46, "max" : 2.20},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 3.2,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DW832.png",
+		"URL": "https://www.vivitek.eu/Category/Multimedia-Projectors/162/DW832"
+	},
+	{
+		"ModelName": "DU857",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},				
+		"Brightness": {
+			"value": 5000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "15,000:1",
+		"Throw Ratio": {"min": 1.39, "max" : 2.09},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 3.4,
+			"unit": "kg"
+		},			
+		"Picture" : "Projectors/DU857.png",
+		"URL": "https://www.vivitek.eu/Category/Multimedia-Projectors/1226/DU857"
+	},
+	{
+		"ModelName": "DH3331",
+		"Resolution": {
+			"Desc" : "1080p",
+			"width": 1920,
+			"height": 1080
+		},								
+		"Brightness": {
+			"value": 5000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "10,000:1",
+		"Throw Ratio": {"min": 1.25, "max" : 2.13},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 8.4,
+			"unit": "kg"
+		},			
+		"Picture" : "Projectors/DH3331.png",
+		"URL": "https://www.vivitek.eu/Category/Multimedia-Projectors/169/DH3331"
+	},
+	{
+		"ModelName": "DU3341",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},						
+		"Brightness": {
+			"value": 5200,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "10,000:1",
+		"Throw Ratio": {"min": 1.25, "max" : 2.13},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 8.4,
+			"unit": "kg"
+		},			
+		"Picture" : "Projectors/DU3341.png",
+		"URL": "https://www.vivitek.eu/Category/Multimedia-Projectors/177/DU3341"
+	},
+	{
+		"ModelName": "DH765Z-UST",
+		"Resolution": {
+			"Desc" : "1080p",
+			"width": 1920,
+			"height": 1080
+		},										
+		"Brightness": {
+			"value": 4000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "12,000:1",
+		"Throw Ratio": {"min": 0.23, "max" : 0.23},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 10.5,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DH765Z-UST.png",
+		"URL": "https://www.vivitek.eu/Category/Multimedia-Projectors/189/DH765Z-UST"
+	},	
+	{
+		"ModelName": "DH3660Z",
+		"Resolution": {
+			"Desc" : "1080p",
+			"width": 1920,
+			"height": 1080
+		},										
+		"Brightness": {
+			"value": 4500,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "20,000:1",
+		"Throw Ratio": {"min": 1.39, "max" : 2.09},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 7.0,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DH3660Z.png",
+		"URL": "https://www.vivitek.eu/Category/Multimedia-Projectors/217/DH3660Z"
+	},	
+	{
+		"ModelName": "DU3661Z",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},						
+		"Brightness": {
+			"value": 5000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "20,000:1",
+		"Throw Ratio": {"min": 1.39, "max" : 2.09},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 7.0,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DU3661Z.png",
+		"URL": "https://www.vivitek.eu/Category/Multimedia-Projectors/218/DU3661Z"
+	},	
+	{
+		"ModelName": "DU5671",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},								
+		"Brightness": {
+			"value": 6200,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "2,000:1",
+		"Optional Lens": ["LNS-5SZ1", "VL904G/LNS-5FX2", "VL908G/LNS-5LZ1", "LNS-5LZ2",	"LNS-5STZ"],		
+		"Weight": {
+			"value": 8.8,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DU5671.png",
+		"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/185/DU5671"
+	},	
+	{
+		"ModelName": "DK10000Z",
+		"Resolution": {
+			"Desc" : "UHD",
+			"width": 3840,
+			"height": 2160
+		},								
+		"Brightness": {
+			"value": 10000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "10,000:1",
+		"Optional Lens": ["D88-ST001","D88-WF18501","D88-UWZ01","D88-WZ01","D88-SMLZ01","D88-LOZ101","D88-LOZ201","D88-UST01B"],
+		"Weight": {
+			"value": 28,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DK10000Z.png",
+		"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/1214/DK10000Z"
+	},	
+	{
+		"ModelName": "DH4661Z",
+		"Resolution": {
+			"Desc" : "1080p",
+			"width": 1920,
+			"height": 1080
+		},												
+		"Brightness": {
+			"value": 5000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "20,000:1",
+		"Throw Ratio": {"min": 1.15, "max" : 1.90},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 10.7,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DH4661Z.png",
+		"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/193/DH4661Z"
+	},	
+	{
+		"ModelName": "DU4771Z",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},								
+		"Brightness": {
+			"value": 6000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "20,000:1",
+		"Throw Ratio": {"min": 1.15, "max" : 1.90},
+		"Optional Lens": null,		
+		"Weight": {
+			"value": 10.7,
+			"unit": "kg"
+		},			
+		"Picture" : "Projectors/DU4771Z.png",
+		"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/211/DU4771Z"
+	},	
+	{
+		"ModelName": "DU6693Z",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},								
+		"Brightness": {
+			"value": 7000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "10,000:1",
+		"Optional Lens": ["D88-ST001","D88-WF18501","D88-UWZ01","D88-WZ01","D88-SMLZ01","D88-LOZ101","D88-LOZ201","D88-UST01B"],
+		"Weight": {
+			"value": 27,
+			"unit": "kg"
+		},			
+		"Picture" : "Projectors/DU6693Z.png",
+		"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/197/DU6693Z"
+	},	
+	{
+		"ModelName": "DU7098Z",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},								
+		"Brightness": {
+			"value": 7000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "20,000:1",
+		"Optional Lens": ["VL906G/LNS-7SZ1","VL904G/LNS-5FX2","VL911G/LNS-5WZ2","VL908G/LNS-7LZ1","LNS-5LZ2","VL907G/LNS-5STZ"],
+		"Weight": {
+			"value": 25,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DU7098Z.png",
+		"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/1212/DU7098Z"
+	},	
+	{
+		"ModelName": "DU7295Z",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},								
+		"Brightness": {
+			"value": 9000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "20,000:1",
+		"Optional Lens": ["VL906G/LNS-7SZ1","VL904G/LNS-5FX2","VL911G/LNS-5WZ2","VL908G/LNS-7LZ1","LNS-5LZ2","VL907G/LNS-5STZ"],
+		"Weight": {
+			"value": 25,
+			"unit": "kg"
+		},			
+		"Picture" : "Projectors/DU7295Z.png",
+		"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/1216/DU7295Z"
+	},	
+	{
+		"ModelName": "DU8090Z",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},								
+		"Brightness": {
+			"value": 8000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "10,000:1",
+		"Optional Lens": ["D88-ST001","D88-WF18501","D88-UWZ01","D88-WZ01","D88-SMLZ01","D88-LOZ101","D88-LOZ201","D88-UST01B"],
+		"Weight": {
+			"value": 28,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DU8090Z.png",
+		"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/174/DU8090Z"
+	},	
+	{
+		"ModelName": "DU8190Z",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},								
+		"Brightness": {
+			"value": 10000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "10,000:1",
+		"Optional Lens": ["D88-ST001","D88-WF18501","D88-UWZ01","D88-WZ01","D88-SMLZ01","D88-LOZ101","D88-LOZ201","D88-UST01B"],
+		"Weight": {
+			"value": 28,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DU8190Z.png",
+		"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/190/DU8190Z"
+	},	
+	{
+		"ModelName": "DU8195Z",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},								
+		"Brightness": {
+			"value": 13500,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "10,000:1",
+		"Optional Lens": ["D88-ST001","D88-WF18501","D88-UWZ01","D88-WZ01","D88-SMLZ01","D88-LOZ101","D88-LOZ201","D88-UST01B"],
+		"Weight": {
+			"value": 28,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DU8195Z.png",
+		"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/1213/DU8195Z"
+	},	
+	{
+		"ModelName": "DU9800Z",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},								
+		"Brightness": {
+			"value": 18000,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "10,000:1",
+		"Optional Lens": ["D98-1520","D98-0810","D98-1215","D98-2040","D98-4070"],
+		"Weight": {
+			"value": 48,
+			"unit": "kg"
+		},		
+		"Picture" : "Projectors/DU9800Z.png",
+		"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/206/DU9800Z"
+	},	
+	{
+		"ModelName": "DU4371Z-ST",
+		"Resolution": {
+			"Desc" : "WUXGA",
+			"width": 1920,
+			"height": 1200
+		},						
+		"Brightness": {
+			"value": 5100,
+			"unit": "ANSI Lumen"
+		},
+		"Contrast Ratio": "20,000:1",
+		"Throw Ratio": {"min": 0.5, "max" : 0.5},
+		"Optional Lens": null,
+		"Weight": {
+			"value": 10.5,
+			"unit": "kg"
+		},			
+		"Picture" : "Projectors/DU4371Z-ST.png",
+		"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/1220/DU4371Z-ST"
+	}
+  ]
+}

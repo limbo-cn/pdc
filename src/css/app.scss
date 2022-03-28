@@ -1,0 +1,10 @@
+// app global css in Sass form
+@font-face {
+    font-family: delta-font;
+    src: url(./fonts/DeltaSans-Regular.woff);
+}
+  
+// declare a class which applies it
+.delta-font {
+    font-family: 'delta-font' !important;
+}

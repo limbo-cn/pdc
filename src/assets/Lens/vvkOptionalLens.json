@@ -1,0 +1,156 @@
+{
+"vvkOptionalLens" :[
+	{
+		"Part Number" : "3797744200-SVK",
+		"Part Name": "D88-ST001",
+		"Lens Type": "Standard Lens",
+		"Throw Ratio": {"min": 1.73, "max": 2.27},
+        "Distance": {"min": 2149.53, "max": 2820.47, "unit": "cm"},
+		"Picture" : "Lens/D88-ST001.png"
+	},
+	{
+		"Part Number" : "3797745100-SVK",
+		"Part Name": "D88-WF18501",
+		"Lens Type": "Wide Fix",
+		"Throw Ratio": {"min": 0.76, "max": 0.76},
+        "Distance": {"min": 850.0, "max": 850.0, "unit": "cm"},
+		"Picture" : "Lens/D88-WF18501.png"
+	},
+	{
+		"Part Number" : "3797804200-SVK",
+		"Part Name": "D88-UWZ01",
+		"Lens Type": "Ultra Wide Zoom",
+		"Throw Ratio": {"min": 0.75, "max":0.93},
+        "Distance": {"min": 925.0, "max": 1147.0, "unit": "cm"},
+		"Picture" : "Lens/D88-UWZ01.png"
+	},
+	{
+		"Part Number" : "3797745200-SVK",
+		"Part Name": "D88-WZ01",
+		"Lens Type": "Wide Zoom",
+		"Throw Ratio": {"min": 1.25, "max": 1.79},
+        "Distance": {"min": 1611.02, "max": 2306.98, "unit": "cm"},
+		"Picture" : "Lens/D88-WZ01.png"
+	},
+	{
+		"Part Number" : "3797745000-SVK",
+		"Part Name": "D88-SMLZ01",
+		"Lens Type": "Semi Long Zoom",
+		"Throw Ratio": {"min": 2.22, "max": 3.67},
+        "Distance": {"min": 3040.16, "max": 5025.84, "unit": "cm"},
+		"Picture" : "Lens/D88-SMLZ01.png"
+	},
+	{
+		"Part Number" : "3797745400-SVK",
+		"Part Name": "D88-LOZ101",
+		"Lens Type": "Long Zoom 1",
+		"Throw Ratio": {"min": 3.58, "max": 5.38},
+        "Distance": {"min": 4716.33, "max": 7087.67, "unit": "cm"},
+		"Picture" : "Lens/D88-LOZ101.png"
+	},
+	{
+		"Part Number" : "3797744900-SVK",
+		"Part Name": "D88-LOZ201",
+		"Lens Type": "Long Zoom 2",
+		"Throw Ratio": {"min": 5.31, "max": 8.26},
+        "Distance": {"min": 7164.0, "max": 11144.0, "unit": "cm"},
+		"Picture" : "Lens/D88-LOZ201.png"
+	},
+	{
+		"Part Number" : "3797866500-SVK",
+		"Part Name": "D88-UST01B",
+		"Lens Type": "Ultra Short Throw",
+		"Throw Ratio": {"min": 0.38, "max": 0.38},
+        "Distance": {"min": 274.0, "max": 274.0, "unit": "cm"},
+		"Picture" : "Lens/D88-UST01B.png"
+	},
+	{
+		"Part Number" : "3797886100-SVK",
+		"Part Name": "D98-1520",
+		"Lens Type": "Standard Lens",
+		"Throw Ratio": {"min": 1.50, "max": 2.00},
+        "Distance": {"min": 1872.0, "max":  2496.0, "unit": "cm"},
+		"Picture" : "Lens/D98-1520.png"
+	},
+	{
+		"Part Number" : "3797805500-SVK",
+		"Part Name": "D98-0810",
+		"Lens Type": "Ultra Wide Zoom",
+		"Throw Ratio": {"min": 0.84, "max": 1.03},
+        "Distance": {"min": 1027.76, "max": 1260.24, "unit": "cm"},
+		"Picture" : "Lens/D98-0810.png"
+	},
+	{
+		"Part Number" : "3797859900-SVK",
+		"Part Name": "D98-1215",
+		"Lens Type": "Wide Zoom",
+		"Throw Ratio": {"min": 1.25, "max": 1.56},
+        "Distance": {"min": 1554.27, "max": 1939.73, "unit": "cm"},
+		"Picture" : "Lens/D98-1215.png"
+	},
+	{
+		"Part Number" : "3797893200-SVK",
+		"Part Name": "D98-2040",
+		"Lens Type": "Long Zoom 1",
+		"Throw Ratio": {"min": 2.00, "max": 4.00},
+        "Distance": {"min": 2784.67, "max": 5569.33, "unit": "cm"},
+		"Picture" : "Lens/D98-2040.png"
+	},
+	{
+		"Part Number" : "3797858100-SVK",
+		"Part Name": "D98-4070",
+		"Lens Type": "Long Zoom 2",
+		"Throw Ratio": {"min": 4.00, "max": 7.00},
+        "Distance": {"min": 5418.91, "max": 9483.09, "unit": "cm"},
+		"Picture" : "Lens/D98-2040.png"
+	},
+	{
+		"Part Number" : "5811120865-SVV",
+		"Part Name": "VL906G/LNS-7SZ1",
+		"Lens Type": "Standard Lens",
+		"Throw Ratio": {"min": 1.54, "max": 1.93},
+        "Distance": {"min": 621.33, "max": 778.67, "unit": "cm"},
+		"Picture" : "Lens/VL906G_LNS-7SZ1.png"
+	},
+	{
+		"Part Number" : "5811120818-SVV",
+		"Part Name": "VL904G/LNS-5FX2",
+		"Lens Type": "Wide Fix",
+		"Throw Ratio": {"min": 0.78, "max": 0.78},
+        "Distance": {"min": 500.0, "max": 500.0, "unit": "cm"},
+		"Picture" : "Lens/VL904G_LNS-5FX2.png"
+	},
+	{
+		"Part Number" : "5811122742-SVV",
+		"Part Name": "VL911G/LNS-5WZ2",
+		"Lens Type": "Wide Zoom",
+		"Throw Ratio": {"min": 0.77, "max" : 1.10},
+        "Distance": null,
+		"Picture" : "Lens/VL911G_LNS-5WZ2.png"
+	},
+	{
+		"Part Number" : "5811119237-SVV",
+		"Part Name": "VL908G/LNS-7LZ1",
+		"Lens Type": "Long Zoom 1",
+		"Throw Ratio": {"min": 1.93, "max" : 2.89},
+        "Distance": {"min": 1601.66, "max": 2398.34, "unit": "cm"},
+		"Picture" : "Lens/VL911G_LNS-5WZ2.png"
+	},
+	{
+		"Part Number" : "5811120054-SVV",
+		"Part Name": "VL907G/LNS-5STZ",
+		"Lens Type": "Short Throw",
+		"Throw Ratio": {"min": 1.10, "max" : 1.30},
+        "Distance": {"min": 825.0, "max": 975.0, "unit": "cm"},
+		"Picture" : "Lens/VL907G_LNS-5STZ.png"
+	},
+	{
+		"Part Number" : "5811119236-SVV",
+		"Part Name": "LNS-5SZ1",
+		"Lens Type": "Standard Lens",
+		"Throw Ratio": {"min": 1.54, "max" : 1.93},
+        "Distance": {"min": 621.33, "max": 778.67, "unit": "cm"},
+		"Picture" : "Lens/LNS-5SZ1.png"
+	}
+  ]
+}

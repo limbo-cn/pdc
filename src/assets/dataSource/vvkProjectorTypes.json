@@ -1,0 +1,96 @@
+{
+	"vvkProjectorTypes": [
+		{
+			"Type": "Education",
+			"Models": [
+				"DX881ST",
+				"DW882ST",
+				"QUMI Q6",
+				"DH833",
+				"DX263",
+				"DX273",
+				"DW265",
+				"DH268",
+				"DH765Z-UST",
+				"DW275",
+				"DW770UST",
+				"DW771USTi",
+				"DH772UST",
+				"DH773USTi"
+			],
+			"Picture": "ProjectorTypes/Education.png"
+		},
+		{
+			"Type": "Home Cinema",
+			"Models": [
+				"H1188",
+				"HK2200"
+			],
+			"Picture": "ProjectorTypes/Home_cinema.png"
+		},
+		{
+			"Type": "Pocket and Personal",
+			"Models": [
+				"QUMI Q6",
+				"QUMI Q3 PLUS",
+				"QUMI Q8",
+				"QUMI Z1V",
+				"QUMI Z1H"
+			],
+			"Picture": "ProjectorTypes/Pocket_and_personal.png"
+		},
+		{
+			"Type": "Multimedia",
+			"Models": [
+				"DH833",
+				"DW832",
+				"DW855",
+				"DU857",
+				"DH3331",
+				"DU3341",
+				"DH3660Z",
+				"DU3661Z",
+				"DH856",
+				"DH858N",
+				"DH3665ZN"
+			],
+			"Picture": "ProjectorTypes/Multimedia.png"
+		},
+		{
+			"Type": "Large Venue",
+			"Models": [
+				"DU5671",
+				"DK10000Z",
+				"DH4661Z",
+				"DU4771Z",
+				"DU6198Z",
+				"DU6298Z",
+				"DU6693Z",
+				"DU7098Z",
+				"DU7295Z",
+				"DU8090Z",
+				"DU8190Z",
+				"DU8195Z",
+				"DU8395Z",
+				"DU9800Z",
+				"DU9900Z",
+				"DU4371Z-ST"
+			],
+			"Picture": "ProjectorTypes/Large_venue.png"
+		},
+		{
+			"Type": "Portable",
+			"Models": [
+				"DX263",
+				"DX273",
+				"DW265",
+				"DW275",
+				"DH268",
+				"DH278",
+				"DX283-ST",
+				"DW284-ST"
+			],
+			"Picture": "ProjectorTypes/Portable.png"
+		}
+	]
+}
