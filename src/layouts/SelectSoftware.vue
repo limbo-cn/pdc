@@ -28,7 +28,7 @@
             </q-card-section>-->
 
             <q-card-actions class="justify-center">
-              <q-btn flat color="green" label="Open →" @click="openPdc" />
+              <q-btn flat color="green" label="ENTER →" @click="openPdc" />
             </q-card-actions>
           </q-card>
           <q-card bordered>
@@ -46,7 +46,7 @@
             </q-card-section>-->
 
             <q-card-actions class="justify-center">
-              <q-btn flat color="green" label="Open →" @click="openMps" />
+              <q-btn flat color="green" label="ENTER →" @click="openMps" />
             </q-card-actions>
           </q-card>
         </div>
