@@ -1,49 +1,33 @@
 <template>
-  <q-footer reveal :style="{background:$q.dark.isActive?'#1e1f26':'#3aaa35'}">
-    <q-toolbar class="glossy" style="height:30px;min-height:30px;">
+  <q-footer reveal class="delta-gradient-bg-2">
+    <q-toolbar :style="{ 'background-color': $q.dark.isActive ? '#1e1f26' : '' }" style="height:30px;min-height:30px;">
       <template v-if="!$q.platform.is.mobile">
-        <q-btn
-          flat
-          dense
-          @click="setLayoutModel('grid')"
-          :class="{selected:layoutModel===`grid`}"
-          icon="grid_view"
-          class="text-caption"
-        />
-        <q-btn
-          flat
-          dense
-          @click="setLayoutModel('list')"
-          :class="{selected:layoutModel===`list`}"
-          icon="format_line_spacing"
-          class="text-caption"
-        />
-        <q-btn
-          flat
-          dense
-          @click="setLayoutModel('fullscreen')"
-          :class="{selected:layoutModel===`fullscreen`}"
-          icon="crop_free"
-          class="text-caption"
-        />
+        <q-btn flat dense @click="setLayoutModel('grid')"
+          :icon="layoutModel === `grid` ? `img:${iconDiv4}` : `img:${iconDiv4_white}`">
+          <q-tooltip>{{ $t('grid') }}</q-tooltip>
+        </q-btn>
+        <q-btn flat dense @click="setLayoutModel('list')"
+          :icon="layoutModel === `list` ? `img:${iconDiv2}` : `img:${iconDiv2_white}`">
+          <q-tooltip>{{ $t('list') }}</q-tooltip>
+        </q-btn>
+        <q-btn flat dense @click="setLayoutModel('fullscreen')"
+          :icon="layoutModel === `fullscreen` ? `img:${iconDiv1}` : `img:${iconDiv1_white}`">
+          <q-tooltip>{{ $t('fullscreen') }}</q-tooltip>
+        </q-btn>
       </template>
 
       <q-toolbar-title class="text-caption text-right">
-        <q-btn flat dense icon="error_outline" class="text-caption">
+        <q-btn flat dense :icon="`img:${iconInfo}`" class="text-caption">
           <q-tooltip>
             <ul>
-              <li>{{$t('disclaimer1')}}</li>
-              <li>{{$t('disclaimer2')}}</li>
-              <li>{{$t('disclaimer3')}}</li>
-              <li>{{$t('disclaimer4')}}</li>
+              <li>{{ $t('disclaimer1') }}</li>
+              <li>{{ $t('disclaimer2') }}</li>
+              <li>{{ $t('disclaimer3') }}</li>
+              <li>{{ $t('disclaimer4') }}</li>
             </ul>
           </q-tooltip>
-        </q-btn>PJ-Calc v 1.2.4 © Copyright 2021 Vivitek. All Rights Reserved. |
-        <a
-          href="https://www.vivitek.eu/support/contact-support"
-          target="_blank"
-          class="text-white"
-        >Contact Us</a>
+        </q-btn>PJ-Calc v 1.4.1 © Copyright 2022 Vivitek. All Rights Reserved. |
+        <a href="https://www.vivitek.eu/support/contact-support" target="_blank" class="text-white">Contact Us</a>
       </q-toolbar-title>
     </q-toolbar>
   </q-footer>
@@ -59,6 +43,17 @@ export default {
       return this.$store.state.common.layoutModel
     }
   },
+  data() {
+    return {
+      iconDiv4: require('../assets/icons/icon_4divisions.svg'),
+      iconDiv4_white: require('../assets/icons/icon_4divisions_white.svg'),
+      iconDiv2: require('../assets/icons/icon_2divisions.svg'),
+      iconDiv2_white: require('../assets/icons/icon_2divisions_white.svg'),
+      iconDiv1: require('../assets/icons/icon_1divisions.svg'),
+      iconDiv1_white: require('../assets/icons/icon_1divisions_white.svg'),
+      iconInfo: require('../assets/icons/icon_info.svg')
+    }
+  },
   methods: {
     ...mapMutations('common', ['SET_LAYOUT_MODEL']),
     setLayoutModel(name) {
@@ -69,6 +64,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .selected {
-  color: $primary !important;
+  color: $primary  !important;
 }
 </style>

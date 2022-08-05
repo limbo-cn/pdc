@@ -1,12 +1,13 @@
 <template>
-  <q-drawer v-model="leftDrawerOpen" show-if-above bordered :width="$q.platform.is.mobile?300:400">
+  <q-drawer v-model="leftDrawerOpen" show-if-above bordered :width="$q.platform.is.mobile ? 300 : 400">
     <q-scroll-area class="fit">
       <q-list>
         <div>
-          <q-expansion-item dense :header-class="$q.dark.isActive? 'left-header-dark' : 'left-header-light'" default-opened expand-icon-toggle expand-icon-class="hidden">
+          <q-expansion-item dense :header-class="$q.dark.isActive ? 'left-header-dark' : 'left-header-light'"
+            default-opened expand-icon-toggle expand-icon-class="hidden">
             <template v-slot:header>
               <q-item-section>
-                {{$t('projector')}}
+                {{ $t('projector') }}
               </q-item-section>
               <q-item-section avatar>
                 <q-btn size="sm" flat round icon="search" @click="showDlgChooseProjector = true" />
@@ -17,10 +18,11 @@
             </template>
             <Projector />
           </q-expansion-item>
-          <q-expansion-item dense :header-class="$q.dark.isActive? 'left-header-dark' : 'left-header-light'" default-opened expand-icon-toggle expand-icon-class="hidden">
+          <q-expansion-item dense :header-class="$q.dark.isActive ? 'left-header-dark' : 'left-header-light'"
+            default-opened expand-icon-toggle expand-icon-class="hidden">
             <template v-slot:header>
               <q-item-section>
-                {{$t('optionalLens')}}
+                {{ $t('optionalLens') }}
               </q-item-section>
               <q-item-section avatar v-if="selectedLens">
                 <q-btn size="sm" flat round icon="search" @click="showDlgChooseLens = true" />
@@ -29,29 +31,36 @@
             <Lens />
           </q-expansion-item>
         </div>
-        <q-expansion-item dense :header-class="$q.dark.isActive? 'left-header-dark' : 'left-header-light'" default-opened :label="$t('basicSettings')">
+        <q-expansion-item dense :header-class="$q.dark.isActive ? 'left-header-dark' : 'left-header-light'"
+          default-opened :label="$t('basicSettings')">
           <BasicSettings />
         </q-expansion-item>
-        <q-expansion-item dense :header-class="$q.dark.isActive? 'left-header-dark' : 'left-header-light'" default-opened :label="$t('roomSize')">
+        <q-expansion-item dense :header-class="$q.dark.isActive ? 'left-header-dark' : 'left-header-light'"
+          default-opened :label="$t('roomSize')">
           <RoomSize />
         </q-expansion-item>
-        <q-expansion-item dense :header-class="$q.dark.isActive? 'left-header-dark' : 'left-header-light'" default-opened :label="$t('screenSize')">
+        <q-expansion-item dense :header-class="$q.dark.isActive ? 'left-header-dark' : 'left-header-light'"
+          default-opened :label="$t('screenSize')">
           <ScreenSize />
         </q-expansion-item>
-        <q-expansion-item dense :header-class="$q.dark.isActive? 'left-header-dark' : 'left-header-light'" default-opened :label="$t('screenPosition')">
+        <q-expansion-item dense :header-class="$q.dark.isActive ? 'left-header-dark' : 'left-header-light'"
+          default-opened :label="$t('screenPosition')">
           <ScreenPosition />
         </q-expansion-item>
-        <q-expansion-item dense :header-class="$q.dark.isActive? 'left-header-dark' : 'left-header-light'" default-opened :label="$t('projectorPosition')">
+        <q-expansion-item dense :header-class="$q.dark.isActive ? 'left-header-dark' : 'left-header-light'"
+          default-opened :label="$t('projectorPosition')">
           <Position />
         </q-expansion-item>
-        <q-expansion-item dense :header-class="$q.dark.isActive? 'left-header-dark' : 'left-header-light'" default-opened :label="$t('ambientLightSettings')">
+        <q-expansion-item dense :header-class="$q.dark.isActive ? 'left-header-dark' : 'left-header-light'"
+          default-opened :label="$t('ambientLightSettings')">
           <Ambient />
         </q-expansion-item>
       </q-list>
     </q-scroll-area>
 
-    <div class="absolute" style="top: 50%; right: -18px">
-      <q-btn dense push round class="rotate-90" :color="$q.dark.isActive?'transparent':'blue'" icon="menu" @click="leftDrawerOpen = false" />
+    <div class="absolute" style="top: 50%; right: -14px">
+      <q-btn dense size="sm" round :color="$q.dark.isActive ? 'secondary' : 'positive'" icon="arrow_left"
+        @click="leftDrawerOpen = false" />
     </div>
 
     <DlgChooseProjector :showDialog.sync="showDlgChooseProjector" />
@@ -113,18 +122,20 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-/deep/ .left-header{
+/deep/ .left-header {
   background-color: #445a4d;
   font-size: 16px;
 }
-/deep/ .left-header-dark{
+
+/deep/ .left-header-dark {
   background-color: #445a4d;
   font-size: 16px;
-  padding :10px 16px;
+  padding: 10px 16px;
 }
-/deep/ .left-header-light{
+
+/deep/ .left-header-light {
   background-color: #f2f2f2;
   font-size: 16px;
-  padding :10px 16px;
+  padding: 10px 16px;
 }
 </style>

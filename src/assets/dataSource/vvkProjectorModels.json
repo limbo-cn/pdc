@@ -932,7 +932,7 @@
 		{
 			"ModelName": "DK10000Z",
 			"Resolution": {
-				"Desc": "UHD",
+				"Desc": "4K-UHD",
 				"width": 3840,
 				"height": 2160
 			},
@@ -1086,6 +1086,47 @@
 			},
 			"Picture": "Projectors/DU4771Z.png",
 			"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/211/DU4771Z"
+		},
+		{
+			"ModelName": "DU4871Z",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 7000,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "20,000:1",
+			"Throw Ratio": {
+				"min": 1.15,
+				"max": 1.90
+			},
+			"Distance": {
+				"min": 1.500,
+				"max": 5.000
+			},
+			"AspectRatio": "16/10",
+			"Offset": 130,
+			"defaultDiagonal": 120,
+			"Lens Shift": {
+				"Horizontal": {
+					"min": -2.5,
+					"max": 2.5
+				},
+				"Vertical": {
+					"min": 0,
+					"max": 12
+				}
+			},
+			"Optional Lens": null,
+			"Weight": {
+				"value": 10.7,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/DU4871Z.png",
+			"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/211/DU4871Z"
 		},
 		{
 			"ModelName": "DU6198Z",
@@ -1820,6 +1861,38 @@
 			},
 			"Picture": "Projectors/DU4371Z-ST.png",
 			"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/1220/DU4371Z-ST"
+		},
+		{
+			"ModelName": "DU4381Z-ST",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 6100,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "20,000:1",
+			"Throw Ratio": {
+				"min": 0.5,
+				"max": 0.5
+			},
+			"Distance": {
+				"min": 0.65,
+				"max": 3.5
+			},
+			"AspectRatio": "16/10",
+			"Offset": 121,
+			"defaultDiagonal": 120,
+			"Lens Shift": null,
+			"Optional Lens": null,
+			"Weight": {
+				"value": 10.5,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/DU4381Z-ST.png",
+			"URL": "https://www.vivitek.eu/Category/Large-Venue-Projectors/1220/DU4381Z-ST"
 		},
 		{
 			"ModelName": "DX273",

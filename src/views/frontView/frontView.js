@@ -115,7 +115,9 @@ export default class FrontView extends BaseView {
         path += 'Z'
 
         this._light = new Light(path)
-        this._light.opacity = 0.9
+        this._light.stroke = '#6bccff'
+        this._light.fill = '#6bccff'
+        this._light.opacity = 1
 
         if (store.state.screen.currentAspectRatio !== store.state.screen.aspectRatio) {
             this._light.fill = '#aaaaaa'
@@ -144,12 +146,14 @@ export default class FrontView extends BaseView {
 
         const screenDiagonal = Math.sqrt(Math.pow(right - left, 2) + Math.pow(bottom - top, 2)) / this._roomSize.ratio
         const diagonal = toFixedNumber(screenDiagonal * unitRatio.inch, 1)
-        const fontSize = this._light?.width / 5 > 20 ? 20 : ((this._light?.width / 5) < 5 ? 5 : (this._light?.width / 5))
+        const fontSize = this._light?.width / 5 > 30 ? 30 : ((this._light?.width / 5) < 10 ? 10 : (this._light?.width / 5))
 
-        this._diagonal = new fabric.Text(`〼${diagonal}''`, {
+        this._diagonal = new fabric.Text(`${diagonal}''`, {
             fontSize: fontSize,
-            fill: 'white',
-            backgroundColor: '#f13b6d',
+            fontWeight: 'bold',
+            fill: 'black',
+            backgroundColor: 'transparent',
+            fontFamily: 'delta-font',
             evented: false,
             left: this._light?.left + 5,
             top: this._light?.top + 5
@@ -242,7 +246,7 @@ export default class FrontView extends BaseView {
             const objects = this._rulerLeft.getObjects()
             objects.forEach(o => {
                 if (o.type === 'text') {
-                    o.left = this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 20
+                    o.left = this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 10
                 }
             })
         } else {
@@ -250,7 +254,7 @@ export default class FrontView extends BaseView {
             const objects = this._rulerLeft.getObjects()
             objects.forEach(o => {
                 if (o.type === 'text') {
-                    o.left += this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 20
+                    o.left += this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 10
                 } else {
                     o.left -= 10
                 }
@@ -346,7 +350,7 @@ export default class FrontView extends BaseView {
         path += 'Z'
 
         this._lightCurrentAspectRatio = new fabric.Path(path, {
-            fill: '#ffe433',
+            fill: 'rgb(151,237,246)',
             opacity: 1,
             evented: false
         })

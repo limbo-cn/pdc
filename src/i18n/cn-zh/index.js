@@ -125,5 +125,14 @@ export default {
     yes: '是',
     confirmDeleteMessage: '确认删除吗?',
     confirmUpdateMessage: '确认更新吗?',
-    maximumCount: '最多保存10张快照'
+    maximumCount: '最多保存10张快照',
+    grid: '4分格',
+    list: '2分格',
+    fullscreen: '满屏幕',
+    refresh: '刷新',
+    guide: '手册',
+    snapshot: '快照',
+    pdf: 'PDF',
+    language: '语言',
+    theme: '主题'
 }

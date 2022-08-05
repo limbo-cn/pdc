@@ -1,19 +1,23 @@
 const fabric = window.fabric
 
 export const projectorRect = {
-    camera: { x: 12, y: 10 },
-    body: { x: 40, y: 20 }
+    camera: { x: 10, y: 10 },
+    body: { x: 10, y: 10 }
 }
 
 export default class Projector {
     constructor(optionals) {
         optionals = optionals || {}
 
-        this._projectorFill = '#7cbf87'
-        this._projectorStroke = '#487b52'
+        this._projectorFill = 'rgb(89,89,89)'
+        this._projectorStroke = 'rgb(181,181,182)'
         this._projectorStrokeWidth = 2
 
-        return this._generateProjector(optionals)
+        // return this._generateProjector(optionals)
+
+        this._generateProjector2().then(projector => {
+            this._projector = projector
+        })
     }
 
     _generateProjector(optionals) {
@@ -68,5 +72,25 @@ export default class Projector {
         })
 
         return projector
+    }
+
+    _generateProjector2(isReverse) {
+        const projectorImage = require('../../assets/icon_ultra_short_throw_projector_side.svg')
+
+        const promise = new Promise(function(resolve, reject) {
+            fabric.loadSVGFromURL(projectorImage, (objects, options) => {
+                const img = fabric.util.groupSVGElements(objects, options)
+
+                img.left = 0
+                img.top = 0
+
+                img.scaleX = 0.5
+                img.scaleY = 0.6
+
+                resolve(img)
+            })
+        })
+
+        return promise
     }
 }

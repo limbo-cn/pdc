@@ -1,19 +1,19 @@
 
 import MainLayout from 'layouts/MainLayout'
-import SelectSoftware from 'layouts/SelectSoftware'
+// import SelectSoftware from 'layouts/SelectSoftware'
 import Full from 'layouts/full'
 import Full2 from 'layouts/full2'
 
 const routes = [
   {
     path: '/',
-    component: SelectSoftware,
+    component: MainLayout,
     children: [
       { path: '', component: () => import('pages/Error404.vue') }
     ]
   },
   {
-    path: '/index',
+    path: '/index/:modelname?',
     component: MainLayout,
     children: [
       { path: '', component: () => import('pages/Error404.vue') }

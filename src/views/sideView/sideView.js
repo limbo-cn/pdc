@@ -4,7 +4,7 @@ import { calcFromScreenMax, calcFromScreenMin, toFixedNumber } from '../../helpe
 
 import BaseView from '../components/baseView'
 import Projector, { projectorRect } from './projector'
-import ProjectorUST, { projectorRect as projectorRectUST } from './projectorUST'
+import ProjectorUST from './projectorUST'
 import Showcase from '../components/showcase'
 import Shadow from '../components/shadow'
 import Light from '../components/light'
@@ -25,6 +25,8 @@ export default class SideView extends BaseView {
         this._shadow = null
         this._availableRange = null
         this._isMoving = false
+
+        this.ustModel = new ProjectorUST()
     }
 
     setProjectorProp() {
@@ -47,11 +49,16 @@ export default class SideView extends BaseView {
     }
 
     _initProjector() {
+        this._isInit = true
+
         if (this._projector) {
             this._canvas.remove(this._projector)
+            this._projector = null
         }
+
         const isReverse = store.state.common.installation === installationType.ceiling
-        this._projector = store.state.projector.isUST ? new ProjectorUST({ isReverse }) : new Projector()
+        this._projector = store.state.projector.isUST ? this.ustModel._projector : new Projector()
+        this._projector.flipY = isReverse
         const _this = this
         this._projector.on({
             'moving'(e) {
@@ -69,16 +76,19 @@ export default class SideView extends BaseView {
             }
         })
         this._canvas.add(this._projector)
+
+        this._isInit = false
     }
 
     _movingProjector(e) {
-        this._projectorCenter.x = e.transform.target.left + projectorRect.camera.x
+        this._projectorCenter.x = e.transform.target.left + (store.state.projector.isUST ? 12 : projectorRect.camera.x)
         if (this._projectorCenter.x >= this._projectorProp.fromScreenMaxDraw) {
             this._projectorCenter.x = this._projectorProp.fromScreenMaxDraw
         }
         if (this._projectorCenter.x <= this._projectorProp.fromScreenMinDraw) {
             this._projectorCenter.x = this._projectorProp.fromScreenMinDraw
         }
+
         this._projectorCenter.y = e.transform.target.top + projectorRect.body.y / 2
         if (this._projectorCenter.y >= this._roomSize.drawY) {
             this._projectorCenter.y = this._roomSize.drawY
@@ -103,15 +113,9 @@ export default class SideView extends BaseView {
     _setProjectorOffset() {
         const angle = store.state.projector.angleV
         if (store.state.projector.isUST) {
-            const modelSize = projectorRectUST.body.x + projectorRectUST.camera.x / 2
-            const realDrawOffset = this._projectorCenter.x - modelSize
-            let xOffset = projectorRectUST.body.x + projectorRectUST.camera.x / 2
-            if (realDrawOffset < 2 * modelSize) {
-                xOffset = (modelSize + realDrawOffset) / (3 * modelSize) * xOffset
-            }
             const isReverse = store.state.common.installation === installationType.ceiling
-            !isReverse && this._rotateObjectByPoint(this._projector, angle, xOffset, projectorRectUST.camera.y / 2)
-            isReverse && this._rotateObjectByPoint(this._projector, angle, xOffset, projectorRectUST.body.y / 2 + projectorRectUST.camera.y)
+            !isReverse && this._rotateObjectByPoint(this._projector, angle, 12, 8)
+            isReverse && this._rotateObjectByPoint(this._projector, angle, 12, 20)
         } else {
             this._rotateObjectByPoint(this._projector, angle, projectorRect.camera.x, projectorRect.body.y / 2)
         }
@@ -158,28 +162,33 @@ export default class SideView extends BaseView {
         const topPoints = store.state.coordinate.topPoints.map(point => this._toDrawSize(point))
         const bottomPoints = store.state.coordinate.bottomPoints.map(point => this._toDrawSize(point))
 
-        if (frontPoints.length > 0) {
-            const sortByY = frontPoints.sort((a, b) => a.y - b.y)
-            const y1 = this._roomSize.drawY - sortByY[sortByY.length - 1].y
-            const y2 = this._roomSize.drawY - sortByY[0].y
-            this._showcases.push(new Showcase({ x: 0, y: y1 }, { x: 0, y: y2 }))
-        }
         if (topPoints.length > 0) {
             const sortByX = topPoints.sort((a, b) => a.z - b.z)
             const x1 = -sortByX[0].z
             const x2 = -sortByX[sortByX.length - 1].z
-            this._showcases.push(new Showcase({ x: x1, y: 0 }, { x: x2, y: 0 }))
+            const showcase = new Showcase({ x: x1, y: 0 }, { x: x2, y: 0 })
+            showcase.stroke = 'rgb(255,145,110)'
+            this._showcases.push(showcase)
         }
         if (bottomPoints.length > 0) {
             const sortByX = bottomPoints.sort((a, b) => a.z - b.z)
             const x1 = -sortByX[0].z
             const x2 = -sortByX[sortByX.length - 1].z
-            this._showcases.push(new Showcase({ x: x1, y: this._roomSize.drawY }, { x: x2, y: this._roomSize.drawY }))
+            const showcase = new Showcase({ x: x1, y: this._roomSize.drawY }, { x: x2, y: this._roomSize.drawY })
+            showcase.stroke = 'rgb(255,145,110)'
+            this._showcases.push(showcase)
+        }
+        if (frontPoints.length > 0) {
+            const sortByY = frontPoints.sort((a, b) => a.y - b.y)
+            const y1 = this._roomSize.drawY - sortByY[sortByY.length - 1].y
+            const y2 = this._roomSize.drawY - sortByY[0].y
+            const showcase = new Showcase({ x: 0, y: y1 }, { x: 0, y: y2 })
+            this._showcases.push(showcase)
         }
 
         this._showcases.forEach(showcase => {
             if (store.state.screen.currentAspectRatio > store.state.screen.aspectRatio) {
-                showcase.stroke = '#aaaaaa'
+                // showcase.stroke = '#aaaaaa'
             }
             this._canvas.add(showcase)
         })
@@ -291,7 +300,7 @@ export default class SideView extends BaseView {
             const objects = this._rulerLeft.getObjects()
             objects.forEach(o => {
                 if (o.type === 'text') {
-                    o.left = this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 20
+                    o.left = this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 10
                 }
             })
         } else {
@@ -299,7 +308,7 @@ export default class SideView extends BaseView {
             const objects = this._rulerLeft.getObjects()
             objects.forEach(o => {
                 if (o.type === 'text') {
-                    o.left += this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 20
+                    o.left += this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 10
                 } else {
                     o.left -= 10
                 }

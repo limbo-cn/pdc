@@ -61,8 +61,8 @@ export default class ThreeBase {
             objects: { front: null, right: null, bottom: null }
         }
         this._showcase = {
-            material: new MeshLambertMaterial({ color: 0xffe433, emissive: 0xbb8800, side: DoubleSide }),
-            materialOpacity: new MeshLambertMaterial({ color: 0xffe433, emissive: 0xbb8800, side: DoubleSide, transparent: true, opacity: 0.8 }),
+            material: new MeshLambertMaterial({ color: 0xa5e9f1, emissive: 0x2569f1, side: DoubleSide }),
+            materialOtherSide: new MeshLambertMaterial({ color: 0xff5a25, emissive: 0xff5a25, side: DoubleSide, transparent: true, opacity: 0.8 }),
             geometrys: { top: null, bottom: null, left: null, right: null, front: null },
             objects: { top: null, bottom: null, left: null, right: null, front: null }
         }
@@ -92,7 +92,9 @@ export default class ThreeBase {
     }
 
     _initRenderer(domSelector) {
-        this._renderer = new WebGLRenderer()
+        this._renderer = new WebGLRenderer({
+            antialias: true
+        })
         document.querySelector(domSelector).appendChild(this._renderer.domElement)
         const wrapperRect = document.querySelector(domSelector).getBoundingClientRect()
         this.setRendererSize(wrapperRect.width, wrapperRect.height - 1)
@@ -192,6 +194,9 @@ export default class ThreeBase {
     }
 
     setRendererSize(width, height) {
+        this._camera && (this._camera.aspect = width / height)
+        this._camera && this._camera.updateProjectionMatrix()
+
         this._renderer.setSize(width, height)
     }
 

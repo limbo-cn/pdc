@@ -7,10 +7,10 @@ export default class Shadow {
 
     _generateShadow(path) {
         const shadow = new fabric.Path(path, {
-            fill: '#fb6b6b',
+            fill: 'rgb(255,145,110)',
             opacity: 0.8,
-            stroke: '#fd4141',
-            strokeWidth: 4,
+            stroke: 'rgb(255,145,110)',
+            strokeWidth: 1,
             evented: false
         })
 

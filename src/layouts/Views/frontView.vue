@@ -1,51 +1,62 @@
 <template>
   <div>
-    <q-card-section :class="{'title-section-dark':$q.dark.isActive,'title-section-light':!$q.dark.isActive}">
+    <q-card-section :class="{ 'title-section-dark': $q.dark.isActive, 'title-section-light': !$q.dark.isActive }">
       <div class="row items-center">
-        <q-btn-dropdown flat :color="$q.dark.isActive?'primary':'positive'" :label="$t('frontView')">
+        <q-btn-dropdown flat :color="$q.dark.isActive ? 'primary' : 'positive'" :label="$t('frontView')">
           <q-list>
             <q-item clickable v-close-popup @click="handleSwitch(`SideView`)">
               <q-item-section>
-                <q-item-label>{{$t('sideView')}}</q-item-label>
+                <q-item-label>{{ $t('sideView') }}</q-item-label>
               </q-item-section>
             </q-item>
             <q-item clickable v-close-popup @click="handleSwitch(`TopView`)">
               <q-item-section>
-                <q-item-label>{{$t('topView')}}</q-item-label>
+                <q-item-label>{{ $t('topView') }}</q-item-label>
               </q-item-section>
             </q-item>
             <q-item clickable v-close-popup @click="handleSwitch(`ThreeView`)">
               <q-item-section>
-                <q-item-label>{{$t('threeView')}}</q-item-label>
+                <q-item-label>{{ $t('threeView') }}</q-item-label>
               </q-item-section>
             </q-item>
           </q-list>
         </q-btn-dropdown>
         <q-space />
-        <q-checkbox :color="$q.dark.isActive?'primary':'positive'" v-show="!$q.platform.is.mobile  && isMovableAreaEnabled" v-model="enableLenShiftH" :label="$t('changeLenShiftH')" />
-        <q-checkbox :color="$q.dark.isActive?'primary':'positive'" v-show="!$q.platform.is.mobile  && isMovableAreaEnabled" v-model="enableLenShiftV" :label="$t('changeLenShiftV')" />
+        <q-checkbox :color="$q.dark.isActive ? 'primary' : 'positive'"
+          v-show="!$q.platform.is.mobile && isMovableAreaEnabled" v-model="enableLenShiftH"
+          :label="$t('changeLenShiftH')" />
+        <q-checkbox :color="$q.dark.isActive ? 'primary' : 'positive'"
+          v-show="!$q.platform.is.mobile && isMovableAreaEnabled" v-model="enableLenShiftV"
+          :label="$t('changeLenShiftV')" />
+        <q-btn flat round class="rotate-90" :color="$q.dark.isActive ? 'primary' : 'positive'"
+          icon="vertical_align_center" @click="setCenter" />
       </div>
     </q-card-section>
     <q-separator />
     <div class="col viewWrapper" id="frontview-wrapper">
       <!-- <q-resize-observer @resize="onResize" /> -->
       <canvas id="frontView" />
-      <q-badge v-show="!$q.platform.is.mobile && isMovableAreaEnabled" class="angle-text" :class="{light:!$q.dark.isActive}" :color="$q.dark.isActive?'primary':'positive'">{{$t('lensShift')}} </q-badge>
-      <q-btn v-show="!$q.platform.is.mobile && isMovableAreaEnabled" flat round :color="$q.dark.isActive?'primary':'positive'" icon="refresh" @click="setDefault" :disable="!isMovableAreaEnabled" style="position: absolute;right:0;bottom:100px;opacity: 0.8" />
-      <div class="movable-area" v-show="!$q.platform.is.mobile && isMovableAreaEnabled" :style="{cursor:isMovableAreaEnabled?'pointer':'not-allowed'}" @click="changeLenShift" @mousedown="mousedownArea" @mousemove.stop="mousemoveArea">
+      <q-badge v-show="!$q.platform.is.mobile && isMovableAreaEnabled" class="angle-text"
+        :text-color="$q.dark.isActive ? 'white' : 'black'" color="transparent">{{ $t('lensShift') }}
+      </q-badge>
+      <q-btn v-show="!$q.platform.is.mobile && isMovableAreaEnabled" flat round
+        :color="$q.dark.isActive ? 'primary' : 'positive'"
+        :icon="$q.dark.isActive ? `img:${iconRefresh_white}` : `img:${iconRefresh}`" @click="setDefault"
+        :disable="!isMovableAreaEnabled" style="position: absolute;right:30px;top:100px;" />
+      <div class="movable-area" v-show="!$q.platform.is.mobile && isMovableAreaEnabled"
+        :style="{ cursor: isMovableAreaEnabled ? 'pointer' : 'not-allowed' }" @click="changeLenShift"
+        @mousedown="mousedownArea" @mousemove.stop="mousemoveArea">
         <q-tooltip anchor="top middle" self="top middle" :offset="[0, 50]">
-          {{`${$t('horizontal')}:${lensShiftH}% ${$t('vertical')}:${lensShiftV}%`}}
+          {{ `${$t('horizontal')}:${lensShiftH}% ${$t('vertical')}:${lensShiftV}%` }}
         </q-tooltip>
         <div class="axis-h" :style="{ top: axisTop }"></div>
         <div class="axis-v" :style="{ left: axisLeft }"></div>
-        <div class="hitPoint" :style="{ top: hitTop , left : hitLeft }"></div>
+        <div class="hitPoint" :style="{ top: hitTop, left: hitLeft }"></div>
       </div>
       <div class="tip_area">
         <p>
-          <q-icon name="lens" size="sm" style="color:#c0c3c0;margin:0 5px;opacity:0.5" />
-          <span>{{$t('availableArea')}}</span>
-
-          <q-icon class="rotate-90" @click="setCenter" name="vertical_align_center" size="sm" :color="$q.dark.isActive?'primary':'positive'" style="margin:0 5px 0 20px;cursor:pointer" />
+          <q-icon name="lens" style="color:rgb(231 231 231);margin:0 5px;font-size: 14px;" />
+          <span style="font-size: 12px;">{{ $t('availableArea') }}</span>
         </p>
       </div>
     </div>
@@ -74,7 +85,9 @@ export default {
   data() {
     return {
       view: null,
-      dragPoint: false
+      dragPoint: false,
+      iconRefresh: require('../../assets/icons/icon_refresh.svg'),
+      iconRefresh_white: require('../../assets/icons/icon_refresh_white.svg')
     }
   },
   computed: {
@@ -124,27 +137,27 @@ export default {
     },
     axisTop() {
       if (this.maxLensShiftV === this.minLensShiftV) {
-        return `${(100 * 0.5) - 1}px`
+        return `${(80 * 0.5) - 1}px`
       }
-      return `${100 * (this.maxLensShiftV / (this.maxLensShiftV - this.minLensShiftV)) - 1}px`
+      return `${80 * (this.maxLensShiftV / (this.maxLensShiftV - this.minLensShiftV)) - 1}px`
     },
     axisLeft() {
       if (this.maxLensShiftH === this.minLensShiftH) {
-        return `${(120 * 0.5) - 1}px`
+        return `${(100 * 0.5) - 1}px`
       }
-      return `${120 * (-this.minLensShiftH / (this.maxLensShiftH - this.minLensShiftH)) - 1}px`
+      return `${100 * (-this.minLensShiftH / (this.maxLensShiftH - this.minLensShiftH)) - 1}px`
     },
     hitTop() {
       if (this.maxLensShiftV === this.minLensShiftV) {
-        return `${(100 * 0.5) - 7.5}px`
+        return `${(80 * 0.5) - 7.5}px`
       }
-      return `${100 * ((this.maxLensShiftV - this.lensShiftV) / (this.maxLensShiftV - this.minLensShiftV)) - 7.5}px`
+      return `${80 * ((this.maxLensShiftV - this.lensShiftV) / (this.maxLensShiftV - this.minLensShiftV)) - 7.5}px`
     },
     hitLeft() {
       if (this.maxLensShiftV === this.minLensShiftV) {
-        return `${(120 * 0.5) - 7.5}px`
+        return `${(100 * 0.5) - 7.5}px`
       }
-      return `${120 * ((this.lensShiftH - this.minLensShiftH) / (this.maxLensShiftH - this.minLensShiftH)) - 7.5}px`
+      return `${100 * ((this.lensShiftH - this.minLensShiftH) / (this.maxLensShiftH - this.minLensShiftH)) - 7.5}px`
     },
     isMovableAreaEnabled() {
       if (!this.enableLenShiftH && !this.enableLenShiftV) {
@@ -184,8 +197,8 @@ export default {
       this.dragPoint && this.changeLenShift(e)
     },
     changeLenShift(e) {
-      this.enableLenShiftH && (this.lensShiftH = e.offsetX / 120 * (this.maxLensShiftH - this.minLensShiftH) + this.minLensShiftH)
-      this.enableLenShiftV && (this.lensShiftV = this.maxLensShiftV - e.offsetY / 100 * (this.maxLensShiftV - this.minLensShiftV))
+      this.enableLenShiftH && (this.lensShiftH = e.offsetX / 100 * (this.maxLensShiftH - this.minLensShiftH) + this.minLensShiftH)
+      this.enableLenShiftV && (this.lensShiftV = this.maxLensShiftV - e.offsetY / 80 * (this.maxLensShiftV - this.minLensShiftV))
       this.$root.$emit('setProjectorProp')
     },
     setCenter() {
@@ -196,56 +209,59 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.movable-area{
+.movable-area {
   position: absolute;
   right: 0;
-  bottom: 0;
-  background-color: rgba($color: #90ff86, $alpha: 0.2);
-  height: 100px;
-  width: 120px;
-  .axis-h{
+  top: 0;
+  background-color: #eaeaea44;
+  height: 80px;
+  width: 100px;
+
+  .axis-h {
     position: absolute;
     width: 100%;
     height: 0px;
-    border: 1px solid #bde2ff;
+    border: 1px solid #cdcdcd;
     pointer-events: none;
   }
-  .axis-v{
+
+  .axis-v {
     position: absolute;
     width: 0px;
     height: 100%;
-    border: 1px solid #bde2ff;
+    border: 1px solid #cdcdcd;
     pointer-events: none;
   }
-  .hitPoint{
-    position:absolute;
+
+  .hitPoint {
+    position: absolute;
     width: 15px;
     height: 15px;
-    background-color: #ffe433;
+    background-color: #6bccff;
     border-radius: 50%;
     pointer-events: none;
   }
 }
-.angle-text{
-    right: 40px;
-    opacity: 0.8;
-    position: absolute;
-    bottom: 113px;
-    color: black;
+
+.angle-text {
+  right: 15px;
+  position: absolute;
+  top: 85px;
 }
-.light{
+
+.light {
   color: white
 }
-.tip_area{
+
+.tip_area {
   position: absolute;
   display: flex;
   left: 0;
   top: 0;
   height: 30px;
-  padding: 0 10px;
-  background-color:  rgba(179, 224, 167, 0.2);
-  p{
-    margin:auto
+
+  p {
+    margin: 0
   }
 }
 </style>

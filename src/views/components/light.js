@@ -7,9 +7,9 @@ export default class Showcase {
 
     _generateLight(path) {
         const light = new fabric.Path(path, {
-            fill: '#ffe433',
-            stroke: '#b4b6b4',
-            strokeWidth: 2,
+            fill: 'rgb(255,241,193)',
+            stroke: 'rgb(255,241,193)',
+            strokeWidth: 1,
             opacity: 0.8,
             evented: false
         })

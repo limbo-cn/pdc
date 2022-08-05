@@ -1,10 +1,11 @@
 <template>
   <q-dialog :value="showDialog" @hide="hideDialog" @show="show" full-height full-width>
-    <q-layout v-if="showDialog" view="hHh lpR lFf" container :class="{'bg-grey-10':$q.dark.isActive,'bg-white':!$q.dark.isActive}" style="width: 800px; max-width: 90vw;">
-      <q-header :style="{background:$q.dark.isActive?'#445a4d':'#3aaa35'}">
-        <q-toolbar class="glossy">
+    <q-layout v-if="showDialog" view="hHh lpR lFf" container
+      :class="{ 'bg-grey-10': $q.dark.isActive, 'bg-white': !$q.dark.isActive }" style="width: 800px; max-width: 90vw;">
+      <q-header class="delta-gradient-bg" :style="{ background: $q.dark.isActive ? '#445a4d' : '' }">
+        <q-toolbar>
           <q-btn flat @click="drawerLeft = !drawerLeft" round dense icon="menu" />
-          <q-toolbar-title>{{$t('historyTitle')}}</q-toolbar-title>
+          <q-toolbar-title>{{ $t('historyTitle') }}</q-toolbar-title>
           <q-btn icon="close" flat round dense v-close-popup />
         </q-toolbar>
       </q-header>
@@ -14,52 +15,58 @@
           <q-list padding>
             <q-item v-if="currentItem" clickable :active="true" @click="selectedId = currentItem.uId">
               <q-item-section>
-                <q-card class="item-card" :class="{selected:selectedId === currentItem.uId}" bordered>
-                  <q-img :src="currentItem.frontViewImage" :img-style="{'background-size':'contain'}" />
+                <q-card class="item-card" :class="{ selected: selectedId === currentItem.uId }" bordered>
+                  <q-img :src="currentItem.frontViewImage" :img-style="{ 'background-size': 'contain' }" />
                   <q-separator />
                   <q-item>
                     <q-item-section avatar>
                       <q-avatar rounded size="60px">
-                        <q-img :src="currentItem.projectorImage" :img-style="{'background-size':'contain'}" />
+                        <q-img :src="currentItem.projectorImage" :img-style="{ 'background-size': 'contain' }" />
                       </q-avatar>
                     </q-item-section>
 
                     <q-item-section>
-                      <q-input outlined :color="$q.dark.isActive?'primary':'positive'" v-model="currentName" :label="$t('customName')" />
+                      <q-input outlined :color="$q.dark.isActive ? 'primary' : 'positive'" v-model="currentName"
+                        :label="$t('customName')" />
                     </q-item-section>
 
                     <q-item-section style="flex:40px">
-                      <q-btn round :color="$q.dark.isActive?'primary':'positive'" flat label="" icon="add" @click.prevent="addItem" />
+                      <q-btn round :color="$q.dark.isActive ? 'primary' : 'positive'" flat label="" icon="add"
+                        @click.prevent="addItem" />
                     </q-item-section>
                   </q-item>
                 </q-card>
               </q-item-section>
             </q-item>
-            <q-item v-for="history in historys" :key="history.uId" clickable :active="selectedId === history.uId" @click="selectedId = history.uId">
+            <q-item v-for="history in historys" :key="history.uId" clickable :active="selectedId === history.uId"
+              @click="selectedId = history.uId">
               <q-item-section>
-                <q-card class="item-card" :class="{selected:selectedId === history.uId}" bordered>
-                  <q-img :src="history.frontViewImage" :img-style="{'background-size':'contain','background-color':history.isDark?'#131417':'white'}" />
+                <q-card class="item-card" :class="{ selected: selectedId === history.uId }" bordered>
+                  <q-img :src="history.frontViewImage"
+                    :img-style="{ 'background-size': 'contain', 'background-color': history.isDark ? '#131417' : 'white' }" />
                   <q-separator />
                   <q-item>
                     <q-item-section avatar>
                       <q-avatar rounded size="60px">
-                        <q-img :src="history.projectorImage" :img-style="{'background-size':'contain'}" />
+                        <q-img :src="history.projectorImage" :img-style="{ 'background-size': 'contain' }" />
                       </q-avatar>
                     </q-item-section>
 
                     <q-item-section>
-                      <q-item-label style="font-size:20px">{{history.name}}</q-item-label>
-                      <q-item-label style="font-size:14px" caption>{{history.modelName}}</q-item-label>
+                      <q-item-label style="font-size:20px">{{ history.name }}</q-item-label>
+                      <q-item-label style="font-size:14px" caption>{{ history.modelName }}</q-item-label>
                     </q-item-section>
 
                     <q-item-section style="flex:40px">
-                      <q-btn :color="$q.dark.isActive?'primary':'positive'" round flat label="" icon="delete_outline" @click.prevent="deleteItem(history.uId)" />
+                      <q-btn :color="$q.dark.isActive ? 'primary' : 'positive'" round flat label="" icon="delete_outline"
+                        @click.prevent="deleteItem(history.uId)" />
                     </q-item-section>
-                    <q-item-section style="flex:40px">
+                    <!-- <q-item-section style="flex:40px">
                       <q-btn :color="$q.dark.isActive?'primary':'positive'" round flat label="" icon="compare_arrows" @click.prevent="updateItem(history.uId)" />
-                    </q-item-section>
+                    </q-item-section> -->
                     <q-item-section style="flex:40px">
-                      <q-btn :color="$q.dark.isActive?'primary':'positive'" round flat label="" icon="check" @click.prevent="loadItem(history.uId)" />
+                      <q-btn :color="$q.dark.isActive ? 'primary' : 'positive'" round flat label="" icon="check"
+                        @click.prevent="loadItem(history.uId)" />
                     </q-item-section>
                   </q-item>
                 </q-card>
@@ -72,46 +79,56 @@
       <q-page-container style="min-width:1400px">
         <q-page>
           <template v-if="currentSelectedItem">
-            <div class="text-h4 q-ml-lg q-pa-md">{{currentSelectedItem.name}}
+            <div class="text-h4 q-ml-lg q-pa-md">{{ currentSelectedItem.name }}
             </div>
             <div class="q-pa-sm row items-start q-gutter-sm">
               <div class="col-2">
-                <div class="text-h6 text-center q-pa-md">{{currentSelectedItem.modelName}}
+                <div class="text-h6 text-center q-pa-md">{{ currentSelectedItem.modelName }}
                 </div>
-                <q-img :src="currentSelectedItem.projectorImage" :img-style="{'background-size':'contain'}" style="width:70%;margin-left:15%" />
+                <q-img :src="currentSelectedItem.projectorImage" :img-style="{ 'background-size': 'contain' }"
+                  style="width:70%;margin-left:15%" />
                 <template v-if="currentSelectedItem.lensImage">
-                  <div class="text-h6 text-center q-pa-md">{{currentSelectedItem.lensName}}
+                  <div class="text-h6 text-center q-pa-md">{{ currentSelectedItem.lensName }}
                   </div>
-                  <q-img :src="currentSelectedItem.lensImage" :img-style="{'background-size':'contain'}" style="width:70%;margin-left:15%" />
+                  <q-img :src="currentSelectedItem.lensImage" :img-style="{ 'background-size': 'contain' }"
+                    style="width:70%;margin-left:15%" />
                 </template>
-                <div class="text-overline text-center q-pt-lg q-pb-xs"> {{$t('installation')}}:{{Installation}}
+                <div class="text-overline text-center q-pt-lg q-pb-xs"> {{ $t('installation') }}:{{ Installation }}
                 </div>
-                <div class="text-overline text-center q-pb-xs"> {{$t('diagonal')}}:{{screenDiagonal}}''
+                <div class="text-overline text-center q-pb-xs"> {{ $t('diagonal') }}:{{ screenDiagonal }}''
                 </div>
               </div>
               <div class="col">
                 <div class="q-pa-sm row items-start q-gutter-sm">
                   <div class="col" style="margin:auto 20px">
-                    <div class="text-h6 text-center">{{$t('sideView')}}
+                    <div class="text-h6 text-center">{{ $t('sideView') }}
                     </div>
-                    <q-img :src="curSideViewImage" :img-style="{'background-size':'contain','background-color':currentSelectedItem.isDark?'':'white'}" style="width:100%" />
+                    <q-img :src="curSideViewImage"
+                      :img-style="{ 'background-size': 'contain', 'background-color': currentSelectedItem.isDark ? '' : 'white' }"
+                      style="width:100%" />
                   </div>
                   <div class="col" style="margin:auto 20px">
-                    <div class="text-h6 text-center">{{$t('frontView')}}
+                    <div class="text-h6 text-center">{{ $t('frontView') }}
                     </div>
-                    <q-img :src="curFrontViewImage" :img-style="{'background-size':'contain','background-color':currentSelectedItem.isDark?'':'white'}" style="width:100%" />
+                    <q-img :src="curFrontViewImage"
+                      :img-style="{ 'background-size': 'contain', 'background-color': currentSelectedItem.isDark ? '' : 'white' }"
+                      style="width:100%" />
                   </div>
                 </div>
                 <div class="q-pa-sm row items-start q-gutter-sm">
                   <div class="col" style="margin:auto 20px">
-                    <div class="text-h6 text-center">{{$t('topView')}}
+                    <div class="text-h6 text-center">{{ $t('topView') }}
                     </div>
-                    <q-img :src="curTopViewImage" :img-style="{'background-size':'contain','background-color':currentSelectedItem.isDark?'':'white'}" style="width:100%" />
+                    <q-img :src="curTopViewImage"
+                      :img-style="{ 'background-size': 'contain', 'background-color': currentSelectedItem.isDark ? '' : 'white' }"
+                      style="width:100%" />
                   </div>
                   <div class="col" style="margin:auto 20px">
-                    <div class="text-h6 text-center">{{$t('threeView')}}
+                    <div class="text-h6 text-center">{{ $t('threeView') }}
                     </div>
-                    <q-img :src="curThreeViewImage" :img-style="{'background-size':'contain','background-color':currentSelectedItem.isDark?'':'white'}" style="width:100%" />
+                    <q-img :src="curThreeViewImage"
+                      :img-style="{ 'background-size': 'contain', 'background-color': currentSelectedItem.isDark ? '' : 'white' }"
+                      style="width:100%" />
                   </div>
                 </div>
               </div>
@@ -123,23 +140,27 @@
       <q-footer style="background:#445a4d" v-show="false">
         <q-toolbar class="glossy">
           <q-space />
-          <q-input outlined v-model="currentName" dense :label="$t('customName')" v-show="currentItem && selectedId === currentItem.uId" style="margin:auto 10px" />
-          <q-btn flat :color="$q.dark.isActive?'primary':'positive'" icon="add" :label="$t('add')" v-show="currentItem && selectedId === currentItem.uId" @click="addItem" />
-          <q-btn flat :color="$q.dark.isActive?'primary':'positive'" icon="delete_outline" :label="$t('delete')" v-show="!currentItem || selectedId !== currentItem.uId" @click="deleteItem(selectedId)" />
-          <q-btn flat :color="$q.dark.isActive?'primary':'positive'" icon="check" :label="$t('load')" v-show="!currentItem || selectedId !== currentItem.uId" @click="loadItem(selectedId)" />
+          <q-input outlined v-model="currentName" dense :label="$t('customName')"
+            v-show="currentItem && selectedId === currentItem.uId" style="margin:auto 10px" />
+          <q-btn flat :color="$q.dark.isActive ? 'primary' : 'positive'" icon="add" :label="$t('add')"
+            v-show="currentItem && selectedId === currentItem.uId" @click="addItem" />
+          <q-btn flat :color="$q.dark.isActive ? 'primary' : 'positive'" icon="delete_outline" :label="$t('delete')"
+            v-show="!currentItem || selectedId !== currentItem.uId" @click="deleteItem(selectedId)" />
+          <q-btn flat :color="$q.dark.isActive ? 'primary' : 'positive'" icon="check" :label="$t('load')"
+            v-show="!currentItem || selectedId !== currentItem.uId" @click="loadItem(selectedId)" />
         </q-toolbar>
       </q-footer>
 
       <q-dialog v-model="showConfirmDelete" persistent>
         <q-card>
           <q-card-section class="row items-center">
-            <q-avatar icon="delete_outline" :color="$q.dark.isActive?'primary':'positive'" text-color="black" />
-            <span class="q-ml-sm">{{$t('confirmDeleteMessage')}}</span>
+            <q-avatar icon="delete_outline" :color="$q.dark.isActive ? 'primary' : 'positive'" text-color="black" />
+            <span class="q-ml-sm">{{ $t('confirmDeleteMessage') }}</span>
           </q-card-section>
 
           <q-card-actions align="right">
-            <q-btn flat :label="$t('cancel')" :color="$q.dark.isActive?'primary':'positive'" v-close-popup />
-            <q-btn flat :label="$t('yes')" :color="$q.dark.isActive?'primary':'positive'" @click="confirmDeleteItem" />
+            <q-btn flat :label="$t('cancel')" :color="$q.dark.isActive ? 'primary' : 'positive'" v-close-popup />
+            <q-btn flat :label="$t('yes')" :color="$q.dark.isActive ? 'primary' : 'positive'" @click="confirmDeleteItem" />
           </q-card-actions>
         </q-card>
       </q-dialog>
@@ -147,13 +168,13 @@
       <q-dialog v-model="showConfirmUpdate" persistent>
         <q-card>
           <q-card-section class="row items-center">
-            <q-avatar icon="compare_arrows" :color="$q.dark.isActive?'primary':'positive'" text-color="black" />
-            <span class="q-ml-sm">{{$t('confirmUpdateMessage')}}</span>
+            <q-avatar icon="compare_arrows" :color="$q.dark.isActive ? 'primary' : 'positive'" text-color="black" />
+            <span class="q-ml-sm">{{ $t('confirmUpdateMessage') }}</span>
           </q-card-section>
 
           <q-card-actions align="right">
-            <q-btn flat :label="$t('cancel')" :color="$q.dark.isActive?'primary':'positive'" v-close-popup />
-            <q-btn flat :label="$t('yes')" :color="$q.dark.isActive?'primary':'positive'" @click="confirmUpdateItem" />
+            <q-btn flat :label="$t('cancel')" :color="$q.dark.isActive ? 'primary' : 'positive'" v-close-popup />
+            <q-btn flat :label="$t('yes')" :color="$q.dark.isActive ? 'primary' : 'positive'" @click="confirmUpdateItem" />
           </q-card-actions>
         </q-card>
       </q-dialog>
@@ -162,11 +183,11 @@
         <q-card>
 
           <q-card-section class="q-pt-none">
-            {{$t('maximumCount')}}
+            {{ $t('maximumCount') }}
           </q-card-section>
 
           <q-card-actions align="right">
-            <q-btn flat :label="$t('yes')" :color="$q.dark.isActive?'primary':'positive'" v-close-popup />
+            <q-btn flat :label="$t('yes')" :color="$q.dark.isActive ? 'primary' : 'positive'" v-close-popup />
           </q-card-actions>
         </q-card>
       </q-dialog>
@@ -383,12 +404,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.item-card{
-    width: 100%;
+.item-card {
+  width: 100%;
 }
 
-.selected{
- border-color: #90e4a0;
- box-shadow: 0 0 10px rgba(150, 150, 150, 0.8);
+.selected {
+  border-color: #90e4a0;
+  box-shadow: 0 0 10px rgba(150, 150, 150, 0.8);
 }
 </style>

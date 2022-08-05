@@ -9,6 +9,10 @@
           </keep-alive>
         </q-card>
       </div>
+      <div class="absolute" style="top: 50%; left: 0px">
+        <q-btn dense size="sm" round :color="$q.dark.isActive ? 'secondary' : 'positive'" icon="arrow_right"
+          @click="leftDrawerOpen = true" v-show="!leftDrawerOpen" />
+      </div>
       <q-page-sticky position="right" :offset="[10, 0]" v-show="$q.platform.is.mobile">
         <q-btn @click="scrollUp" round color="secondary" icon="arrow_back" class="rotate-90 q-ma-xs q-mb-lg" />
         <br />
@@ -66,6 +70,14 @@ export default {
     },
     layoutModel() {
       return this.$store.state.common.layoutModel
+    },
+    leftDrawerOpen: {
+      get() {
+        return this.$store.state.common.leftDrawerOpen
+      },
+      set(val) {
+        this.SET_LEFT_DRAWER_OPEN(val)
+      }
     }
   },
   watch: {
@@ -75,6 +87,7 @@ export default {
   },
   methods: {
     ...mapMutations('pdf', ['SET_SIDEVIEW_IMAGE', 'SET_FRONTVIEW_IMAGE', 'SET_TOPVIEW_IMAGE', 'SET_THREEVIEW_IMAGE']),
+    ...mapMutations('common', ['SET_LEFT_DRAWER_OPEN']),
     stylePage(offset, height) {
       return { height: `${height - offset}px` }
     },
@@ -148,32 +161,39 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.card-wrapper{
+.card-wrapper {
   min-height: 800px;
   padding-bottom: 30px;
-  @media screen and (min-width: 800px){
-      min-width: 1400px;
+
+  @media screen and (min-width: 800px) {
+    min-width: 1000px;
   }
 }
-.view-card{
-    margin: 5px;
+
+.view-card {
+  margin: 5px;
 }
-.view-card-fullscreen{
+
+.view-card-fullscreen {
   width: 100%;
   height: 100%;
 }
-.view-card-grid{
+
+.view-card-grid {
   width: calc(50% - 10px);
   height: calc(50% - 10px);
-  @media screen and (max-width: 800px){
-        width: calc(100% - 10px);
+
+  @media screen and (max-width: 800px) {
+    width: calc(100% - 10px);
   }
 }
-.view-card-list{
+
+.view-card-list {
   width: calc(100% - 10px);
   height: calc(50% - 10px);
 }
-.view-card-fullscreen{
+
+.view-card-fullscreen {
   width: calc(100% - 10px);
   height: calc(100% - 10px);
 }
@@ -184,12 +204,25 @@ export default {
   width: 100%;
   height: 340px;
 }
+
 .title-section-dark {
   padding: 2px 16px;
   background-color: #445a4d;
 }
+
 .title-section-light {
   padding: 2px 16px;
   background-color: #f2f2f2;
 }
+
+.delta-gradient-bg {
+  background-image: url('../assets/gradient.svg');
+  background-size: cover;
+}
+
+.delta-gradient-bg-2 {
+  background-image: url('../assets/gradient_2.svg');
+  background-size: cover;
+}
+
 </style>

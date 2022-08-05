@@ -154,28 +154,32 @@ export default class TopView extends BaseView {
         const leftPoints = store.state.coordinate.leftPoints.map(point => this._toDrawSize(point))
         const rightPoints = store.state.coordinate.rightPoints.map(point => this._toDrawSize(point))
 
+        if (leftPoints.length > 0) {
+            const sortByX = leftPoints.sort((a, b) => a.z - b.z)
+            const x1 = -sortByX[0].z
+            const x2 = -sortByX[sortByX.length - 1].z
+            const showcase = new Showcase({ x: x1, y: this._roomSize.drawY }, { x: x2, y: this._roomSize.drawY })
+            showcase.stroke = 'rgb(255,145,110)'
+            this._showcases.push(showcase)
+        }
+        if (rightPoints.length > 0) {
+            const sortByX = rightPoints.sort((a, b) => a.z - b.z)
+            const x1 = -sortByX[0].z
+            const x2 = -sortByX[sortByX.length - 1].z
+            const showcase = new Showcase({ x: x1, y: 0 }, { x: x2, y: 0 })
+            showcase.stroke = 'rgb(255,145,110)'
+            this._showcases.push(showcase)
+        }
         if (frontPoints.length > 0) {
             const sortByY = frontPoints.sort((a, b) => a.x - b.x)
             const y1 = this._roomSize.drawY + sortByY[0].x
             const y2 = this._roomSize.drawY + sortByY[sortByY.length - 1].x
             this._showcases.push(new Showcase({ x: 0, y: y1 }, { x: 0, y: y2 }))
         }
-        if (leftPoints.length > 0) {
-            const sortByX = leftPoints.sort((a, b) => a.z - b.z)
-            const x1 = -sortByX[0].z
-            const x2 = -sortByX[sortByX.length - 1].z
-            this._showcases.push(new Showcase({ x: x1, y: this._roomSize.drawY }, { x: x2, y: this._roomSize.drawY }))
-        }
-        if (rightPoints.length > 0) {
-            const sortByX = rightPoints.sort((a, b) => a.z - b.z)
-            const x1 = -sortByX[0].z
-            const x2 = -sortByX[sortByX.length - 1].z
-            this._showcases.push(new Showcase({ x: x1, y: 0 }, { x: x2, y: 0 }))
-        }
 
         this._showcases.forEach(showcase => {
             if (store.state.screen.currentAspectRatio < store.state.screen.aspectRatio) {
-                showcase.stroke = '#aaaaaa'
+                // showcase.stroke = '#aaaaaa'
             }
             this._canvas.add(showcase)
         })
@@ -287,7 +291,7 @@ export default class TopView extends BaseView {
             const objects = this._rulerLeft.getObjects()
             objects.forEach(o => {
                 if (o.type === 'text') {
-                    o.left = this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 20
+                    o.left = this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 10
                 }
             })
         } else {
@@ -295,7 +299,7 @@ export default class TopView extends BaseView {
             const objects = this._rulerLeft.getObjects()
             objects.forEach(o => {
                 if (o.type === 'text') {
-                    o.left += this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 20
+                    o.left += this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 10
                 } else {
                     o.left -= 10
                 }

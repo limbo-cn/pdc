@@ -2,7 +2,7 @@ const fabric = window.fabric
 
 export default class Axis {
     constructor(x, y, width, hegiht, isUST) {
-        this._axistroke = '#738ca6'
+        this._axistroke = 'rgb(181,181,182)'
         this._axisStrokeWidth = 2
         this._axisDashArray = [3, 3]
 

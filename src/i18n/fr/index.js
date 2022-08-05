@@ -125,5 +125,14 @@ export default {
   yes: 'Yes',
   confirmDeleteMessage: 'Are you sure to delete?',
   confirmUpdateMessage: 'Are you sure to update?',
-  maximumCount: 'maximum count of snapshots is 10'
+  maximumCount: 'maximum count of snapshots is 10',
+  grid: 'Grid',
+  list: 'liste',
+  fullscreen: 'plein écran',
+  refresh: 'rafraîchir',
+  guide: 'Guide',
+  snapshot: 'Snapshot',
+  pdf: 'PDF',
+  language: 'langue',
+  theme: 'sujet'
 }

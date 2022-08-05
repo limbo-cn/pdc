@@ -63,6 +63,7 @@
 				"DK10000Z",
 				"DH4661Z",
 				"DU4771Z",
+				"DU4871Z",
 				"DU6198Z",
 				"DU6298Z",
 				"DU6693Z",
@@ -74,7 +75,8 @@
 				"DU8395Z",
 				"DU9800Z",
 				"DU9900Z",
-				"DU4371Z-ST"
+				"DU4371Z-ST",
+				"DU4381Z-ST"
 			],
 			"Picture": "ProjectorTypes/Large_venue.png"
 		},

@@ -5,9 +5,9 @@ import fr from './fr'
 import es from './es'
 import de from './de'
 import it from './it'
-import jpn from './jpn'
+import ja from './ja'
 import kr from './kr'
-import viet from './viet'
+import vi from './vi'
 
 export default {
   'en-us': enUS,
@@ -17,7 +17,7 @@ export default {
   es,
   de,
   it,
-  jpn,
+  ja,
   kr,
-  viet
+  vi
 }

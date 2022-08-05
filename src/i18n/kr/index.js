@@ -125,5 +125,14 @@ export default {
   yes: 'Yes',
   confirmDeleteMessage: 'Are you sure to delete?',
   confirmUpdateMessage: 'Are you sure to update?',
-  maximumCount: 'maximum count of snapshots is 10'
+  maximumCount: 'maximum count of snapshots is 10',
+  grid: '메쉬',
+  list: '목록',
+  fullscreen: '전체 화면',
+  refresh: '새로 고침',
+  guide: '안내서',
+  snapshot: '스냅샷',
+  pdf: 'PDF',
+  language: '언어',
+  theme: '주제'
 }

@@ -6,7 +6,7 @@
       </q-card-section>
       <q-card-section class="q-pt-xs" style="padding:5px 0px 5px 10px;width:100%">
         <div class="text-overline">{{selectedProjectorTypeName}} </div>
-        <a :href="selectedProjector.URL" target="_blank" :style="{color:$q.dark.isActive?'white':'#009df7'}" class="text-h5 q-mt-xs q-mb-xs text-weight-bolder">{{selectedProjector.ModelName}}</a>
+        <a :href="selectedProjector.URL" target="_blank" :style="{color:$q.dark.isActive?'white':'black'}" class="text-h5 q-mt-xs q-mb-xs text-weight-bolder">{{selectedProjector.ModelName}}</a>
         <div class="text-caption" :class="{'text-grey-4':$q.dark.isActive,'text-grey-8':!$q.dark.isActive}">
           <span v-if="selectedProjector.Resolution"> {{ `${$t('resolution')}: ${selectedProjector.Resolution.Desc}(${selectedProjector.Resolution.width}*${selectedProjector.Resolution.height})` }}<br /></span>
           <span v-if="selectedProjector.Brightness"> {{ `${$t('brightness')}: ${selectedProjector.Brightness.value} ${selectedProjector.Brightness.unit}` }}<br /></span>

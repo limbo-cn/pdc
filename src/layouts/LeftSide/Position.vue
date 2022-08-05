@@ -9,7 +9,7 @@
             </div>
           </template>
           <template v-slot:after>
-            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableFromScreen" checked-icon="check" color="green" unchecked-icon="clear" />
+            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableFromScreen" checked-icon="check" color="positive" unchecked-icon="clear" />
           </template>
         </q-input>
 
@@ -20,7 +20,7 @@
             </div>
           </template>
           <template v-slot:after>
-            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableFromLeftside" checked-icon="check" color="green" unchecked-icon="clear" />
+            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableFromLeftside" checked-icon="check" color="positive" unchecked-icon="clear" />
           </template>
         </q-input>
 
@@ -31,7 +31,7 @@
             </div>
           </template>
           <template v-slot:after>
-            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableFromFloor" checked-icon="check" color="green" unchecked-icon="clear" />
+            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableFromFloor" checked-icon="check" color="positive" unchecked-icon="clear" />
           </template>
         </q-input>
 
@@ -45,7 +45,7 @@
             <q-btn @click="setDefaultAngleV" :disable="!enableAngleV" round flat icon="refresh" :color="$q.dark.isActive?'primary':'positive'" />
           </template>
           <template v-slot:after>
-            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableAngleV" checked-icon="check" color="green" unchecked-icon="clear" />
+            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableAngleV" checked-icon="check" color="positive" unchecked-icon="clear" />
           </template>
         </q-input>
 
@@ -59,7 +59,7 @@
             <q-btn @click="setDefaultAngleH" :disable="!enableAngleH" round flat icon="refresh" :color="$q.dark.isActive?'primary':'positive'" />
           </template>
           <template v-slot:after>
-            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableAngleH" checked-icon="check" color="green" unchecked-icon="clear" />
+            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableAngleH" checked-icon="check" color="positive" unchecked-icon="clear" />
           </template>
         </q-input>
 
@@ -73,7 +73,7 @@
             <q-btn @click="setDefaultLensShiftH" :disable="!enableLenShiftH" round flat icon="refresh" :color="$q.dark.isActive?'primary':'positive'" />
           </template>
           <template v-slot:after>
-            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableLenShiftH" :disable="!isSupportLenShiftH" checked-icon="check" color="green" unchecked-icon="clear" />
+            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableLenShiftH" :disable="!isSupportLenShiftH" checked-icon="check" color="positive" unchecked-icon="clear" />
           </template>
         </q-input>
 
@@ -87,7 +87,7 @@
             <q-btn @click="setDefaultLensShiftV" :disable="!enableLenShiftV" round flat icon="refresh" :color="$q.dark.isActive?'primary':'positive'" />
           </template>
           <template v-slot:after>
-            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableLenShiftV" :disable="!isSupportLenShiftV" checked-icon="check" color="green" unchecked-icon="clear" />
+            <q-toggle v-show="!$q.platform.is.mobile" v-model="enableLenShiftV" :disable="!isSupportLenShiftV" checked-icon="check" color="positive" unchecked-icon="clear" />
           </template>
         </q-input>
       </div>

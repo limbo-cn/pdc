@@ -1,10 +1,10 @@
 <template>
   <q-dialog id="dlg_choose_projector" :value="showDialog" @hide="hideDialog" full-width full-height>
-    <q-layout view="hHh lpR fFf" container :class="{'bg-grey-10':$q.dark.isActive,'bg-white':!$q.dark.isActive}">
-      <q-header class="glossy" :style="{background:$q.dark.isActive?'#445a4d':'#3aaa35'}">
+    <q-layout view="hHh lpR fFf" container :class="{ 'bg-grey-10': $q.dark.isActive, 'bg-white': !$q.dark.isActive }">
+      <q-header class="delta-gradient-bg" :style="{ background: $q.dark.isActive ? '#445a4d' : '' }">
         <q-toolbar>
           <q-btn flat @click="drawerLeft = !drawerLeft" round dense icon="menu" />
-          <q-toolbar-title>{{$t('chooseProjector')}}</q-toolbar-title>
+          <q-toolbar-title>{{ $t('chooseProjector') }}</q-toolbar-title>
           <q-btn icon="close" flat round dense v-close-popup />
         </q-toolbar>
       </q-header>
@@ -16,7 +16,8 @@
               <q-item-section>
                 <div class="q-pa-sm row items-start q-gutter-sm">
                   <div class="col">
-                    <q-input outlined :color="$q.dark.isActive?'primary':'positive'" dense debounce="150" v-model="filter" :placeholder="$t('search')">
+                    <q-input outlined :color="$q.dark.isActive ? 'primary' : 'positive'" dense debounce="150"
+                      v-model="filter" :placeholder="$t('search')">
                       <template v-if="filter" v-slot:append>
                         <q-icon name="cancel" @click.stop="filter = ``" class="cursor-pointer" />
                       </template>
@@ -26,7 +27,7 @@
                 </div>
                 <div class="q-pa-sm row items-start q-gutter-sm">
                   <div class="col condition_dropdown" @click="showCondition = !showCondition">
-                    {{$t('installCondition')}}
+                    {{ $t('installCondition') }}
                     <q-icon name="arrow_drop_down" v-show="!showCondition" />
                     <q-icon name="arrow_drop_up" v-show="showCondition" />
                   </div>
@@ -36,8 +37,10 @@
                     <div class="col">
                       <q-field filled dense>
                         <template v-slot:control>
-                          <q-checkbox :color="$q.dark.isActive?'primary':'positive'" v-model="conditionOptionalLens" :label="$t('OptionalLensOnly')" />
-                          <q-checkbox :color="$q.dark.isActive?'primary':'positive'" v-model="conditionLensShift" :label="$t('LensShiftOnly')" />
+                          <q-checkbox :color="$q.dark.isActive ? 'primary' : 'positive'" v-model="conditionOptionalLens"
+                            :label="$t('OptionalLensOnly')" />
+                          <q-checkbox :color="$q.dark.isActive ? 'primary' : 'positive'" v-model="conditionLensShift"
+                            :label="$t('LensShiftOnly')" />
                         </template>
                       </q-field>
                     </div>
@@ -46,18 +49,21 @@
                     <div class="col">
                       <q-field filled dense>
                         <template v-slot:control>
-                          <span class="text-subtitle2 text-grey-5"> {{$t('unit')}}:</span>
-                          <q-radio :color="$q.dark.isActive?'primary':'positive'" size="sm" v-model="conditionUnit" v-for="optionUnit in optionUnits" :key="optionUnit.value" :val="optionUnit.value" :label="optionUnit.label" />
+                          <span class="text-subtitle2 text-grey-5"> {{ $t('unit') }}:</span>
+                          <q-radio :color="$q.dark.isActive ? 'primary' : 'positive'" size="sm" v-model="conditionUnit"
+                            v-for="optionUnit in optionUnits" :key="optionUnit.value" :val="optionUnit.value"
+                            :label="optionUnit.label" />
                         </template>
                       </q-field>
                     </div>
                   </div>
                   <div class="q-pa-sm row items-start q-gutter-sm">
                     <div class="col">
-                      <q-input filled dense :color="$q.dark.isActive?'primary':'positive'" :debounce="350" v-model="conditionThrowDistance" type="number" step="0.100" :suffix="unitLabel">
+                      <q-input filled dense :color="$q.dark.isActive ? 'primary' : 'positive'" :debounce="350"
+                        v-model="conditionThrowDistance" type="number" step="0.100" :suffix="unitLabel">
                         <template v-slot:prepend>
                           <div class="text-subtitle2">
-                            {{$t('throwDistance')}}
+                            {{ $t('throwDistance') }}
                           </div>
                         </template>
                       </q-input>
@@ -65,24 +71,30 @@
                   </div>
                   <div class="q-pa-sm row items-start q-gutter-sm">
                     <div class="col">
-                      <q-input filled dense :color="$q.dark.isActive?'primary':'positive'" :debounce="350" type="number" step="0.100" v-model="conditionScreenSize" :suffix="conditionScreen === 0 ? $t('inch') : unitLabel">
+                      <q-input filled dense :color="$q.dark.isActive ? 'primary' : 'positive'" :debounce="350"
+                        type="number" step="0.100" v-model="conditionScreenSize"
+                        :suffix="conditionScreen === 0 ? $t('inch') : unitLabel">
                         <template v-slot:prepend>
                           <div class="text-subtitle2">
-                            {{$t('screenSize')}}
+                            {{ $t('screenSize') }}
                           </div>
                         </template>
                       </q-input>
                     </div>
                     <div class="col-4">
-                      <q-select filled dense :color="$q.dark.isActive?'primary':'positive'" v-model="conditionScreen" :options="optionsScreen" emit-value map-options option-value="value" option-label="label" behavior="menu" />
+                      <q-select filled dense :color="$q.dark.isActive ? 'primary' : 'positive'"
+                        v-model="conditionScreen" :options="optionsScreen" emit-value map-options option-value="value"
+                        option-label="label" behavior="menu" />
                     </div>
                   </div>
                   <div class="q-pa-sm row items-start q-gutter-sm">
                     <div class="col">
-                      <q-select dense filled :color="$q.dark.isActive?'primary':'positive'" v-model="conditionAspectRatio" :options="aspectRatios" option-value="value" option-label="label" emit-value map-options behavior="menu">
+                      <q-select dense filled :color="$q.dark.isActive ? 'primary' : 'positive'"
+                        v-model="conditionAspectRatio" :options="aspectRatios" option-value="value" option-label="label"
+                        emit-value map-options behavior="menu">
                         <template v-slot:prepend>
                           <div class="text-subtitle2">
-                            {{$t('aspectRatio')}}:
+                            {{ $t('aspectRatio') }}:
                           </div>
                         </template>
                       </q-select>
@@ -91,20 +103,23 @@
                 </div>
               </q-item-section>
             </q-item>
-            <q-item clickable v-ripple @click="selectProjectorType({Type:`all`})" :active-class="$q.dark.isActive?'':'active-light'" :active="selectedType === `all`">
+            <q-item clickable v-ripple @click="selectProjectorType({ Type: `all` })"
+              :active-class="$q.dark.isActive ? '' : 'active-light'" :active="selectedType === `all`">
               <q-item-section avatar>
-                <q-avatar :color="$q.dark.isActive?'primary':'positive'" text-color="white" icon="scatter_plot" />
+                <q-avatar :color="$q.dark.isActive ? 'primary' : 'positive'" text-color="white" icon="scatter_plot" />
               </q-item-section>
               <q-item-section>
-                {{$t('allProjector')}} ({{totalCount}})
+                {{ $t('allProjector') }} ({{ totalCount }})
               </q-item-section>
             </q-item>
-            <q-item clickable v-ripple v-for="item in projectorTypes" :key="item.Type" @click="selectProjectorType(item)" :active-class="$q.dark.isActive?'':'active-light'" :active="selectedType === item.Type">
+            <q-item clickable v-ripple v-for="item in projectorTypes" :key="item.Type"
+              @click="selectProjectorType(item)" :active-class="$q.dark.isActive ? '' : 'active-light'"
+              :active="selectedType === item.Type">
               <q-item-section thumbnail>
-                <q-img :src="item.img" :img-style="{'background-size':'contain'}" style="height:80px;width:120px" />
+                <q-img :src="item.img" :img-style="{ 'background-size': 'contain' }" style="height:80px;width:120px" />
               </q-item-section>
               <q-item-section>
-                {{item.Type}} ({{item.Models.length}})
+                {{ item.Type }} ({{ item.Models.length }})
               </q-item-section>
             </q-item>
           </q-list>
@@ -114,13 +129,16 @@
       <q-page-container>
         <q-page :style-fn="stylePage">
           <q-scroll-area class="fit">
-            <q-table v-show="selectedType" :data="tableData" :columns="columns" @row-click="(evt, row, index)=>{chooseModel(row.modelName)}" row-key="name" dense :pagination="initialPagination" color="amber">
-              <template v-slot:top-left>
+            <q-table v-show="selectedType" :data="tableData" :columns="columns"
+              @row-click="(evt, row, index) => { chooseModel(row.modelName) }" row-key="name" dense
+              :pagination="initialPagination" color="amber">
+              <!-- <template v-slot:top-left>
                 <q-breadcrumbs v-show="selectedType">
                   <q-breadcrumbs-el :label="$t('projectorType')" />
-                  <q-breadcrumbs-el :label="selectedType === `all`? `${$t('allProjector')} (${totalCount})` : `${selectedType} (${tableData.length})`" />
+                  <q-breadcrumbs-el
+                    :label="selectedType === `all` ? `${$t('allProjector')} (${totalCount})` : `${selectedType} (${tableData.length})`" />
                 </q-breadcrumbs>
-              </template>
+              </template> -->
               <template v-slot:top-right v-if="$q.platform.is.mobile">
                 <q-input outlined dense debounce="150" v-model="filter" :placeholder="$t('search')">
                   <template v-if="filter" v-slot:append>
@@ -131,7 +149,8 @@
               </template>
               <template v-slot:body-cell-image="props">
                 <q-td :props="props">
-                  <q-img :src="props.value" :img-style="{'background-size':'contain'}" style="height:100px;width:150px" />
+                  <q-img :src="props.value" :img-style="{ 'background-size': 'contain' }"
+                    style="height:100px;width:150px" />
                 </q-td>
               </template>
             </q-table>
@@ -172,6 +191,15 @@ export default {
       filter: '',
       typeImgCache: {},
       projectorImgCache: {}
+    }
+  },
+  mounted() {
+    if (this.$route.params.modelname) {
+      const modelName = this.$route.params.modelname.toUpperCase()
+      const model = this.$store.state.dataSource.projectorModels.vvkProjectorModels.find(o => o.ModelName === modelName)
+      if (model) {
+        this.chooseModel(modelName)
+      }
     }
   },
   computed: {
@@ -335,6 +363,8 @@ export default {
     chooseModel(modelName) {
       const model = this.$store.state.dataSource.projectorModels.vvkProjectorModels.find(o => o.ModelName === modelName)
       this.SET_SELECTED_MODEL_NAME(model.ModelName)
+      window._hmt && window._hmt.push(['_trackEvent', 'Choose Model', 'Click', model.ModelName])
+      window.gtag('event', `ChooseModel-${model.ModelName}`)
       if (model['Optional Lens']) {
         this.SET_SELECTED_LENS_NAME(model['Optional Lens'][0])
       } else {
@@ -346,13 +376,15 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.condition_dropdown{
-  cursor:pointer
+.condition_dropdown {
+  cursor: pointer
 }
-.condition_dropdown:hover{
+
+.condition_dropdown:hover {
   color: $primary
 }
-.active-light{
-  color:#3aaa35
+
+.active-light {
+  color: #14A028
 }
 </style>

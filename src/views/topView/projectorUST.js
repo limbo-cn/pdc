@@ -1,14 +1,14 @@
 const fabric = window.fabric
 
 export const projectorRect = {
-    camera: { x: 12, y: 10 },
-    body: { x: 40, y: 40 }
+    camera: { x: 10, y: 10 },
+    body: { x: 10, y: 40 }
 }
 
 export default class Projector {
     constructor() {
-        this._projectorFill = '#7cbf87'
-        this._projectorStroke = '#487b52'
+        this._projectorFill = 'rgb(89,89,89)'
+        this._projectorStroke = 'rgb(181,181,182)'
         this._projectorStrokeWidth = 2
 
         return this._generateProjector()
@@ -37,8 +37,7 @@ export default class Projector {
 
         const projector = new fabric.Group([body, camera], {
             left: 0,
-            top: 0,
-            opacity: 0.6
+            top: 0
         })
 
         return projector

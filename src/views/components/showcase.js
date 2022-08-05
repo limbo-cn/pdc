@@ -7,7 +7,7 @@ export default class Showcase {
 
     _generateShowcase(pointStart, pointEnd) {
         const showcase = new fabric.Line([pointStart.x, pointStart.y, pointEnd.x, pointEnd.y], {
-            stroke: '#38df2d',
+            stroke: '#6bccff',
             strokeWidth: 4,
             evented: false
         })

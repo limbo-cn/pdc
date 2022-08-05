@@ -215,7 +215,7 @@ export default class ThreeView extends ThreeBase {
             }
             leftShowcase.closePath()
             this._showcase.geometrys.left = new ShapeGeometry(leftShowcase)
-            this._showcase.objects.left = new Mesh(this._showcase.geometrys.left, this._showcase.materialOpacity)
+            this._showcase.objects.left = new Mesh(this._showcase.geometrys.left, this._showcase.materialOtherSide)
             this._showcase.objects.left.rotateY(0.5 * Math.PI)
             this._scene.add(this._showcase.objects.left)
         }
@@ -228,7 +228,7 @@ export default class ThreeView extends ThreeBase {
             }
             rightShowcase.closePath()
             this._showcase.geometrys.right = new ShapeGeometry(rightShowcase)
-            this._showcase.objects.right = new Mesh(this._showcase.geometrys.right, this._showcase.material)
+            this._showcase.objects.right = new Mesh(this._showcase.geometrys.right, this._showcase.materialOtherSide)
             this._showcase.objects.right.rotateY(0.5 * Math.PI)
             this._showcase.objects.right.position.x = -this._roomSize.widthDraw
             this._scene.add(this._showcase.objects.right)
@@ -242,7 +242,7 @@ export default class ThreeView extends ThreeBase {
             }
             bottomShowcase.closePath()
             this._showcase.geometrys.bottom = new ShapeGeometry(bottomShowcase)
-            this._showcase.objects.bottom = new Mesh(this._showcase.geometrys.bottom, this._showcase.material)
+            this._showcase.objects.bottom = new Mesh(this._showcase.geometrys.bottom, this._showcase.materialOtherSide)
             this._showcase.objects.bottom.rotateX(0.5 * Math.PI)
             this._showcase.objects.bottom.position.y = 0
             this._scene.add(this._showcase.objects.bottom)
@@ -256,7 +256,7 @@ export default class ThreeView extends ThreeBase {
             }
             topShowcase.closePath()
             this._showcase.geometrys.top = new ShapeGeometry(topShowcase)
-            this._showcase.objects.top = new Mesh(this._showcase.geometrys.top, this._showcase.materialOpacity)
+            this._showcase.objects.top = new Mesh(this._showcase.geometrys.top, this._showcase.materialOtherSide)
             this._showcase.objects.top.rotateX(0.5 * Math.PI)
             this._showcase.objects.top.position.y = this._roomSize.heightDraw
             this._scene.add(this._showcase.objects.top)

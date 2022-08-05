@@ -7,8 +7,8 @@ export const projectorRect = {
 
 export default class Projector {
     constructor() {
-        this._projectorFill = '#7cbf87'
-        this._projectorStroke = '#487b52'
+        this._projectorFill = 'rgb(89,89,89)'
+        this._projectorStroke = 'rgb(181,181,182)'
         this._projectorStrokeWidth = 2
 
         return this._generateProjector()

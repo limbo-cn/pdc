@@ -2,8 +2,8 @@
   <q-card flat bordered>
     <q-card-section horizontal>
       <q-card-section class="col-5 flex flex-center" style="padding:5px">
-        <q-img v-if="selectedLens" :src="imgSrc" :img-style="{'background-size':'contain'}" style="height:120px;width:150px" />
-        <q-img v-else :src="svgSrc" :img-style="{'background-size':'contain'}" style="height:100px;width:100px" :style="{background:$q.dark.isActive?'  ':'black'}" />
+        <q-img v-if="selectedLens" :src="imgSrc" :img-style="{'background-size':'contain'}" style="height:100px;width:120px" />
+        <q-img v-else :src="svgSrc" :img-style="{'background-size':'contain'}" style="height:100px;width:100px" />
       </q-card-section>
       <q-card-section class="q-pt-xs" style="padding:5px 0px 5px 10px;width:100%" v-if="selectedLens">
         <div class="text-overline">{{selectedLens['Lens Type']}} </div>
@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       imgSrc: '',
-      svgSrc: require('../../assets/Lens/Lens shutter.svg')
+      svgSrc: require('../../assets/Lens/fixed.svg')
     }
   },
   computed: {

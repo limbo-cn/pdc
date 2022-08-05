@@ -1,62 +1,33 @@
 <template>
   <q-header reveal :style="{ background: $q.dark.isActive ? '#1e1f26' : 'white' }">
     <q-toolbar class="shadow-2">
-      <q-btn
-        flat
-        dense
-        round
-        :color="$q.dark.isActive ? 'white' : 'green'"
-        icon="menu"
-        aria-label="Menu"
-        v-show="!leftDrawerOpen"
-        @click="leftDrawerOpen = !leftDrawerOpen"
-      />
+      <q-btn flat dense round :color="$q.dark.isActive ? 'white' : 'green'" icon="menu" aria-label="Menu"
+        v-show="!leftDrawerOpen && $q.platform.is.mobile" @click="leftDrawerOpen = !leftDrawerOpen" />
 
-      <img
-        :src="$q.dark.isActive ? logo_white : logo"
-        :style="{ background: !$q.dark.isActive ? 'white' : '' }"
-        class="rounded-borders"
-        style="height: 40px;padding: 2px; max-width: 150px;"
-      />
+      <img :src="$q.dark.isActive ? logo_white : logo" :style="{ background: !$q.dark.isActive ? 'white' : '' }"
+        class="rounded-borders" style="height: 40px;padding: 2px; max-width: 150px;" />
       <q-toolbar-title>
-        <div
-          v-show="!$q.platform.is.mobile"
-          style="font-weight:bold"
-          :style="{ color: $q.dark.isActive ? 'white' : '#45ba55' }"
-        >Projector Distance Calculator</div>
+        <div v-show="!$q.platform.is.mobile" style="font-weight:bold"
+          :style="{ color: $q.dark.isActive ? 'white' : '#595959' }">Projector Distance Calculator</div>
       </q-toolbar-title>
 
-      <q-btn
-        flat
-        round
-        :color="$q.dark.isActive ? 'white' : 'green'"
-        icon="refresh"
-        @click="refreshViews"
-      />
-      <q-btn
-        flat
-        round
-        :color="$q.dark.isActive ? 'white' : 'green'"
-        icon="help_outline"
-        @click="userGuide"
-      />
-      <q-btn
-        flat
-        round
-        :color="$q.dark.isActive ? 'white' : 'green'"
-        icon="history"
-        v-show="!$q.platform.is.mobile"
-        @click="showHistory = true"
-      />
-      <q-btn
-        flat
-        round
-        :color="$q.dark.isActive ? 'white' : 'green'"
-        icon="picture_as_pdf"
-        @click="showDlgPDF = true"
-      />
+      <q-btn flat round :icon="$q.dark.isActive ? `img:${iconRefresh_white}` : `img:${iconRefresh}`"
+        @click="refreshViews">
+        <q-tooltip>{{ $t('refresh') }}</q-tooltip>
+      </q-btn>
+      <q-btn flat round :icon="$q.dark.isActive ? `img:${iconGuide_white}` : `img:${iconGuide}`" @click="userGuide">
+        <q-tooltip>{{ $t('guide') }}</q-tooltip>
+      </q-btn>
+      <q-btn flat round :icon="$q.dark.isActive ? `img:${iconHistory_white}` : `img:${iconHistory}`"
+        v-show="!$q.platform.is.mobile" @click="showHistory = true">
+        <q-tooltip>{{ $t('snapshot') }}</q-tooltip>
+      </q-btn>
+      <q-btn flat round :icon="$q.dark.isActive ? `img:${iconPDF_white}` : `img:${iconPDF}`" @click="showDlgPDF = true">
+        <q-tooltip>{{ $t('pdf') }}</q-tooltip>
+      </q-btn>
 
-      <q-btn flat round :color="$q.dark.isActive ? 'white' : 'green'" icon="language">
+      <q-btn flat round :icon="$q.dark.isActive ? `img:${iconLanguage_white}` : `img:${iconLanguage}`">
+        <q-tooltip>{{ $t('language') }}</q-tooltip>
         <q-menu>
           <q-list>
             <q-item clickable v-close-popup @click="changeLanguage(`en-us`)">
@@ -80,34 +51,26 @@
             <q-item clickable v-close-popup @click="changeLanguage(`it`)">
               <q-item-section>Italiana</q-item-section>
             </q-item>
-            <q-item clickable v-close-popup @click="changeLanguage(`jpn`)">
+            <q-item clickable v-close-popup @click="changeLanguage(`ja`)">
               <q-item-section>日本語</q-item-section>
             </q-item>
             <q-item clickable v-close-popup @click="changeLanguage(`kr`)">
               <q-item-section>한국어</q-item-section>
             </q-item>
-            <q-item clickable v-close-popup @click="changeLanguage(`viet`)">
+            <q-item clickable v-close-popup @click="changeLanguage(`vi`)">
               <q-item-section>Tiếng Việt</q-item-section>
             </q-item>
           </q-list>
         </q-menu>
       </q-btn>
 
-      <q-btn
-        flat
-        round
-        :color="$q.dark.isActive ? 'white' : 'green'"
-        icon="brightness_medium"
-        @click="toggleTheme"
-      />
-      <q-btn
-        flat
-        round
-        :color="$q.dark.isActive ? 'white' : 'green'"
-        v-show="!$q.platform.is.mobile"
-        @click="$q.fullscreen.toggle()"
-        :icon="$q.fullscreen.isActive ? 'fullscreen_exit' : 'fullscreen'"
-      />
+      <q-btn flat round :icon="$q.dark.isActive ? `img:${iconTheme_white}` : `img:${iconTheme}`" @click="toggleTheme">
+        <q-tooltip>{{ $t('theme') }}</q-tooltip>
+      </q-btn>
+      <q-btn flat round :icon="$q.fullscreen.isActive ? $q.dark.isActive ? `img:${iconZoomout_white}` : `img:${iconZoomout}` : $q.dark.isActive ?
+      `img:${iconZoomin_white}` : `img:${iconZoomin}`" v-show="!$q.platform.is.mobile" @click="$q.fullscreen.toggle()">
+        <q-tooltip>{{ $t('fullscreen') }}</q-tooltip>
+      </q-btn>
     </q-toolbar>
 
     <DlgPDF :showDialog.sync="showDlgPDF" />
@@ -118,6 +81,7 @@
 <script>
 import { mapMutations } from 'vuex'
 import { i18n } from '../boot/i18n'
+import { GetQueryString } from 'src/helper/common'
 import DlgPDF from '../components/ExportPDF'
 import History from '../components/History'
 
@@ -127,12 +91,31 @@ export default {
     DlgPDF,
     History
   },
+  mounted() {
+    this.changeLanguage(GetQueryString('lan'))
+  },
   data() {
     return {
       showDlgPDF: false,
       showHistory: false,
-      logo: require('../assets/Vivitek Logo.png'),
-      logo_white: require('../assets/Vivitek Logo_white.png')
+      logo: require('../assets/Vivitek Logo.svg'),
+      logo_white: require('../assets/Vivitek Logo_white.svg'),
+      iconRefresh: require('../assets/icons/icon_refresh.svg'),
+      iconRefresh_white: require('../assets/icons/icon_refresh_white.svg'),
+      iconGuide: require('../assets/icons/icon_um.svg'),
+      iconGuide_white: require('../assets/icons/icon_um_white.svg'),
+      iconHistory: require('../assets/icons/icon_history.svg'),
+      iconHistory_white: require('../assets/icons/icon_history_white.svg'),
+      iconPDF: require('../assets/icons/icon_pdf.svg'),
+      iconPDF_white: require('../assets/icons/icon_pdf_white.svg'),
+      iconLanguage: require('../assets/icons/icon_language.svg'),
+      iconLanguage_white: require('../assets/icons/icon_language_white.svg'),
+      iconTheme: require('../assets/icons/icon_color.svg'),
+      iconTheme_white: require('../assets/icons/icon_color_white.svg'),
+      iconZoomout: require('../assets/icons/icon_zoom_out.svg'),
+      iconZoomout_white: require('../assets/icons/icon_zoom_out_white.svg'),
+      iconZoomin: require('../assets/icons/icon_zoom_in.svg'),
+      iconZoomin_white: require('../assets/icons/icon_zoom_in_white.svg')
     }
   },
   computed: {
@@ -157,9 +140,10 @@ export default {
         case 'es': import('quasar/lang/es').then(lang => { this.$q.lang.set(lang.default) }); break
         case 'de': import('quasar/lang/de').then(lang => { this.$q.lang.set(lang.default) }); break
         case 'it': import('quasar/lang/it').then(lang => { this.$q.lang.set(lang.default) }); break
-        case 'jpn': import('quasar/lang/ja').then(lang => { this.$q.lang.set(lang.default) }); break
+        case 'ja': import('quasar/lang/ja').then(lang => { this.$q.lang.set(lang.default) }); break
         case 'kr': import('quasar/lang/ko-kr').then(lang => { this.$q.lang.set(lang.default) }); break
-        case 'viet': import('quasar/lang/vi').then(lang => { this.$q.lang.set(lang.default) }); break
+        case 'vi': import('quasar/lang/vi').then(lang => { this.$q.lang.set(lang.default) }); break
+        default: i18n.locale = 'en-us'; break
       }
       this.$root.$emit('resetUnitLabel')
     },
@@ -167,7 +151,7 @@ export default {
       this.$root.$emit('resetPosition')
     },
     userGuide() {
-      window.open(`${location.origin}/guide/User's Manual.pdf`)
+      window.open(`${location.href}guide/User's Manual.pdf`)
     },
     toggleTheme() {
       this.$q.dark.toggle()

@@ -125,5 +125,14 @@ export default {
     yes: '是',
     confirmDeleteMessage: '確認刪除嗎?',
     confirmUpdateMessage: '確認更新嗎?',
-    maximumCount: '最多可保存10張快照'
+    maximumCount: '最多可保存10張快照',
+    grid: '四分格',
+    list: '二分格',
+    fullscreen: '滿屏幕',
+    refresh: '刷新',
+    guide: '用戶手冊',
+    snapshot: '快照',
+    pdf: 'PDF',
+    language: '語言',
+    theme: '主題'
 }

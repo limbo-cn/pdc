@@ -4,7 +4,7 @@ const fabric = window.fabric
 
 export default class Ruler {
     constructor(x = 300, y = 200) {
-        this._roomFill = Dark.isActive ? '#2c3b4f' : '#fffae6'
+        this._roomFill = Dark.isActive ? '#2c3b4f' : '#ffffff'
         this._roomStroke = Dark.isActive ? '#bde2ff' : '#01003d'
         this._roomStrokeWidth = 2
         this._titleFontSize = 18

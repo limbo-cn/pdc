@@ -61,6 +61,7 @@ export default class RulerV extends RulerBase {
             const titleObject = new fabric.Text('123', {
                 fontSize: this._titleFontSize,
                 fill: this._stroke,
+                fontFamily: 'delta-font',
                 evented: false
             })
             this._titleObjects.push(titleObject)
