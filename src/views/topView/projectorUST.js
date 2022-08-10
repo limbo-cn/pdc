@@ -11,7 +11,13 @@ export default class Projector {
         this._projectorStroke = 'rgb(181,181,182)'
         this._projectorStrokeWidth = 2
 
-        return this._generateProjector()
+        // return this._generateProjector()
+        this._generateProjector2().then(projector => {
+            this._projector = projector
+        })
+
+        this.xOffset = 10
+        this.yOffset = 10
     }
 
     _generateProjector(x, y) {
@@ -41,5 +47,25 @@ export default class Projector {
         })
 
         return projector
+    }
+
+    _generateProjector2(isReverse) {
+        const projectorImage = require('../../assets/icon_ultra_short_throw_projector_top.svg')
+
+        const promise = new Promise(function(resolve, reject) {
+            fabric.loadSVGFromURL(projectorImage, (objects, options) => {
+                const img = fabric.util.groupSVGElements(objects, options)
+
+                img.left = 0
+                img.top = 0
+
+                img.scaleX = 0.5
+                img.scaleY = 0.6
+
+                resolve(img)
+            })
+        })
+
+        return promise
     }
 }

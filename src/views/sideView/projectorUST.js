@@ -18,6 +18,10 @@ export default class Projector {
         this._generateProjector2().then(projector => {
             this._projector = projector
         })
+
+        this.xOffset = 12
+        this.yOffset = 8
+        this.yOffsetCeil = 20
     }
 
     _generateProjector(optionals) {

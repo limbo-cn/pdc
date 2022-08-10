@@ -2,7 +2,7 @@ import store from '../../store'
 import bus from '../../helper/bus'
 import { calcFromScreenMax, calcFromScreenMin, toFixedNumber } from '../../helper/common'
 import Projector, { projectorRect } from './projector'
-import ProjectorUST, { projectorRect as projectorRectUST } from './projectorUST'
+import ProjectorUST from './projectorUST'
 import Showcase from '../components/showcase'
 import BaseView from '../components/baseView'
 import Shadow from '../components/shadow'
@@ -23,6 +23,8 @@ export default class TopView extends BaseView {
         this._shadow = null
         this._availableRange = null
         this._isMoving = false
+
+        this.ustModel = new ProjectorUST()
     }
 
     setProjectorProp() {
@@ -48,7 +50,7 @@ export default class TopView extends BaseView {
         if (this._projector) {
             this._canvas.remove(this._projector)
         }
-        this._projector = store.state.projector.isUST ? new ProjectorUST() : new Projector()
+        this._projector = store.state.projector.isUST ? this.ustModel._projector : new Projector()
         const _this = this
         this._projector.on({
             'moving'(e) {
@@ -70,14 +72,14 @@ export default class TopView extends BaseView {
     }
 
     _movingProjector(e) {
-        this._projectorCenter.x = e.transform.target.left + projectorRect.camera.x
+        this._projectorCenter.x = e.transform.target.left + (store.state.projector.isUST ? this.ustModel.xOffset : projectorRect.camera.x)
         if (this._projectorCenter.x <= this._projectorProp.fromScreenMinDraw) {
             this._projectorCenter.x = this._projectorProp.fromScreenMinDraw
         }
         if (this._projectorCenter.x >= this._projectorProp.fromScreenMaxDraw) {
             this._projectorCenter.x = this._projectorProp.fromScreenMaxDraw
         }
-        this._projectorCenter.y = e.transform.target.top + projectorRect.body.y / 2
+        this._projectorCenter.y = e.transform.target.top + (store.state.projector.isUST ? this.ustModel.yOffset : projectorRect.body.y / 2)
         if (this._projectorCenter.y <= 0) {
             this._projectorCenter.y = 0
         }
@@ -99,15 +101,15 @@ export default class TopView extends BaseView {
     }
 
     _setProjectorOffset() {
-        const modelSize = projectorRectUST.body.x + projectorRectUST.camera.x / 2
-        const realDrawOffset = this._projectorCenter.x - modelSize
-        let xOffset = projectorRectUST.body.x + projectorRectUST.camera.x / 2
-        if (realDrawOffset < 2 * modelSize) {
-            xOffset = (modelSize + realDrawOffset) / (3 * modelSize) * xOffset
-        }
+        // const modelSize = projectorRectUST.body.x + projectorRectUST.camera.x / 2
+        // const realDrawOffset = this._projectorCenter.x - modelSize
+        // let xOffset = projectorRectUST.body.x + projectorRectUST.camera.x / 2
+        // if (realDrawOffset < 2 * modelSize) {
+        //     xOffset = (modelSize + realDrawOffset) / (3 * modelSize) * xOffset
+        // }
         const angle = store.state.projector.angleH
         if (store.state.projector.isUST) {
-            this._rotateObjectByPoint(this._projector, angle, xOffset, projectorRect.body.y / 2)
+            this._rotateObjectByPoint(this._projector, angle, this.ustModel.xOffset, this.ustModel.yOffset)
         } else {
             this._rotateObjectByPoint(this._projector, angle, projectorRect.camera.x, projectorRect.body.y / 2)
         }

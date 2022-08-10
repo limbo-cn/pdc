@@ -3,6 +3,7 @@ import bus from '../../helper/bus'
 import { toFixedNumber } from '../../helper/common'
 
 import Projector, { projectorRect } from './projector'
+import ProjectorUST from './projectorUST'
 import BaseView from '../components/baseView'
 import Light from '../components/light'
 import MountPlate from '../components/mountPlate'
@@ -24,6 +25,8 @@ export default class FrontView extends BaseView {
         this._mountPlateTitle = null
 
         this._movableArea = null
+
+        this.ustModel = new ProjectorUST()
     }
 
     setProjectorProp() {
@@ -42,9 +45,11 @@ export default class FrontView extends BaseView {
 
     _initProjector() {
         if (this._projector) {
-            return
+            this._canvas.remove(this._projector)
+            this._projector = null
         }
-        this._projector = new Projector()
+
+        this._projector = store.state.projector.isUST ? this.ustModel._projector : new Projector()
         const _this = this
         this._projector.on({
             'moving'(e) {
@@ -66,14 +71,14 @@ export default class FrontView extends BaseView {
     }
 
     _movingProjector(e) {
-        this._projectorCenter.x = e.transform.target.left + projectorRect.body.x / 2
+        this._projectorCenter.x = e.transform.target.left + (store.state.projector.isUST ? this.ustModel.xOffset : projectorRect.body.x / 2)
         if (this._projectorCenter.x <= 0) {
             this._projectorCenter.x = 0
         }
         if (this._projectorCenter.x >= this._roomSize.drawX) {
             this._projectorCenter.x = this._roomSize.drawX
         }
-        this._projectorCenter.y = e.transform.target.top + projectorRect.body.y / 2
+        this._projectorCenter.y = e.transform.target.top + (store.state.projector.isUST ? this.ustModel.yOffset : projectorRect.body.y / 2)
         if (this._projectorCenter.y <= 0) {
             this._projectorCenter.y = 0
         }
@@ -95,7 +100,11 @@ export default class FrontView extends BaseView {
     }
 
     _setProjectorOffset() {
-        this._projector.setOptions({ left: this._projectorCenter.x - projectorRect.body.x / 2, top: this._projectorCenter.y - projectorRect.body.y / 2 })
+        if (store.state.projector.isUST) {
+            this._projector.setOptions({ left: this._projectorCenter.x - this.ustModel.xOffset, top: this._projectorCenter.y - this.ustModel.yOffset })
+        } else {
+            this._projector.setOptions({ left: this._projectorCenter.x - projectorRect.body.x / 2, top: this._projectorCenter.y - projectorRect.body.y / 2 })
+        }
         this._projector.setCoords()
     }
 

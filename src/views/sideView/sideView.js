@@ -49,8 +49,6 @@ export default class SideView extends BaseView {
     }
 
     _initProjector() {
-        this._isInit = true
-
         if (this._projector) {
             this._canvas.remove(this._projector)
             this._projector = null
@@ -76,12 +74,10 @@ export default class SideView extends BaseView {
             }
         })
         this._canvas.add(this._projector)
-
-        this._isInit = false
     }
 
     _movingProjector(e) {
-        this._projectorCenter.x = e.transform.target.left + (store.state.projector.isUST ? 12 : projectorRect.camera.x)
+        this._projectorCenter.x = e.transform.target.left + (store.state.projector.isUST ? this.ustModel.xOffset : projectorRect.camera.x)
         if (this._projectorCenter.x >= this._projectorProp.fromScreenMaxDraw) {
             this._projectorCenter.x = this._projectorProp.fromScreenMaxDraw
         }
@@ -89,7 +85,7 @@ export default class SideView extends BaseView {
             this._projectorCenter.x = this._projectorProp.fromScreenMinDraw
         }
 
-        this._projectorCenter.y = e.transform.target.top + projectorRect.body.y / 2
+        this._projectorCenter.y = e.transform.target.top + (store.state.projector.isUST ? this.ustModel.yOffset : projectorRect.body.y / 2)
         if (this._projectorCenter.y >= this._roomSize.drawY) {
             this._projectorCenter.y = this._roomSize.drawY
         }
@@ -114,8 +110,8 @@ export default class SideView extends BaseView {
         const angle = store.state.projector.angleV
         if (store.state.projector.isUST) {
             const isReverse = store.state.common.installation === installationType.ceiling
-            !isReverse && this._rotateObjectByPoint(this._projector, angle, 12, 8)
-            isReverse && this._rotateObjectByPoint(this._projector, angle, 12, 20)
+            !isReverse && this._rotateObjectByPoint(this._projector, angle, this.ustModel.xOffset, this.ustModel.yOffset)
+            isReverse && this._rotateObjectByPoint(this._projector, angle, this.ustModel.xOffset, this.ustModel.yOffsetCeil)
         } else {
             this._rotateObjectByPoint(this._projector, angle, projectorRect.camera.x, projectorRect.body.y / 2)
         }
