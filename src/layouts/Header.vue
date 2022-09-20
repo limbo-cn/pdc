@@ -1,5 +1,6 @@
 <template>
   <q-header reveal :style="{ background: $q.dark.isActive ? '#1e1f26' : 'white' }">
+    <div style="height:8px" class="delta-gradient-bg"></div>
     <q-toolbar class="shadow-2">
       <q-btn flat dense round :color="$q.dark.isActive ? 'white' : 'green'" icon="menu" aria-label="Menu"
         v-show="!leftDrawerOpen && $q.platform.is.mobile" @click="leftDrawerOpen = !leftDrawerOpen" />
@@ -8,7 +9,7 @@
         class="rounded-borders" style="height: 40px;padding: 2px; max-width: 150px;" />
       <q-toolbar-title>
         <div v-show="!$q.platform.is.mobile" style="font-weight:bold"
-          :style="{ color: $q.dark.isActive ? 'white' : '#595959' }">Projector Distance Calculator</div>
+          :style="{ color: $q.dark.isActive ? 'white' : '#595959' }">Projection Distance Calculator</div>
       </q-toolbar-title>
 
       <q-btn flat round :icon="$q.dark.isActive ? `img:${iconRefresh_white}` : `img:${iconRefresh}`"

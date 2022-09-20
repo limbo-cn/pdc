@@ -1,0 +1,922 @@
+{
+	"projectorModels": [
+		{
+			"ModelName": "E-Vision Laser 5100",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 4500,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "2,000:1",
+			"Throw Ratio": {
+				"min": 1.15,
+				"max": 1.9
+			},
+			"Distance": {
+				"min": 0.76,
+				"max": 3.23,
+				"unit": "m"
+			},
+			"AspectRatio": "16/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -15,
+					"max": 55
+				},
+				"Horizontal": {
+					"min": -5,
+					"max": 5
+				}
+			},
+			"Image Size": {
+				"min": 70.6,
+				"max": 125.4
+			},
+			"Optional Lens": null,
+			"Weight": {
+				"value": 10.5,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/E-Vision LASER 5100.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/e-vision-laser-5100-wuxga/"
+		},
+		{
+			"ModelName": "E-Vision Laser 5900",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 5300,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "Contrast Ratio: 2,000:1 Native 20,000:1 Dynamic",
+			"Throw Ratio": {
+				"min": 1.15,
+				"max": 1.9
+			},
+			"Distance": {
+				"min": 1.5,
+				"max": 5.0,
+				"unit": "m"
+			},
+			"AspectRatio": "16/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -15,
+					"max": 55
+				},
+				"Horizontal": {
+					"min": -5,
+					"max": 5
+				}
+			},
+			"Image Size": {
+				"min": 60.6,
+				"max": 201.9
+			},
+			"Optional Lens": null,
+			"Weight": {
+				"value": 10.5,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/E-Vision LASER 5900.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/e-vision-laser-5900-wuxga/"
+		},
+		{
+			"ModelName": "E-Vision Laser 6500 II",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 6500,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "Contrast Ratio: 20,000:1 (Dynamic)",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -15,
+					"max": 55
+				},
+				"Horizontal": {
+					"min": -5,
+					"max": 5
+				}
+			},
+			"Optional Lens": [
+				"114-785",
+				"119-001",
+				"116-207",
+				"119-430",
+				"114-783",
+				"114-784",
+				"116-208"
+			],
+			"Weight": {
+				"value": 25,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/E-Vision Laser 6500.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/e-vision-laser-6500-ii/"
+		},
+		{
+			"ModelName": "E-Vision Laser 9000",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 8000,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "Contrast Ratio: 20,000:1 (Dynamic)",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -15,
+					"max": 55
+				},
+				"Horizontal": {
+					"min": -5,
+					"max": 5
+				}
+			},
+			"Optional Lens": [
+				"114-785",
+				"119-001",
+				"116-207",
+				"119-430",
+				"114-783",
+				"114-784",
+				"116-208"
+			],
+			"Weight": {
+				"value": 25,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/E-Vision Laser 9000.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/e-vision-laser-9000/"
+		},
+		{
+			"ModelName": "E-Vision 9100",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 7700,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "Contrast Ratio: 20,000:1 (Dynamic)",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -30,
+					"max": 50
+				},
+				"Horizontal": {
+					"min": -10,
+					"max": 20
+				}
+			},
+			"Optional Lens": [
+				"117-341",
+				"115-339",
+				"112-499",
+				"112-500",
+				"112-501",
+				"112-502",
+				"112-503",
+				"112-504"
+			],
+			"Weight": {
+				"value": 27.5,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/E-Vision 9100.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/e-vision-laser-9100/"
+		},
+		{
+			"ModelName": "E-Vision Laser 4K-UHD",
+			"Resolution": {
+				"Desc": "4K-UHD",
+				"width": 3840,
+				"height": 2160
+			},
+			"Brightness": {
+				"value": 7000,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "Contrast Ratio: 10,000:1 (Dynamic Black) 1,000:1 native",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/9",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -30,
+					"max": 50
+				},
+				"Horizontal": {
+					"min": -10,
+					"max": 20
+				}
+			},
+			"Optional Lens": [
+				"117-341",
+				"115-339",
+				"112-499",
+				"112-500",
+				"112-501",
+				"112-502",
+				"112-503",
+				"112-504"
+			],
+			"Weight": {
+				"value": 28.15,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/E-Vision Laser 4K-UHD.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/e-vision-laser-4k-uhd/"
+		},
+		{
+			"ModelName": "E-Vision Laser 8500",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 8500,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "Contrast Ratio: 10,000:1 (Dynamic Black) 1,000:1 native",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -30,
+					"max": 50
+				},
+				"Horizontal": {
+					"min": -10,
+					"max": 20
+				}
+			},
+			"Optional Lens": [
+				"117-341",
+				"115-339",
+				"112-499",
+				"112-500",
+				"112-501",
+				"112-502",
+				"112-503",
+				"112-504"
+			],
+			"Weight": {
+				"value": 28,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/E-Vision Laser 4K-UHD.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/e-vision-laser-8500/"
+		},
+		{
+			"ModelName": "E-Vision Laser 10K",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 10000,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "Contrast Ratio: 10,000:1 (Dynamic Black) 1,000:1 native",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -30,
+					"max": 50
+				},
+				"Horizontal": {
+					"min": -10,
+					"max": 20
+				}
+			},
+			"Optional Lens": [
+				"117-341",
+				"115-339",
+				"112-499",
+				"112-500",
+				"112-501",
+				"112-502",
+				"112-503",
+				"112-504"
+			],
+			"Weight": {
+				"value": 28,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/E-Vision Laser 4K-UHD.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/e-vision-laser-10k/"
+		},
+		{
+			"ModelName": "E-Vision Laser 11000 4K-UHD",
+			"Resolution": {
+				"Desc": "4K-UHD",
+				"width": 3840,
+				"height": 2160
+			},
+			"Brightness": {
+				"value": 9500,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "Contrast Ratio: 6,000:1 (Dynamic Black) 1,000:1 native",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/9",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -30,
+					"max": 50
+				},
+				"Horizontal": {
+					"min": -10,
+					"max": 20
+				}
+			},
+			"Optional Lens": [
+				"117-341",
+				"115-339",
+				"112-499",
+				"112-500",
+				"112-501",
+				"112-502",
+				"112-503",
+				"112-504"
+			],
+			"Weight": {
+				"value": 31,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/E-Vision Laser 4K-UHD.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/e-vision-laser-11000-4k-uhd/"
+		},
+		{
+			"ModelName": "E-Vision Laser 13000 WU",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 12000,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "Contrast Ratio: 10,000:1 (Dynamic Black) 1,000:1 native",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -30,
+					"max": 50
+				},
+				"Horizontal": {
+					"min": -10,
+					"max": 20
+				}
+			},
+			"Optional Lens": [
+				"117-341",
+				"115-339",
+				"112-499",
+				"112-500",
+				"112-501",
+				"112-502",
+				"112-503",
+				"112-504"
+			],
+			"Weight": {
+				"value": 31,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/E-Vision Laser 4K-UHD.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/e-vision-laser-13000/"
+		},
+		{
+			"ModelName": "E-Vision Laser 15000 WU",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 13500,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "Contrast Ratio: 10,000:1 (Dynamic Black) 1,000:1 native",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -30,
+					"max": 50
+				},
+				"Horizontal": {
+					"min": -10,
+					"max": 20
+				}
+			},
+			"Optional Lens": [
+				"117-341",
+				"115-339",
+				"112-499",
+				"112-500",
+				"112-501",
+				"112-502",
+				"112-503",
+				"112-504"
+			],
+			"Weight": {
+				"value": 29.5,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/E-Vision Laser 4K-UHD.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/e-vision-laser-15000/"
+		},
+		{
+			"ModelName": "E-Vision 4000 4K-UHD",
+			"Resolution": {
+				"Desc": "4K-UHD",
+				"width": 3840,
+				"height": 2160
+			},
+			"Brightness": {
+				"value": 3300,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "Contrast Ratio: 500,000:1 Advanced Black. 1,300:1 native",
+			"Throw Ratio": {
+				"min": 1.13,
+				"max": 1.7
+			},
+			"Distance": {
+				"min": 1.6,
+				"max": 8.0,
+				"unit": "m"
+			},
+			"AspectRatio": "16/9",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -60,
+					"max": 60
+				},
+				"Horizontal": {
+					"min": -20,
+					"max": 20
+				}
+			},
+			"Image Size": {
+				"min": 42.51,
+				"max": 319.8
+			},
+			"Optional Lens": null,
+			"Weight": {
+				"value": 49,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/E-Vision 4000.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/e-vision-4000-4k-uhd/"
+		},
+		{
+			"ModelName": "Insight Laser 8K",
+			"Resolution": {
+				"Desc": "8K-UHD",
+				"width": 7680,
+				"height": 4320
+			},
+			"Brightness": {
+				"value": 37000,
+				"unit": "ISO Lumen"
+			},
+			"Contrast Ratio": "2,000:1",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "19/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -50,
+					"max": 30
+				},
+				"Horizontal": {
+					"min": -15,
+					"max": 15
+				}
+			},
+			"Optional Lens": [
+				"115-627",
+				"115-630",
+				"115-632"
+			],
+			"Weight": {
+				"value": 132,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/INSIGHT Laser 8K.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/insight-laser-8k/"
+		},
+		{
+			"ModelName": "Insight 4K HFR 360",
+			"Resolution": {
+				"Desc": "Native 4K",
+				"width": 4096,
+				"height": 2160
+			},
+			"Brightness": {
+				"value": 27000,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "2,000:1",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "19/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -20,
+					"max": 40
+				},
+				"Horizontal": {
+					"min": -10,
+					"max": 14
+				}
+			},
+			"Optional Lens": [
+				"117-310",
+				"115-627",
+				"115-630",
+				"115-632"
+			],
+			"Weight": {
+				"value": 100,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/INSIGHT 4K HFR 360.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/insight-4k-hfr-360/"
+		},
+		{
+			"ModelName": "M-Vision Laser 18K",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 18000,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "10,000:1",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -30,
+					"max": 50
+				},
+				"Horizontal": {
+					"min": -15,
+					"max": 15
+				}
+			},
+			"Optional Lens": [
+				"120-624",
+				"120-625",
+				"120-626",
+				"120-627",
+				"120-628"
+			],
+			"Weight": {
+				"value": 49,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/M-Vision Laser.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/m-vision-laser-18k/"
+		},
+		{
+			"ModelName": "M-Vision Laser 21000",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 21000,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "10,000:1",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -50,
+					"max": 30
+				},
+				"Horizontal": {
+					"min": -15,
+					"max": 15
+				}
+			},
+			"Optional Lens": [
+				"120-624",
+				"120-625",
+				"120-626",
+				"120-627",
+				"120-628"
+			],
+			"Weight": {
+				"value": 49,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/M-Vision Laser.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/m-vision-laser-21000-wu/"
+		},
+		{
+			"ModelName": "M-Vision Laser 23000 WU",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 23000,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "10,000:1",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/10",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -50,
+					"max": 30
+				},
+				"Horizontal": {
+					"min": -15,
+					"max": 15
+				}
+			},
+			"Optional Lens": [
+				"120-624",
+				"120-625",
+				"120-626",
+				"120-627",
+				"120-628"
+			],
+			"Weight": {
+				"value": 49,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/M-Vision Laser.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/m-vision-laser-21000-wu/"
+		},
+		{
+			"ModelName": "Titan Laser 37000 WU",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 33000,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "18,000:1 (Dynamic Black) / 2,000:1 Native",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/9",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -45,
+					"max": 56.7
+				},
+				"Horizontal": {
+					"min": -18.8,
+					"max": 18.8
+				}
+			},
+			"Optional Lens": [
+				"120-510",
+				"120-511",
+				"120-827",
+				"105-607",
+				"105-608",
+				"109-236",
+				"105-610",
+				"105-611",
+				"105-612",
+				"105-613",
+				"109-235"
+			],
+			"Weight": {
+				"value": 95,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/titan-laser-series.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/titan-laser/"
+		},
+		{
+			"ModelName": "Titan Laser 29000 WU",
+			"Resolution": {
+				"Desc": "WUXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 26000,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "18,000:1 (Dynamic Black) / 2,000:1 Native",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/9",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -50,
+					"max": 30
+				},
+				"Horizontal": {
+					"min": -15,
+					"max": 15
+				}
+			},
+			"Optional Lens": [
+				"120-510",
+				"120-511",
+				"120-827",
+				"105-607",
+				"105-608",
+				"109-236",
+				"105-610",
+				"105-611",
+				"105-612",
+				"105-613",
+				"109-235"
+			],
+			"Weight": {
+				"value": 95,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/titan-laser-series.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/titan-laser/"
+		},
+		{
+			"ModelName": "Titan Laser 33000 4K-UHD",
+			"Resolution": {
+				"Desc": "4K-UHD",
+				"width": 3840,
+				"height": 2160
+			},
+			"Brightness": {
+				"value": 27500,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "18,000:1 (Dynamic Black) / 2,000:1 Native",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/9",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -50,
+					"max": 30
+				},
+				"Horizontal": {
+					"min": -15,
+					"max": 15
+				}
+			},
+			"Optional Lens": [
+				"120-510",
+				"120-511",
+				"120-827",
+				"109-236",
+				"105-610",
+				"105-611",
+				"105-612",
+				"105-613",
+				"109-235"
+			],
+			"Weight": {
+				"value": 95,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/titan-laser-series.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/titan-laser/"
+		},
+		{
+			"ModelName": "Titan Laser 26000 4K-UHD",
+			"Resolution": {
+				"Desc": "4K-UHD",
+				"width": 3840,
+				"height": 2160
+			},
+			"Brightness": {
+				"value": 22500,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "18,000:1 (Dynamic Black) / 2,000:1 Native",
+			"Throw Ratio": null,
+			"Distance": null,
+			"AspectRatio": "16/9",
+			"Offset": 0,
+			"defaultDiagonal": 100,
+			"Lens Shift": {
+				"Vertical": {
+					"min": -50,
+					"max": 62.9
+				},
+				"Horizontal": {
+					"min": -18.8,
+					"max": 18.8
+				}
+			},
+			"Optional Lens": [
+				"120-510",
+				"120-511",
+				"120-827",
+				"109-236",
+				"105-610",
+				"105-611",
+				"105-612",
+				"105-613",
+				"109-235"
+			],
+			"Weight": {
+				"value": 95,
+				"unit": "kg"
+			},
+			"Picture": "Projectors/titan-laser-series.png",
+			"URL": "https://www.digitalprojection.com/emea/dp-projectors/titan-laser/"
+		}
+	]
+}

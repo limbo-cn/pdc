@@ -16,8 +16,8 @@ export default class Projector {
             this._projector = projector
         })
 
-        this.xOffset = 10
-        this.yOffset = 10
+        this.xOffset = 40
+        this.yOffset = 19
     }
 
     _generateProjector(x, y) {
@@ -58,9 +58,6 @@ export default class Projector {
 
                 img.left = 0
                 img.top = 0
-
-                img.scaleX = 0.5
-                img.scaleY = 0.6
 
                 resolve(img)
             })

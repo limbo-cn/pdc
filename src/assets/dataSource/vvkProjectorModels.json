@@ -1,5 +1,5 @@
 {
-	"vvkProjectorModels": [
+	"projectorModels": [
 		{
 			"ModelName": "DX881ST",
 			"Resolution": {
@@ -245,7 +245,7 @@
 				"max": 0.446
 			},
 			"AspectRatio": "16/10",
-			"Offset": 140,
+			"Offset": 144,
 			"defaultDiagonal": 90,
 			"Lens Shift": null,
 			"Optional Lens": null,
@@ -288,7 +288,7 @@
 				"max": 0.446
 			},
 			"AspectRatio": "16/10",
-			"Offset": 124,
+			"Offset": 144,
 			"defaultDiagonal": 90,
 			"Lens Shift": null,
 			"Optional Lens": null,
@@ -2149,6 +2149,52 @@
 			},
 			"Picture": "Projectors/DH3665ZN.png",
 			"URL": "https://www.vivitek.eu/Category/Multimedia-Projectors/1230/DH3665ZN"
+		},
+		{
+			"ModelName": "DU775Z-UST",
+			"Resolution": {
+				"Desc": "WXGA",
+				"width": 1920,
+				"height": 1200
+			},
+			"Brightness": {
+				"value": 4500,
+				"unit": "ANSI Lumen"
+			},
+			"Contrast Ratio": "20,000:1",
+			"Throw Ratio": {
+				"min": 0.25,
+				"max": 0.25
+			},
+			"Distance": {
+				"min": 0.043,
+				"max": 0.446
+			},
+			"AspectRatio": "16/10",
+			"Offset": 144,
+			"defaultDiagonal": 100,
+			"Lens Shift": null,
+			"Optional Lens": null,
+			"Weight": {
+				"value": 9.0,
+				"unit": "kg"
+			},
+			"ustTR": {
+				"70": 0.2228,
+				"80": 0.2228,
+				"87": 0.2224,
+				"90": 0.2225,
+				"100": 0.2233,
+				"120": 0.2274,
+				"150": 0.2287
+			},
+			"size": {
+				"x": 0.293,
+				"y": 0.125
+			},
+			"isUST": true,
+			"Picture": "Projectors/DU775Z-UST.png",
+			"URL": "https://www.vivitek.eu/Category/Education-Projectors/215/DW770UST"
 		}
 	]
 }

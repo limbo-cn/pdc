@@ -1,28 +1,30 @@
 <template>
   <div>
-    <q-card-section :class="{'title-section-dark':$q.dark.isActive,'title-section-light':!$q.dark.isActive}">
+    <q-card-section :class="{ 'title-section-dark': $q.dark.isActive, 'title-section-light': !$q.dark.isActive }">
       <div class="row items-center">
-        <q-btn-dropdown flat :color="$q.dark.isActive?'primary':'positive'" :label="$t('threeView')">
+        <q-btn-dropdown flat :color="$q.dark.isActive ? 'primary' : 'positive'" :label="$t('threeView')"
+          :disable="layoutModel === 'grid'" :dropdown-icon="layoutModel === 'grid' ? 'none' : ''">
           <q-list>
             <q-item clickable v-close-popup @click="handleSwitch(`SideView`)">
               <q-item-section>
-                <q-item-label>{{$t('sideView')}}</q-item-label>
+                <q-item-label>{{ $t('sideView') }}</q-item-label>
               </q-item-section>
             </q-item>
             <q-item clickable v-close-popup @click="handleSwitch(`FrontView`)">
               <q-item-section>
-                <q-item-label>{{$t('frontView')}}</q-item-label>
+                <q-item-label>{{ $t('frontView') }}</q-item-label>
               </q-item-section>
             </q-item>
             <q-item clickable v-close-popup @click="handleSwitch(`TopView`)">
               <q-item-section>
-                <q-item-label>{{$t('topView')}}</q-item-label>
+                <q-item-label>{{ $t('topView') }}</q-item-label>
               </q-item-section>
             </q-item>
           </q-list>
         </q-btn-dropdown>
         <q-space />
-        <q-checkbox :color="$q.dark.isActive?'primary':'positive'" v-model="changeProjector" @input="changeChangeProjector" :label="$t('changeProjector')" />
+        <q-checkbox :color="$q.dark.isActive ? 'primary' : 'positive'" v-model="changeProjector"
+          @input="changeChangeProjector" :label="$t('changeProjector')" />
       </div>
     </q-card-section>
     <q-separator />
@@ -49,6 +51,9 @@ export default {
     }
   },
   computed: {
+    layoutModel() {
+      return this.$store.state.common.layoutModel
+    }
   },
   methods: {
     ...mapActions('common', ['switchViews']),
@@ -69,5 +74,4 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
 </style>

@@ -1,8 +1,10 @@
 <template>
   <q-dialog :value="showDialog" @hide="hideDialog" @show="showPDF" full-height>
     <q-layout view="hHh lpR fFf" container class="bg-white" style="width: 800px; max-width: 90vw;">
-      <q-header class="delta-gradient-bg-2" :style="{background:$q.dark.isActive?'#445a4d':''}">
-        <q-toolbar>
+      <q-header>
+        <div style="height:8px" class="delta-gradient-bg"></div>
+        <q-toolbar class="shadow-2"
+          :style="{ background: $q.dark.isActive ? '#222222' : '#ffffff', color: $q.dark.isActive ? '#ffffff' : '#222222' }">
           <q-toolbar-title>{{$t('exportPdf')}}</q-toolbar-title>
           <q-btn icon="close" flat round dense v-close-popup />
         </q-toolbar>
@@ -217,14 +219,14 @@ export default {
       savingImage: false,
       projectorImage: null,
       lensImage: null,
-      svgSrc: require('../assets/Lens/Lens shutter.svg'),
+      svgSrc: require('../assets/Lens_fixed.svg'),
       pdfName: ''
     }
   },
   computed: {
     selectedProjectorTypeName() {
       let tpyeName = ''
-      this.$store.state.dataSource.projectorType.vvkProjectorTypes.forEach(o => {
+      this.$store.state.dataSource.projectorType.projectorTypes.forEach(o => {
         if (o.Models.includes(this.$store.state.dataSource.selectedModelName)) {
           tpyeName = o.Type
         }
@@ -304,7 +306,7 @@ export default {
       return this.$store.state.ambient.screenGain
     },
     currentLuminous() {
-      const selectedProjector = this.$store.state.dataSource.projectorModels.vvkProjectorModels.find(o => o.ModelName === this.$store.state.dataSource.selectedModelName)
+      const selectedProjector = this.$store.state.dataSource.projectorModels.projectorModels.find(o => o.ModelName === this.$store.state.dataSource.selectedModelName)
       if (selectedProjector) {
         return selectedProjector.Brightness.value
       } else {

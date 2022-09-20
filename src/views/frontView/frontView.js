@@ -49,7 +49,9 @@ export default class FrontView extends BaseView {
             this._projector = null
         }
 
+        const isReverse = store.state.common.installation === installationType.ceiling
         this._projector = store.state.projector.isUST ? this.ustModel._projector : new Projector()
+        this._projector.flipY = isReverse
         const _this = this
         this._projector.on({
             'moving'(e) {
@@ -71,6 +73,7 @@ export default class FrontView extends BaseView {
     }
 
     _movingProjector(e) {
+        const isReverse = store.state.common.installation === installationType.ceiling
         this._projectorCenter.x = e.transform.target.left + (store.state.projector.isUST ? this.ustModel.xOffset : projectorRect.body.x / 2)
         if (this._projectorCenter.x <= 0) {
             this._projectorCenter.x = 0
@@ -78,7 +81,7 @@ export default class FrontView extends BaseView {
         if (this._projectorCenter.x >= this._roomSize.drawX) {
             this._projectorCenter.x = this._roomSize.drawX
         }
-        this._projectorCenter.y = e.transform.target.top + (store.state.projector.isUST ? this.ustModel.yOffset : projectorRect.body.y / 2)
+        this._projectorCenter.y = e.transform.target.top + (store.state.projector.isUST ? (isReverse ? this.ustModel.yOffsetCeil : this.ustModel.yOffset) : projectorRect.body.y / 2)
         if (this._projectorCenter.y <= 0) {
             this._projectorCenter.y = 0
         }
@@ -101,7 +104,9 @@ export default class FrontView extends BaseView {
 
     _setProjectorOffset() {
         if (store.state.projector.isUST) {
-            this._projector.setOptions({ left: this._projectorCenter.x - this.ustModel.xOffset, top: this._projectorCenter.y - this.ustModel.yOffset })
+            const isReverse = store.state.common.installation === installationType.ceiling
+            !isReverse && this._projector.setOptions({ left: this._projectorCenter.x - this.ustModel.xOffset, top: this._projectorCenter.y - this.ustModel.yOffset })
+            isReverse && this._projector.setOptions({ left: this._projectorCenter.x - this.ustModel.xOffset, top: this._projectorCenter.y - this.ustModel.yOffsetCeil })
         } else {
             this._projector.setOptions({ left: this._projectorCenter.x - projectorRect.body.x / 2, top: this._projectorCenter.y - projectorRect.body.y / 2 })
         }
@@ -255,7 +260,7 @@ export default class FrontView extends BaseView {
             const objects = this._rulerLeft.getObjects()
             objects.forEach(o => {
                 if (o.type === 'text') {
-                    o.left = this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 10
+                    o.left = this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 15
                 }
             })
         } else {
@@ -263,7 +268,7 @@ export default class FrontView extends BaseView {
             const objects = this._rulerLeft.getObjects()
             objects.forEach(o => {
                 if (o.type === 'text') {
-                    o.left += this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 10
+                    o.left += this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 15
                 } else {
                     o.left -= 10
                 }
@@ -370,7 +375,7 @@ export default class FrontView extends BaseView {
     _generateObjects() {
         this._generateLightArea()
         this._generateDiagonal()
-        this._generateMountPlate()
+        // this._generateMountPlate()
         this._generateAxis()
         this._generateRuler()
         this._generateMovableArea()

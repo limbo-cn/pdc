@@ -84,7 +84,7 @@ export default {
   // 3d view
   changeProjector: 'Change Position',
   // ambient
-  application: 'Application',
+  application: 'Scenarios',
   meetingRoom: 'Meeting Room',
   classRoom: 'Class Room',
   eventHall: 'Event Hall',
@@ -93,7 +93,7 @@ export default {
   custom: 'Custom',
   roomBrightness: 'Room Brightness',
   screenGain: 'Screen Gain',
-  brightnessOnScreen: 'Brightness On Screen',
+  brightnessOnScreen: 'Screen Illuminance',
   actualContrast: 'Actual Contrast',
   tooLow: 'too Low',
   limit: 'limit',

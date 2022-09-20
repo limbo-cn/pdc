@@ -293,7 +293,7 @@ export default class TopView extends BaseView {
             const objects = this._rulerLeft.getObjects()
             objects.forEach(o => {
                 if (o.type === 'text') {
-                    o.left = this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 10
+                    o.left = this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 15
                 }
             })
         } else {
@@ -301,7 +301,7 @@ export default class TopView extends BaseView {
             const objects = this._rulerLeft.getObjects()
             objects.forEach(o => {
                 if (o.type === 'text') {
-                    o.left += this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 10
+                    o.left += this._rulerLeft.getLeftMarkOffset(optionsLeft.marks) + 15
                 } else {
                     o.left -= 10
                 }
@@ -317,7 +317,17 @@ export default class TopView extends BaseView {
         const fromScreen = store.state.projector.fromScreen
         const sizeX = store.state.projector.size.x
         const x = isUST ? (fromScreen - sizeX) : fromScreen
-        bottomMarks.push({ title: `${toFixedNumber((x - store.state.screen.screenOffset) * store.state.common.unitRatio, 3)}`, length: isUST ? this._projector.left : this._projectorCenter.x - store.state.screen.screenOffset * this._roomSize.ratio })
+
+        if (isUST) {
+            this._projector.clipPath = new fabric.Rect({
+                left: -this._projector.width / 2 + (this._ustAxis?.left - this._projector?.left),
+                top: -this._projector.height / 2,
+                width: this._projector.width,
+                height: this._projector.height
+            })
+        }
+
+        bottomMarks.push({ title: `${toFixedNumber((x - store.state.screen.screenOffset) * store.state.common.unitRatio, 3)}`, length: isUST ? x * this._roomSize.ratio : this._projectorCenter.x - store.state.screen.screenOffset * this._roomSize.ratio })
         if (this._availableRange.width > 0 && this._availableRange.left + this._availableRange.width < this._roomSize.drawX) {
             bottomMarks.push({ title: `${toFixedNumber(this._availableRange.width / this._roomSize.ratio * store.state.common.unitRatio, 3)}`, length: this._availableRange.width })
             bottomMarks.push({
@@ -361,6 +371,8 @@ export default class TopView extends BaseView {
         this._generateRuler()
         this._canvas.bringToFront(this._availableRange)
         this._canvas.bringToFront(this._projector)
+        this._canvas.bringToFront(this._lightBottom)
+        this._canvas.bringToFront(this._lightTop)
         this._canvas.bringToFront(this._shadow)
         this._showcases.forEach(showcase => { this._canvas.bringToFront(showcase) })
         this._canvas.bringToFront(this._hAxis)

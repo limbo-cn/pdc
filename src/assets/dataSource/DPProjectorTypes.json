@@ -1,0 +1,49 @@
+{
+	"projectorTypes": [
+		{
+			"Type": "TITAN",
+			"Models": [
+				"Titan Laser 37000 WU",
+				"Titan Laser 33000 4K-UHD",
+				"Titan Laser 29000 WU",
+				"Titan Laser 26000 4K-UHD"
+			],
+			"Picture": "ProjectorTypes/titan-laser-series.png"
+		},
+		{
+			"Type": "Insight",
+			"Models": [
+				"Insight 4K HFR 360",
+				"Insight Laser 8K"
+			],
+			"Picture": "ProjectorTypes/insight-8k.png"
+		},
+		{
+			"Type": "E-Vision",
+			"Models": [
+				"E-Vision 4000 4K-UHD",
+				"E-Vision Laser 15000 WU",
+				"E-Vision Laser 13000 WU",
+				"E-Vision Laser 11000 4K-UHD",
+				"E-Vision Laser 10K",
+				"E-Vision Laser 8500",
+				"E-Vision Laser 4K-UHD",
+				"E-Vision 9100",
+				"E-Vision Laser 9000",
+				"E-Vision Laser 6500 II",
+				"E-Vision Laser 5900",
+				"E-Vision Laser 5100"
+			],
+			"Picture": "ProjectorTypes/E-Vision.png"
+		},
+		{
+			"Type": "M-Vision",
+			"Models": [
+				"M-Vision Laser 18K",
+				"M-Vision Laser 21000",
+				"M-Vision Laser 23000 WU"
+			],
+			"Picture": "ProjectorTypes/M-Vision Laser.png"
+		}
+	]
+}

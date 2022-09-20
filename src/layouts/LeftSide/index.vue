@@ -19,7 +19,7 @@
             <Projector />
           </q-expansion-item>
           <q-expansion-item dense :header-class="$q.dark.isActive ? 'left-header-dark' : 'left-header-light'"
-            default-opened expand-icon-toggle expand-icon-class="hidden">
+            default-opened expand-icon-toggle>
             <template v-slot:header>
               <q-item-section>
                 {{ $t('optionalLens') }}
@@ -40,8 +40,15 @@
           <RoomSize />
         </q-expansion-item>
         <q-expansion-item dense :header-class="$q.dark.isActive ? 'left-header-dark' : 'left-header-light'"
-          default-opened :label="$t('screenSize')">
-          <ScreenSize />
+          default-opened expand-icon-toggle>
+          <template v-slot:header>
+            <q-item-section>
+              {{ $t('screenSize') }}
+            </q-item-section>
+            <q-toggle v-model="enableScreenSize" @input="changeEnableScreenSize" checked-icon="lock_open"
+              unchecked-icon="lock" color="positive" />
+          </template>
+          <ScreenSize ref="screensize" />
         </q-expansion-item>
         <q-expansion-item dense :header-class="$q.dark.isActive ? 'left-header-dark' : 'left-header-light'"
           default-opened :label="$t('screenPosition')">
@@ -114,10 +121,22 @@ export default {
     },
     selectedLens() {
       return this.$store.getters['dataSource/selectedLens']
+    },
+    enableScreenSize: {
+      get() {
+        return !this.$store.state.screen.lockScreenSize
+      },
+      set(val) {
+        this.SET_LOCK_SCREENSIZE(!val)
+      }
     }
   },
   methods: {
-    ...mapMutations('common', ['SET_LEFT_DRAWER_OPEN'])
+    ...mapMutations('common', ['SET_LEFT_DRAWER_OPEN']),
+    ...mapMutations('screen', ['SET_LOCK_SCREENSIZE']),
+    changeEnableScreenSize() {
+      this.$refs.screensize.changeEnableScreenSize()
+    }
   }
 }
 </script>

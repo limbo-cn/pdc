@@ -2,16 +2,25 @@
   <q-card flat bordered>
     <q-card-section horizontal>
       <q-card-section class="col-5 flex flex-center" style="padding:5px">
-        <q-img class="rounded-borders" :src="imgSrc" :img-style="{'background-size':'contain'}" style="height:120px;width:150px" />
+        <q-img class="rounded-borders" :src="imgSrc" :img-style="{ 'background-size': 'contain' }"
+          style="height:120px;width:150px" />
       </q-card-section>
       <q-card-section class="q-pt-xs" style="padding:5px 0px 5px 10px;width:100%">
-        <div class="text-overline">{{selectedProjectorTypeName}} </div>
-        <a :href="selectedProjector.URL" target="_blank" :style="{color:$q.dark.isActive?'white':'black'}" class="text-h5 q-mt-xs q-mb-xs text-weight-bolder">{{selectedProjector.ModelName}}</a>
-        <div class="text-caption" :class="{'text-grey-4':$q.dark.isActive,'text-grey-8':!$q.dark.isActive}">
-          <span v-if="selectedProjector.Resolution"> {{ `${$t('resolution')}: ${selectedProjector.Resolution.Desc}(${selectedProjector.Resolution.width}*${selectedProjector.Resolution.height})` }}<br /></span>
-          <span v-if="selectedProjector.Brightness"> {{ `${$t('brightness')}: ${selectedProjector.Brightness.value} ${selectedProjector.Brightness.unit}` }}<br /></span>
+        <div class="text-overline">{{ selectedProjectorTypeName }} </div>
+        <a :href="selectedProjector.URL" target="_blank" :style="{ color: $q.dark.isActive ? 'white' : 'black' }"
+          class="text-h6 q-mt-xs q-mb-xs text-weight-bolder">{{ selectedProjector.ModelName }}</a>
+        <div class="text-caption" style=" line-height: 1.1rem;"
+          :class="{ 'text-grey-4': $q.dark.isActive, 'text-grey-10': !$q.dark.isActive }">
+          <span v-if="selectedProjector.Resolution"> {{ `${$t('resolution')}:
+                      ${selectedProjector.Resolution.Desc}(${selectedProjector.Resolution.width}*${selectedProjector.Resolution.height})`
+          }}<br /></span>
+          <span v-if="selectedProjector.Brightness"> {{ `${$t('brightness')}: ${selectedProjector.Brightness.value}
+                      ${selectedProjector.Brightness.unit}`
+          }}<br /></span>
           <span v-if="selectedProjector['Contrast Ratio']"> {{ `${$t('contrastRatio')}: ${selectedProjector['Contrast Ratio']}` }}<br /></span>
-          <span v-if="selectedProjector.Weight">{{ `${$t('weight')}: ${selectedProjector.Weight.value} ${selectedProjector.Weight.unit}` }}<br /></span>
+          <span v-if="selectedProjector.Weight">{{ `${$t('weight')}: ${selectedProjector.Weight.value}
+          ${selectedProjector.Weight.unit}`
+          }}<br /></span>
         </div>
       </q-card-section>
     </q-card-section>
@@ -31,7 +40,7 @@ export default {
   computed: {
     selectedProjectorTypeName() {
       let tpyeName = ''
-      this.$store.state.dataSource.projectorType.vvkProjectorTypes.forEach(o => {
+      this.$store.state.dataSource.projectorType.projectorTypes.forEach(o => {
         if (o.Models.includes(this.$store.state.dataSource.selectedModelName)) {
           tpyeName = o.Type
         }

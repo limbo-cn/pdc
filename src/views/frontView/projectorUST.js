@@ -6,8 +6,9 @@ export default class Projector {
             this._projector = projector
         })
 
-        this.xOffset = 24
-        this.yOffset = 14
+        this.xOffset = 30
+        this.yOffset = 16
+        this.yOffsetCeil = 30
     }
 
     _generateProjector(isReverse) {
@@ -19,9 +20,6 @@ export default class Projector {
 
                 img.left = 0
                 img.top = 0
-
-                img.scaleX = 0.8
-                img.scaleY = 0.8
 
                 resolve(img)
             })

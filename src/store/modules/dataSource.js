@@ -2,13 +2,21 @@ import projectorType from '../../assets/dataSource/vvkProjectorTypes.json'
 import projectorModels from '../../assets/dataSource/vvkProjectorModels.json'
 import projectorLens from '../../assets/dataSource/vvkOptionalLens.json'
 
+import projectorTypeDP from '../../assets/dataSource/DPProjectorTypes.json'
+import projectorModelsDP from '../../assets/dataSource/DPProjectorModels.json'
+import projectorLensDP from '../../assets/dataSource/DPOptionalLens.json'
+import { GetQueryString } from 'src/helper/common'
+
+const isDP = GetQueryString('dp') || false
+
 const dataSource = {
     namespaced: true,
     state: {
-        projectorType: projectorType,
-        projectorModels: projectorModels,
-        projectorLens: projectorLens,
-        selectedModelName: 'DH833',
+        isDP: isDP,
+        projectorType: isDP ? projectorTypeDP : projectorType,
+        projectorModels: isDP ? projectorModelsDP : projectorModels,
+        projectorLens: isDP ? projectorLensDP : projectorLens,
+        selectedModelName: isDP ? 'E-Vision Laser 5100' : 'DH833',
         selectedLensName: ''
     },
     mutations: {
@@ -23,8 +31,8 @@ const dataSource = {
         projectorType: state => state.projectorType,
         projectorModels: state => state.projectorModels,
         projectorLens: state => state.projecprojectorLenstorType,
-        selectedLens: state => state.projectorLens.vvkOptionalLens.find(o => o['Part Name'] === state.selectedLensName),
-        selectedProjector: state => state.projectorModels.vvkProjectorModels.find(o => o.ModelName === state.selectedModelName)
+        selectedLens: state => state.projectorLens.optionalLens.find(o => o['Part Name'] === state.selectedLensName),
+        selectedProjector: state => state.projectorModels.projectorModels.find(o => o.ModelName === state.selectedModelName)
     }
 }
 

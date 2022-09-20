@@ -2,7 +2,8 @@
   <div>
     <q-card-section :class="{ 'title-section-dark': $q.dark.isActive, 'title-section-light': !$q.dark.isActive }">
       <div class="row items-center">
-        <q-btn-dropdown flat :color="$q.dark.isActive ? 'primary' : 'positive'" :label="$t('frontView')">
+        <q-btn-dropdown flat :color="$q.dark.isActive ? 'primary' : 'positive'" :label="$t('frontView')"
+          :disable="layoutModel === 'grid'" :dropdown-icon="layoutModel === 'grid' ? 'none' : ''">
           <q-list>
             <q-item clickable v-close-popup @click="handleSwitch(`SideView`)">
               <q-item-section>
@@ -91,6 +92,9 @@ export default {
     }
   },
   computed: {
+    layoutModel() {
+      return this.$store.state.common.layoutModel
+    },
     lensShiftH: {
       get() {
         return toFixedNumber(this.$store.state.lens.lensShiftH, 2)

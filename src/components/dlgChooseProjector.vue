@@ -1,15 +1,18 @@
 <template>
   <q-dialog id="dlg_choose_projector" :value="showDialog" @hide="hideDialog" full-width full-height>
-    <q-layout view="hHh lpR fFf" container :class="{ 'bg-grey-10': $q.dark.isActive, 'bg-white': !$q.dark.isActive }">
-      <q-header class="delta-gradient-bg" :style="{ background: $q.dark.isActive ? '#445a4d' : '' }">
-        <q-toolbar>
+    <q-layout view="hHh lpR fFf" container :class="{ 'bg-grey-10': $q.dark.isActive, 'bg-white': !$q.dark.isActive }"
+      style="max-width:1200px !important">
+      <q-header>
+        <div style="height:8px" class="delta-gradient-bg"></div>
+        <q-toolbar class="shadow-2"
+          :style="{ background: $q.dark.isActive ? '#222222' : '#ffffff', color: $q.dark.isActive ? '#ffffff' : '#222222' }">
           <q-btn flat @click="drawerLeft = !drawerLeft" round dense icon="menu" />
           <q-toolbar-title>{{ $t('chooseProjector') }}</q-toolbar-title>
           <q-btn icon="close" flat round dense v-close-popup />
         </q-toolbar>
       </q-header>
 
-      <q-drawer show-if-above v-model="drawerLeft" side="left" bordered :width="400">
+      <q-drawer show-if-above v-model="drawerLeft" side="left" bordered :width="350">
         <q-scroll-area class="fit">
           <q-list padding>
             <q-item>
@@ -105,10 +108,7 @@
             </q-item>
             <q-item clickable v-ripple @click="selectProjectorType({ Type: `all` })"
               :active-class="$q.dark.isActive ? '' : 'active-light'" :active="selectedType === `all`">
-              <q-item-section avatar>
-                <q-avatar :color="$q.dark.isActive ? 'primary' : 'positive'" text-color="white" icon="scatter_plot" />
-              </q-item-section>
-              <q-item-section>
+              <q-item-section class="q-pl-lg">
                 {{ $t('allProjector') }} ({{ totalCount }})
               </q-item-section>
             </q-item>
@@ -131,7 +131,7 @@
           <q-scroll-area class="fit">
             <q-table v-show="selectedType" :data="tableData" :columns="columns"
               @row-click="(evt, row, index) => { chooseModel(row.modelName) }" row-key="name" dense
-              :pagination="initialPagination" color="amber">
+              :pagination="initialPagination" color="positive">
               <!-- <template v-slot:top-left>
                 <q-breadcrumbs v-show="selectedType">
                   <q-breadcrumbs-el :label="$t('projectorType')" />
@@ -139,6 +139,11 @@
                     :label="selectedType === `all` ? `${$t('allProjector')} (${totalCount})` : `${selectedType} (${tableData.length})`" />
                 </q-breadcrumbs>
               </template> -->
+              <template v-slot:header-cell="props">
+                <q-th :props="props" style="font-size: 16px; padding:10px 0">
+                  {{ props.col.label }}
+                </q-th>
+              </template>
               <template v-slot:top-right v-if="$q.platform.is.mobile">
                 <q-input outlined dense debounce="150" v-model="filter" :placeholder="$t('search')">
                   <template v-if="filter" v-slot:append>
@@ -196,7 +201,7 @@ export default {
   mounted() {
     if (this.$route.params.modelname) {
       const modelName = this.$route.params.modelname.toUpperCase()
-      const model = this.$store.state.dataSource.projectorModels.vvkProjectorModels.find(o => o.ModelName === modelName)
+      const model = this.$store.state.dataSource.projectorModels.projectorModels.find(o => o.ModelName === modelName)
       if (model) {
         this.chooseModel(modelName)
       }
@@ -252,10 +257,10 @@ export default {
       ]
     },
     totalCount() {
-      return this.$store.state.dataSource.projectorModels.vvkProjectorModels.length
+      return this.$store.state.dataSource.projectorModels.projectorModels.length
     },
     projectorTypes() {
-      const types = this.$store.state.dataSource.projectorType.vvkProjectorTypes
+      const types = this.$store.state.dataSource.projectorType.projectorTypes
       types.forEach(o => {
         if (!this.typeImgCache[o.Type]) {
           this.typeImgCache[o.Type] = require(`../assets/${o.Picture}`)
@@ -268,11 +273,11 @@ export default {
       if (this.selectedType === '') { return [] }
       let models = []
       if (this.selectedType === 'all') {
-        models = this.$store.state.dataSource.projectorModels.vvkProjectorModels
+        models = this.$store.state.dataSource.projectorModels.projectorModels
       } else {
-        const modelNammes = this.$store.state.dataSource.projectorType.vvkProjectorTypes.find(o => o.Type === this.selectedType)?.Models
+        const modelNammes = this.$store.state.dataSource.projectorType.projectorTypes.find(o => o.Type === this.selectedType)?.Models
         modelNammes.forEach(modelName => {
-          const model = this.$store.state.dataSource.projectorModels.vvkProjectorModels.find(o => o.ModelName === modelName)
+          const model = this.$store.state.dataSource.projectorModels.projectorModels.find(o => o.ModelName === modelName)
           model && models.push(model)
         })
       }
@@ -293,7 +298,7 @@ export default {
         if (_this.conditionThrowRatio > 0) {
           if (!o['Throw Ratio']) {
             for (let i = 0; i < o['Optional Lens'].length; i++) {
-              const lens = _this.$store.state.dataSource.projectorLens.vvkOptionalLens.find(ls => ls['Part Name'] === o['Optional Lens'][i])
+              const lens = _this.$store.state.dataSource.projectorLens.optionalLens.find(ls => ls['Part Name'] === o['Optional Lens'][i])
               if (!lens) {
                 continue
               } else if (lens['Throw Ratio'].max >= _this.conditionThrowRatio && lens['Throw Ratio'].min <= _this.conditionThrowRatio) {
@@ -314,7 +319,7 @@ export default {
         if (throwDistance > 0) {
           if (!o.Distance) {
             for (let i = 0; i < o['Optional Lens'].length; i++) {
-              const lens = _this.$store.state.dataSource.projectorLens.vvkOptionalLens.find(ls => ls['Part Name'] === o['Optional Lens'][i])
+              const lens = _this.$store.state.dataSource.projectorLens.optionalLens.find(ls => ls['Part Name'] === o['Optional Lens'][i])
               if (!lens) {
                 continue
               } else if (lens.Distance.max >= throwDistance && lens.Distance.min <= throwDistance) {
@@ -349,8 +354,13 @@ export default {
   },
   methods: {
     ...mapMutations('dataSource', ['SET_SELECTED_MODEL_NAME', 'SET_SELECTED_LENS_NAME']),
+    ...mapMutations('room', [
+      'SET_WIDTH',
+      'SET_HEIGHT',
+      'SET_DEPTH'
+    ]),
     stylePage(offset, height) {
-      return { height: `${height - offset}px` }
+      return { height: `${height - offset - 10}px` }
     },
     hideDialog() {
       this.$emit('update:showDialog', false)
@@ -361,7 +371,7 @@ export default {
       this.selectedType = item.Type
     },
     chooseModel(modelName) {
-      const model = this.$store.state.dataSource.projectorModels.vvkProjectorModels.find(o => o.ModelName === modelName)
+      const model = this.$store.state.dataSource.projectorModels.projectorModels.find(o => o.ModelName === modelName)
       this.SET_SELECTED_MODEL_NAME(model.ModelName)
       window._hmt && window._hmt.push(['_trackEvent', 'Choose Model', 'Click', model.ModelName])
       window.gtag('event', `ChooseModel-${model.ModelName}`)
@@ -370,6 +380,14 @@ export default {
       } else {
         this.SET_SELECTED_LENS_NAME(null)
       }
+
+      if (model.isUST) {
+        this.SET_WIDTH(3)
+        this.SET_HEIGHT(3)
+        this.SET_DEPTH(3)
+        this.$root.$emit('resizeRoom')
+      }
+
       this.$emit('update:showDialog', false)
     }
   }
@@ -386,5 +404,11 @@ export default {
 
 .active-light {
   color: #14A028
+}
+</style>
+<style lang="scss">
+.choose-projector-table-header {
+  font-size: 30px;
+  color: red
 }
 </style>

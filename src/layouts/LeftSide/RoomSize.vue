@@ -2,21 +2,21 @@
   <q-card>
     <q-card-section style="padding:6px">
       <div class="q-gutter-sm row">
-        <q-input dense :color="$q.dark.isActive?'primary':'positive'" v-model.number="roomWidth" ref="roomWidthInput" :max="roomWidthMax" :min="roomWidthMin" @input="changeRoomWidth" :suffix="unitLabel" :title="`${roomWidth}${unitLabel}`" type="number" step="1" style="width: 185px">
+        <q-input dense :color="$q.dark.isActive?'primary':'positive'" :value="roomWidth" ref="roomWidthInput" :max="roomWidthMax" :min="roomWidthMin" @input="changeRoomWidth" :suffix="unitLabel" :title="`${roomWidth}${unitLabel}`" type="number" step="1" style="width: 185px">
           <template v-slot:prepend>
             <div class="text-subtitle2">
               {{$t('width')}}:
             </div>
           </template>
         </q-input>
-        <q-input dense :color="$q.dark.isActive?'primary':'positive'" v-model.number="roomHeight" ref="roomHeightInput" :max="roomHeightMax" :min="roomHeightMin" @input="changeRoomHeight" :suffix="unitLabel" :title="`${roomHeight}${unitLabel}`" type="number" step="1" style="width: 185px">
+        <q-input dense :color="$q.dark.isActive?'primary':'positive'" :value="roomHeight" ref="roomHeightInput" :max="roomHeightMax" :min="roomHeightMin" @input="changeRoomHeight" :suffix="unitLabel" :title="`${roomHeight}${unitLabel}`" type="number" step="1" style="width: 185px">
           <template v-slot:prepend>
             <div class="text-subtitle2">
               {{$t('height')}}:
             </div>
           </template>
         </q-input>
-        <q-input dense :color="$q.dark.isActive?'primary':'positive'" v-model.number="roomDepth" ref="roomDepthInput" :max="roomDepthMax" :min="roomDepthMin" @input="changeRoomDepth" :title="`${roomDepth}${unitLabel}`" type="number" step="1" :suffix="unitLabel" style="width: 185px">
+        <q-input dense :color="$q.dark.isActive?'primary':'positive'" :value="roomDepth" ref="roomDepthInput" :max="roomDepthMax" :min="roomDepthMin" @input="changeRoomDepth" :title="`${roomDepth}${unitLabel}`" type="number" step="1" :suffix="unitLabel" style="width: 185px">
           <template v-slot:prepend>
             <div class="text-subtitle2">
               {{$t('depth')}}:

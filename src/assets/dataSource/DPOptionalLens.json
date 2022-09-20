@@ -1,0 +1,956 @@
+{
+	"optionalLens": [
+		{
+			"Part Number": "114-785",
+			"Part Name": "114-785",
+			"Lens Type": "Short throw",
+			"Throw Ratio": {
+				"min": 0.77,
+				"max": 0.77
+			},
+			"Image Size": {
+				"min": 24.12,
+				"max": 186.91
+			},
+			"Distance": {
+				"min": 0.4,
+				"max": 3.1,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "119-001",
+			"Part Name": "119-001",
+			"Lens Type": "Semi Short throw",
+			"Throw Ratio": {
+				"min": 0.77,
+				"max": 1.1
+			},
+			"Image Size": {
+				"min": 28.28,
+				"max": 729.57
+			},
+			"Distance": {
+				"min": 0.67,
+				"max": 12.1,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "116-207",
+			"Part Name": "116-207",
+			"Lens Type": "Semi Short throw",
+			"Throw Ratio": {
+				"min": 1.1,
+				"max": 1.3
+			},
+			"Image Size": {
+				"min": 50,
+				"max": 380
+			},
+			"Distance": {
+				"min": 1.0,
+				"max": 9.0,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "119-430",
+			"Part Name": "119-430",
+			"Lens Type": "Semi Short throw",
+			"Throw Ratio": {
+				"min": 1.25,
+				"max": 1.6
+			},
+			"Image Size": {
+				"min": 39.35,
+				"max": 300.03
+			},
+			"Distance": {
+				"min": 1.356,
+				"max": 8.078,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "114-783",
+			"Part Name": "114-783",
+			"Lens Type": "Standard",
+			"Throw Ratio": {
+				"min": 1.54,
+				"max": 1.93
+			},
+			"Image Size": {
+				"min": 22.85,
+				"max": 358.75
+			},
+			"Distance": {
+				"min": 0.95,
+				"max": 11.9,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "114-784",
+			"Part Name": "114-784",
+			"Lens Type": "Long throw",
+			"Throw Ratio": {
+				"min": 1.93,
+				"max": 2.91
+			},
+			"Image Size": {
+				"min": 19.15,
+				"max": 716.85
+			},
+			"Distance": {
+				"min": 1.2,
+				"max": 29.8,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "116-208",
+			"Part Name": "116-208",
+			"Lens Type": "Super Long throw",
+			"Throw Ratio": {
+				"min": 3.0,
+				"max": 5.0
+			},
+			"Image Size": {
+				"min": 27.86,
+				"max": 309.51
+			},
+			"Distance": {
+				"min": 3.0,
+				"max": 20.0,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "117-341",
+			"Part Name": "117-341",
+			"Lens Type": "Short throw",
+			"Throw Ratio": {
+				"min": 0.377,
+				"max": 0.377
+			},
+			"Image Size": {
+				"min": 100.98,
+				"max": 333.73
+			},
+			"Distance": {
+				"min": 0.82,
+				"max": 2.71,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "115-339",
+			"Part Name": "115-339",
+			"Lens Type": "Semi Short throw",
+			"Throw Ratio": {
+				"min": 0.75,
+				"max": 0.93
+			},
+			"Image Size": {
+				"min": 50.92,
+				"max": 786.17
+			},
+			"Distance": {
+				"min": 1.02,
+				"max": 12.7,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "112-499",
+			"Part Name": "112-499",
+			"Lens Type": "Short throw",
+			"Throw Ratio": {
+				"min": 0.76,
+				"max": 0.76
+			},
+			"Image Size": {
+				"min": 49.48,
+				"max": 310.33
+			},
+			"Distance": {
+				"min": 0.81,
+				"max": 5.08,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "112-500",
+			"Part Name": "112-500",
+			"Lens Type": "Standard",
+			"Throw Ratio": {
+				"min": 1.25,
+				"max": 1.79
+			},
+			"Image Size": {
+				"min": 34.5,
+				"max": 435.67
+			},
+			"Distance": {
+				"min": 1.33,
+				"max": 11.73,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "112-501",
+			"Part Name": "112-501",
+			"Lens Type": "Long throw",
+			"Throw Ratio": {
+				"min": 1.73,
+				"max": 2.27
+			},
+			"Image Size": {
+				"min": 37.43,
+				"max": 399.86
+			},
+			"Distance": {
+				"min": 1.83,
+				"max": 14.9,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "112-502",
+			"Part Name": "112-502",
+			"Lens Type": "Super Long throw",
+			"Throw Ratio": {
+				"min": 2.22,
+				"max": 3.67
+			},
+			"Image Size": {
+				"min": 29.86,
+				"max": 506.10
+			},
+			"Distance": {
+				"min": 2.36,
+				"max": 24.2,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "112-503",
+			"Part Name": "112-503",
+			"Lens Type": "Super Long throw",
+			"Throw Ratio": {
+				"min": 3.58,
+				"max": 5.38
+			},
+			"Image Size": {
+				"min": 32.79,
+				"max": 458.43
+			},
+			"Distance": {
+				"min": 3.8,
+				"max": 35.35,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "112-504",
+			"Part Name": "112-504",
+			"Lens Type": "Super Long throw",
+			"Throw Ratio": {
+				"min": 5.31,
+				"max": 8.26
+			},
+			"Image Size": {
+				"min": 31.42,
+				"max": 479.13
+			},
+			"Distance": {
+				"min": 5.59,
+				"max": 54.8,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "120-624",
+			"Part Name": "120-624",
+			"Lens Type": "Semi Short throw",
+			"Throw Ratio": {
+				"min": 0.9,
+				"max": 1.2
+			},
+			"Image Size": {
+				"min": 35.59,
+				"max": 694.34
+			},
+			"Distance": {
+				"min": 0.92,
+				"max": 13.46,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -45,
+					"max": 45
+				},
+				"Horizontal": {
+					"min": -15,
+					"max": 15
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "120-625",
+			"Part Name": "120-625",
+			"Lens Type": "Standard",
+			"Throw Ratio": {
+				"min": 1.2,
+				"max": 1.56
+			},
+			"Image Size": {
+				"min": 29.76,
+				"max": 677.06
+			},
+			"Distance": {
+				"min": 1.0,
+				"max": 17.5,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -50,
+					"max": 50
+				},
+				"Horizontal": {
+					"min": -15,
+					"max": 15
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "120-626",
+			"Part Name": "120-626",
+			"Lens Type": "Long throw",
+			"Throw Ratio": {
+				"min": 1.5,
+				"max": 2.0
+			},
+			"Image Size": {
+				"min": 46.43,
+				"max": 674.74
+			},
+			"Distance": {
+				"min": 2.0,
+				"max": 21.8,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "120-627",
+			"Part Name": "120-627",
+			"Lens Type": "Super Long throw",
+			"Throw Ratio": {
+				"min": 2,
+				"max": 4
+			},
+			"Image Size": {
+				"min": 29.02,
+				"max": 970.33
+			},
+			"Distance": {
+				"min": 2.5,
+				"max": 41.8,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "120-628",
+			"Part Name": "120-628",
+			"Lens Type": "Super Long throw",
+			"Throw Ratio": {
+				"min": 4,
+				"max": 7
+			},
+			"Image Size": {
+				"min": 26.53,
+				"max": 487.48
+			},
+			"Distance": {
+				"min": 4.0,
+				"max": 42.0,
+				"unit": "m"
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "120-510",
+			"Part Name": "120-510",
+			"Lens Type": "Short throw",
+			"Throw Ratio": {
+				"min": 0.37,
+				"max": 0.37
+			}, 
+			"Distance": {
+				"min": 1.6,
+				"max": 4.9,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -60,
+					"max": 60
+				},
+				"Horizontal": {
+					"min": -30,
+					"max": 30
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "120-511",
+			"Part Name": "120-511",
+			"Lens Type": "Short throw",
+			"Throw Ratio": {
+				"min": 0.65,
+				"max": 0.85
+			},
+			"Image Size": {
+				"min": 152.94,
+				"max": 599.98
+			},
+			"Distance": {
+				"min": 2.8,
+				"max": 8.4,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -50,
+					"max": 50
+				},
+				"Horizontal": {
+					"min": -50,
+					"max": 50
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "120-827",
+			"Part Name": "120-827",
+			"Lens Type": "Semi Short throw",
+			"Throw Ratio": {
+				"min": 0.8,
+				"max": 1.16
+			},
+			"Image Size": {
+				"min": 68.04,
+				"max": 638.37
+			},
+			"Distance": {
+				"min": 1.7,
+				"max": 11,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -40,
+					"max": 40
+				},
+				"Horizontal": {
+					"min": -19,
+					"max": 19
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "120-607",
+			"Part Name": "120-607",
+			"Lens Type": "Short throw",
+			"Throw Ratio": {
+				"min": 0.67,
+				"max": 0.67
+			},
+			"Image Size": {
+				"min": 76.22,
+				"max": 692.94
+			},
+			"Distance": {
+				"min": 1.1,
+				"max": 10.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -10.8,
+					"max": 10.8
+				},
+				"Horizontal": {
+					"min": -4.4,
+					"max": 4.4
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "120-608",
+			"Part Name": "120-608",
+			"Lens Type": "Short throw",
+			"Throw Ratio": {
+				"min": 1.12,
+				"max": 1.12
+			},
+			"Image Size": {
+				"min": 124.36,
+				"max": 621.79
+			},
+			"Distance": {
+				"min": 3.0,
+				"max": 15.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -45,
+					"max": 56.7
+				},
+				"Horizontal": {
+					"min": -18.8,
+					"max": 18.8
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "109-236",
+			"Part Name": "109-236",
+			"Lens Type": "Super Wide Zoom",
+			"Throw Ratio": {
+				"min": 1.16,
+				"max": 1.49
+			},
+			"Image Size": {
+				"min": 93.48,
+				"max": 600.35
+			},
+			"Distance": {
+				"min": 3.0,
+				"max": 15.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -40.8,
+					"max": 40.8
+				},
+				"Horizontal": {
+					"min": -18.8,
+					"max": 18.8
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "105-610",
+			"Part Name": "105-610",
+			"Lens Type": "Wide Zoom",
+			"Throw Ratio": {
+				"min": 1.39,
+				"max": 1.87
+			},
+			"Image Size": {
+				"min": 99.31,
+				"max": 801.62
+			},
+			"Distance": {
+				"min": 4.0,
+				"max": 24.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -45,
+					"max": 56.7
+				},
+				"Horizontal": {
+					"min": -18.8,
+					"max": 18.8
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "105-611",
+			"Part Name": "105-611",
+			"Lens Type": "Standard Zoom",
+			"Throw Ratio": {
+				"min": 1.87,
+				"max": 2.56
+			},
+			"Image Size": {
+				"min": 72.54,
+				"max": 595.86
+			},
+			"Distance": {
+				"min": 4.0,
+				"max": 24.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -45,
+					"max": 56.7
+				},
+				"Horizontal": {
+					"min": -18.8,
+					"max": 18.8
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "105-612",
+			"Part Name": "105-612",
+			"Lens Type": "Semi Long Zoom",
+			"Throw Ratio": {
+				"min": 2.56,
+				"max": 4.16
+			},
+			"Image Size": {
+				"min": 101.56,
+				"max": 816.10
+			},
+			"Distance": {
+				"min": 9.1,
+				"max": 45.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -45,
+					"max": 56.7
+				},
+				"Horizontal": {
+					"min": -18.8,
+					"max": 18.8
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "105-613",
+			"Part Name": "105-613",
+			"Lens Type": "Long Zoom 1",
+			"Throw Ratio": {
+				"min": 4.16,
+				"max": 6.96
+			},
+			"Image Size": {
+				"min": 80.05,
+				"max": 892.83
+			},
+			"Distance": {
+				"min": 12.0,
+				"max": 80.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -45,
+					"max": 56.7
+				},
+				"Horizontal": {
+					"min": -18.8,
+					"max": 18.8
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "109-235",
+			"Part Name": "109-235",
+			"Lens Type": "Long Zoom 2",
+			"Throw Ratio": {
+				"min": 6.92,
+				"max": 10.36
+			},
+			"Image Size": {
+				"min": 53.78,
+				"max": 536.73
+			},
+			"Distance": {
+				"min": 12.0,
+				"max": 80.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -45,
+					"max": 56.7
+				},
+				"Horizontal": {
+					"min": -18.8,
+					"max": 18.8
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "117-310",
+			"Part Name": "117-310",
+			"Lens Type": "Short throw",
+			"Throw Ratio": {
+				"min": 0.93,
+				"max": 0.93
+			},
+			"Image Size": {
+				"min": 24.29,
+				"max": 4857.11
+			},
+			"Distance": {
+				"min": 0.5,
+				"max": 100.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -21,
+					"max": 21
+				},
+				"Horizontal": {
+					"min": -8,
+					"max": 8
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "115-627",
+			"Part Name": "115-627",
+			"Lens Type": "Standard",
+			"Throw Ratio": {
+				"min": 1.13,
+				"max": 1.72
+			},
+			"Image Size": {
+				"min": 65.66,
+				"max": 3997.45
+			},
+			"Distance": {
+				"min": 2.5,
+				"max": 100.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -19,
+					"max": 34
+				},
+				"Horizontal": {
+					"min": -8,
+					"max": 10
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "115-630",
+			"Part Name": "115-630",
+			"Lens Type": "Long throw",
+			"Throw Ratio": {
+				"min": 1.65,
+				"max": 2.60
+			},
+			"Image Size": {
+				"min": 60.81,
+				"max": 2737.61
+			},
+			"Distance": {
+				"min": 3.5,
+				"max": 100.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -20,
+					"max": 40
+				},
+				"Horizontal": {
+					"min": -13,
+					"max": 13
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "115-632",
+			"Part Name": "115-632",
+			"Lens Type": "Ultyra Long throw",
+			"Throw Ratio": {
+				"min": 2.53,
+				"max": 4.98
+			},
+			"Image Size": {
+				"min": 40.82,
+				"max": 1785.42
+			},
+			"Distance": {
+				"min": 4.5,
+				"max": 100.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -20,
+					"max": 37
+				},
+				"Horizontal": {
+					"min": -13,
+					"max": 13
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "105-607",
+			"Part Name": "105-607",
+			"Lens Type": "Short throw",
+			"Throw Ratio": {
+				"min": 0.67,
+				"max": 0.67
+			},
+			"Image Size": {
+				"min": 76.22,
+				"max": 692.94
+			},
+			"Distance": {
+				"min": 1.1,
+				"max": 10.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -10.8,
+					"max": 10.8
+				},
+				"Horizontal": {
+					"min": -4.4,
+					"max": 4.4
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "105-608",
+			"Part Name": "105-608",
+			"Lens Type": "Short throw",
+			"Throw Ratio": {
+				"min": 1.12,
+				"max": 1.12
+			},
+			"Image Size": {
+				"min": 124.36,
+				"max": 621.79
+			},
+			"Distance": {
+				"min": 3.0,
+				"max": 15.0,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -45,
+					"max": 56.7
+				},
+				"Horizontal": {
+					"min": -18.8,
+					"max": 18.8
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		},
+		{
+			"Part Number": "105-609",
+			"Part Name": "105-609",
+			"Lens Type": "Short throw",
+			"Throw Ratio": {
+				"min": 1.12,
+				"max": 1.12
+			},	
+			"Distance": {
+				"min": 1,
+				"max": 5,
+				"unit": "m"
+			},
+			"Lens Shift": {
+				"Vertical": {
+					"min": -45,
+					"max": 56.7
+				},
+				"Horizontal": {
+					"min": -18.8,
+					"max": 18.8
+				}
+			},
+			"Offset": 0,
+			"Picture": "Lens/D88-ST001.png"
+		}
+	]
+}

@@ -95,7 +95,10 @@ export default class BaseView {
             this._hAxis.setOptions({ top: this._projectorCenter.y, width: this._roomSize.drawX })
             this._vAxis.setOptions({ left: this._projectorCenter.x, height: isUST ? this._projectorCenter.y : this._roomSize.drawY })
             if (isUST) {
-                this._ustAxis.setOptions({ left: this._projector.left, top: this._projectorCenter.y, height: this._roomSize.drawY - this._projectorCenter.y })
+                const fromScreen = store.state.projector.fromScreen
+                const sizeX = store.state.projector.size.x
+                const x = isUST ? (fromScreen - sizeX) : fromScreen
+                this._ustAxis.setOptions({ left: x * this._roomSize.ratio, top: this._projectorCenter.y, height: this._roomSize.drawY - this._projectorCenter.y })
             } else if (this._ustAxis) {
                 this._canvas.remove(this._ustAxis)
                 this._ustAxis = null

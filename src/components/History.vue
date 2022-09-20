@@ -1,9 +1,11 @@
 <template>
   <q-dialog :value="showDialog" @hide="hideDialog" @show="show" full-height full-width>
     <q-layout v-if="showDialog" view="hHh lpR lFf" container
-      :class="{ 'bg-grey-10': $q.dark.isActive, 'bg-white': !$q.dark.isActive }" style="width: 800px; max-width: 90vw;">
-      <q-header class="delta-gradient-bg" :style="{ background: $q.dark.isActive ? '#445a4d' : '' }">
-        <q-toolbar>
+      :class="{ 'bg-grey-10': $q.dark.isActive, 'bg-white': !$q.dark.isActive }">
+      <q-header>
+        <div style="height:8px" class="delta-gradient-bg"></div>
+        <q-toolbar class="shadow-2"
+          :style="{ background: $q.dark.isActive ? '#222222' : '#ffffff', color: $q.dark.isActive ? '#ffffff' : '#222222' }">
           <q-btn flat @click="drawerLeft = !drawerLeft" round dense icon="menu" />
           <q-toolbar-title>{{ $t('historyTitle') }}</q-toolbar-title>
           <q-btn icon="close" flat round dense v-close-popup />
@@ -58,8 +60,8 @@
                     </q-item-section>
 
                     <q-item-section style="flex:40px">
-                      <q-btn :color="$q.dark.isActive ? 'primary' : 'positive'" round flat label="" icon="delete_outline"
-                        @click.prevent="deleteItem(history.uId)" />
+                      <q-btn :color="$q.dark.isActive ? 'primary' : 'positive'" round flat label=""
+                        icon="delete_outline" @click.prevent="deleteItem(history.uId)" />
                     </q-item-section>
                     <!-- <q-item-section style="flex:40px">
                       <q-btn :color="$q.dark.isActive?'primary':'positive'" round flat label="" icon="compare_arrows" @click.prevent="updateItem(history.uId)" />
@@ -160,7 +162,8 @@
 
           <q-card-actions align="right">
             <q-btn flat :label="$t('cancel')" :color="$q.dark.isActive ? 'primary' : 'positive'" v-close-popup />
-            <q-btn flat :label="$t('yes')" :color="$q.dark.isActive ? 'primary' : 'positive'" @click="confirmDeleteItem" />
+            <q-btn flat :label="$t('yes')" :color="$q.dark.isActive ? 'primary' : 'positive'"
+              @click="confirmDeleteItem" />
           </q-card-actions>
         </q-card>
       </q-dialog>
@@ -174,7 +177,8 @@
 
           <q-card-actions align="right">
             <q-btn flat :label="$t('cancel')" :color="$q.dark.isActive ? 'primary' : 'positive'" v-close-popup />
-            <q-btn flat :label="$t('yes')" :color="$q.dark.isActive ? 'primary' : 'positive'" @click="confirmUpdateItem" />
+            <q-btn flat :label="$t('yes')" :color="$q.dark.isActive ? 'primary' : 'positive'"
+              @click="confirmUpdateItem" />
           </q-card-actions>
         </q-card>
       </q-dialog>

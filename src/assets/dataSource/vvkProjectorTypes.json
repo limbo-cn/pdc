@@ -1,5 +1,5 @@
 {
-	"vvkProjectorTypes": [
+	"projectorTypes": [
 		{
 			"Type": "Education",
 			"Models": [
@@ -16,7 +16,8 @@
 				"DW770UST",
 				"DW771USTi",
 				"DH772UST",
-				"DH773USTi"
+				"DH773USTi",
+				"DU775Z-UST"
 			],
 			"Picture": "ProjectorTypes/Education.png"
 		},

@@ -2,7 +2,8 @@
   <div>
     <q-card-section :class="{ 'title-section-dark': $q.dark.isActive, 'title-section-light': !$q.dark.isActive }">
       <div class="row items-center">
-        <q-btn-dropdown flat :color="$q.dark.isActive ? 'primary' : 'positive'" :label="$t('sideView')">
+        <q-btn-dropdown flat :color="$q.dark.isActive ? 'primary' : 'positive'" :label="$t('sideView')"
+          :disable="layoutModel === 'grid'" :dropdown-icon="layoutModel === 'grid' ? 'none' : ''">
           <q-list>
             <q-item clickable v-close-popup @click="handleSwitch(`FrontView`)">
               <q-item-section>
@@ -97,6 +98,9 @@ export default {
     },
     isOverAngle() {
       return this.angleV > 30 || this.angleV < -30
+    },
+    layoutModel() {
+      return this.$store.state.common.layoutModel
     }
   },
   methods: {
@@ -160,6 +164,7 @@ export default {
   left: 0;
   top: 0;
   height: 30px;
+
   p {
     margin: 0
   }

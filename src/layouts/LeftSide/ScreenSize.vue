@@ -1,44 +1,53 @@
 <template>
-  <q-card>
-    <q-card-section style="padding:6px">
-      <div class="q-gutter-sm row">
-        <q-input dense :color="$q.dark.isActive?'primary':'positive'" :readonly="isReadOnly" :value="screenDiagonal" :disable="!enableScreenSize" @input="changeScreenDiagonal" :title="`${screenDiagonal}${$t('inch')}`" type="number" step="1" :suffix="$t('inch')" style="width:95%">
-          <template v-slot:prepend>
-            <div class="text-subtitle2">
-              {{$t('diagonal')}}:
-            </div>
-          </template>
-          <template v-slot:after>
-            <q-toggle v-model="enableScreenSize" @input="changeEnableScreenSize" checked-icon="check" color="positive" unchecked-icon="clear" />
-          </template>
-        </q-input>
+    <q-card>
+      <q-card-section style="padding:6px">
+        <div class="q-gutter-sm row">
+          <q-input dense :color="$q.dark.isActive?'primary':'positive'" :readonly="isReadOnly" :value="screenDiagonal"
+            :disable="!enableScreenSize" @input="changeScreenDiagonal" :title="`${screenDiagonal}${$t('inch')}`"
+            type="number" step="1" :suffix="$t('inch')" style="width:95%">
+            <template v-slot:prepend>
+              <div class="text-subtitle2">
+                {{$t('diagonal')}}:
+              </div>
+            </template>
+            <!-- <template v-slot:after>
+              <q-toggle v-model="enableScreenSize" @input="changeEnableScreenSize" checked-icon="check" color="positive"
+                unchecked-icon="clear" />
+            </template> -->
+          </q-input>
 
-        <q-select dense :color="$q.dark.isActive?'primary':'positive'" :disable="!enableScreenSize" v-model="aspectRatio" @input="changeAspectRatio" :options="aspectRatios" option-value="value" option-label="label" emit-value map-options style="width:95%" behavior="menu">
-          <template v-slot:prepend>
-            <div class="text-subtitle2">
-              {{$t('aspectRatio')}}:
-            </div>
-          </template>
-        </q-select>
+          <q-select dense :color="$q.dark.isActive?'primary':'positive'" :disable="!enableScreenSize"
+            v-model="aspectRatio" @input="changeAspectRatio" :options="aspectRatios" option-value="value"
+            option-label="label" emit-value map-options style="width:95%" behavior="menu">
+            <template v-slot:prepend>
+              <div class="text-subtitle2">
+                {{$t('aspectRatio')}}:
+              </div>
+            </template>
+          </q-select>
 
-        <q-input dense :color="$q.dark.isActive?'primary':'positive'" :readonly="isReadOnly" :value="screenWidth" @input="changeScreenWidth" :disable="!enableScreenSize" :title="`${screenWidth}${unitLabel}`" type="number" step="0.1" :suffix="unitLabel" style="width: 185px">
-          <template v-slot:prepend>
-            <div class="text-subtitle2">
-              {{$t('width')}}:
-            </div>
-          </template>
-        </q-input>
+          <q-input dense :color="$q.dark.isActive?'primary':'positive'" :readonly="isReadOnly" :value="screenWidth"
+            @input="changeScreenWidth" :disable="!enableScreenSize" :title="`${screenWidth}${unitLabel}`" type="number"
+            step="0.1" :suffix="unitLabel" style="width: 185px">
+            <template v-slot:prepend>
+              <div class="text-subtitle2">
+                {{$t('width')}}:
+              </div>
+            </template>
+          </q-input>
 
-        <q-input dense :color="$q.dark.isActive?'primary':'positive'" :readonly="isReadOnly" :value="screenHeight" @input="changeScreenHeight" :disable="!enableScreenSize" :title="`${screenHeight}${unitLabel}`" type="number" step="0.1" :suffix="unitLabel" style="width: 185px">
-          <template v-slot:prepend>
-            <div class="text-subtitle2">
-              {{$t('height')}}:
-            </div>
-          </template>
-        </q-input>
-      </div>
-    </q-card-section>
-  </q-card>
+          <q-input dense :color="$q.dark.isActive?'primary':'positive'" :readonly="isReadOnly" :value="screenHeight"
+            @input="changeScreenHeight" :disable="!enableScreenSize" :title="`${screenHeight}${unitLabel}`"
+            type="number" step="0.1" :suffix="unitLabel" style="width: 185px">
+            <template v-slot:prepend>
+              <div class="text-subtitle2">
+                {{$t('height')}}:
+              </div>
+            </template>
+          </q-input>
+        </div>
+      </q-card-section>
+    </q-card>
 </template>
 
 <script>
@@ -151,5 +160,4 @@ export default {
 }
 </script>
 <style lang="scss">
-
 </style>
