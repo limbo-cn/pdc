@@ -179,7 +179,8 @@ export default class SideView extends BaseView {
             const sortByY = frontPoints.sort((a, b) => a.y - b.y)
             const y1 = this._roomSize.drawY - sortByY[sortByY.length - 1].y
             const y2 = this._roomSize.drawY - sortByY[0].y
-            const showcase = new Showcase({ x: 0, y: y1 }, { x: 0, y: y2 })
+            const showcase = new Showcase({ x: store.state.screen.screenOffset * this._roomSize.ratio, y: y1 },
+                { x: store.state.screen.screenOffset * this._roomSize.ratio, y: y2 })
             this._showcases.push(showcase)
         }
 

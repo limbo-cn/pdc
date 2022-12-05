@@ -33,11 +33,11 @@
       <canvas id="sideView" />
       <div class="tip_area">
         <p>
-          <q-icon name="lens" style="color:rgb(231 231 231);margin:0 5px;font-size: 14px;" />
+          <q-icon name="stop" style="color:rgb(231 231 231);margin:0 5px;font-size: 15px;" />
           <span style="font-size: 12px;">{{ $t('availableArea') }}</span>
           {{ ` ` }}
-          <q-icon name="lens" style="color:rgb(255 165 129);margin:0 5px;font-size: 14px;" />
-          <span style="font-size: 12px;">{{ $t('otherSide') }}</span>
+          <!-- <q-icon name="stop" style="color:rgb(255 165 129);margin:0 5px;font-size: 15px;" />
+          <span style="font-size: 12px;">{{ $t('otherSide') }}</span> -->
         </p>
       </div>
       <div class="tool_area" v-show="!$q.platform.is.mobile">

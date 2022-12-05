@@ -15,97 +15,6 @@
       <q-drawer show-if-above v-model="drawerLeft" side="left" bordered :width="350">
         <q-scroll-area class="fit">
           <q-list padding>
-            <q-item>
-              <q-item-section>
-                <div class="q-pa-sm row items-start q-gutter-sm">
-                  <div class="col">
-                    <q-input outlined :color="$q.dark.isActive ? 'primary' : 'positive'" dense debounce="150"
-                      v-model="filter" :placeholder="$t('search')">
-                      <template v-if="filter" v-slot:append>
-                        <q-icon name="cancel" @click.stop="filter = ``" class="cursor-pointer" />
-                      </template>
-                      <q-icon slot="append" name="search" />
-                    </q-input>
-                  </div>
-                </div>
-                <div class="q-pa-sm row items-start q-gutter-sm">
-                  <div class="col condition_dropdown" @click="showCondition = !showCondition">
-                    {{ $t('installCondition') }}
-                    <q-icon name="arrow_drop_down" v-show="!showCondition" />
-                    <q-icon name="arrow_drop_up" v-show="showCondition" />
-                  </div>
-                </div>
-                <div v-show="showCondition">
-                  <div class="q-pa-sm row items-start q-gutter-sm">
-                    <div class="col">
-                      <q-field filled dense>
-                        <template v-slot:control>
-                          <q-checkbox :color="$q.dark.isActive ? 'primary' : 'positive'" v-model="conditionOptionalLens"
-                            :label="$t('OptionalLensOnly')" />
-                          <q-checkbox :color="$q.dark.isActive ? 'primary' : 'positive'" v-model="conditionLensShift"
-                            :label="$t('LensShiftOnly')" />
-                        </template>
-                      </q-field>
-                    </div>
-                  </div>
-                  <div class="q-pa-sm row items-start q-gutter-sm">
-                    <div class="col">
-                      <q-field filled dense>
-                        <template v-slot:control>
-                          <span class="text-subtitle2 text-grey-5"> {{ $t('unit') }}:</span>
-                          <q-radio :color="$q.dark.isActive ? 'primary' : 'positive'" size="sm" v-model="conditionUnit"
-                            v-for="optionUnit in optionUnits" :key="optionUnit.value" :val="optionUnit.value"
-                            :label="optionUnit.label" />
-                        </template>
-                      </q-field>
-                    </div>
-                  </div>
-                  <div class="q-pa-sm row items-start q-gutter-sm">
-                    <div class="col">
-                      <q-input filled dense :color="$q.dark.isActive ? 'primary' : 'positive'" :debounce="350"
-                        v-model="conditionThrowDistance" type="number" step="0.100" :suffix="unitLabel">
-                        <template v-slot:prepend>
-                          <div class="text-subtitle2">
-                            {{ $t('throwDistance') }}
-                          </div>
-                        </template>
-                      </q-input>
-                    </div>
-                  </div>
-                  <div class="q-pa-sm row items-start q-gutter-sm">
-                    <div class="col">
-                      <q-input filled dense :color="$q.dark.isActive ? 'primary' : 'positive'" :debounce="350"
-                        type="number" step="0.100" v-model="conditionScreenSize"
-                        :suffix="conditionScreen === 0 ? $t('inch') : unitLabel">
-                        <template v-slot:prepend>
-                          <div class="text-subtitle2">
-                            {{ $t('screenSize') }}
-                          </div>
-                        </template>
-                      </q-input>
-                    </div>
-                    <div class="col-4">
-                      <q-select filled dense :color="$q.dark.isActive ? 'primary' : 'positive'"
-                        v-model="conditionScreen" :options="optionsScreen" emit-value map-options option-value="value"
-                        option-label="label" behavior="menu" />
-                    </div>
-                  </div>
-                  <div class="q-pa-sm row items-start q-gutter-sm">
-                    <div class="col">
-                      <q-select dense filled :color="$q.dark.isActive ? 'primary' : 'positive'"
-                        v-model="conditionAspectRatio" :options="aspectRatios" option-value="value" option-label="label"
-                        emit-value map-options behavior="menu">
-                        <template v-slot:prepend>
-                          <div class="text-subtitle2">
-                            {{ $t('aspectRatio') }}:
-                          </div>
-                        </template>
-                      </q-select>
-                    </div>
-                  </div>
-                </div>
-              </q-item-section>
-            </q-item>
             <q-item clickable v-ripple @click="selectProjectorType({ Type: `all` })"
               :active-class="$q.dark.isActive ? '' : 'active-light'" :active="selectedType === `all`">
               <q-item-section class="q-pl-lg">
@@ -129,6 +38,84 @@
       <q-page-container>
         <q-page :style-fn="stylePage">
           <q-scroll-area class="fit">
+            <div>
+              <div class="q-pa-sm row items-start q-gutter-sm">
+                <q-field dense borderless>
+                  <template v-slot:control>
+                    <q-checkbox :color="$q.dark.isActive ? 'primary' : 'positive'" v-model="conditionOptionalLens"
+                      :label="$t('OptionalLensOnly')" />
+                    <q-checkbox :color="$q.dark.isActive ? 'primary' : 'positive'" v-model="conditionLensShift"
+                      :label="$t('LensShiftOnly')" />
+                  </template>
+                </q-field>
+              </div>
+              <div class="q-pa-sm row items-start q-gutter-sm">
+                <div class="col">
+                  <q-input dense clearable :color="$q.dark.isActive ? 'primary' : 'positive'" :debounce="350" v-model="conditionModelName">
+                    <template v-slot:prepend>
+                      <div class="text-subtitle2">
+                        {{ $t('modelName') }}
+                      </div>
+                    </template>
+                  </q-input>
+                </div>
+                <div class="col">
+                  <q-input dense clearable :color="$q.dark.isActive ? 'primary' : 'positive'" :debounce="350"
+                    v-model="conditionThrowDistance" type="number" step="0.100" suffix="m">
+                    <template v-slot:prepend>
+                      <div class="text-subtitle2">
+                        {{ $t('throwDistance') }}
+                      </div>
+                    </template>
+                  </q-input>
+                </div>
+                <div class="col">
+                  <q-select dense clearable :color="$q.dark.isActive ? 'primary' : 'positive'" v-model="conditionThrowRatio"
+                    :options="throwRatioOptions" option-value="value" option-label="label" emit-value map-options
+                    behavior="menu">
+                    <template v-slot:prepend>
+                      <div class="text-subtitle2">
+                        {{ $t('throwRatio') }}:
+                      </div>
+                    </template>
+                  </q-select>
+                </div>
+              </div>
+              <div class="q-pa-sm row items-start q-gutter-sm">
+                <div class="col">
+                  <q-select dense clearable :color="$q.dark.isActive ? 'primary' : 'positive'" v-model="conditionAspectRatio"
+                    :options="aspectRatios" behavior="menu">
+                    <template v-slot:prepend>
+                      <div class="text-subtitle2">
+                        {{ $t('aspectRatio') }}:
+                      </div>
+                    </template>
+                  </q-select>
+                </div>
+                <div class="col">
+                  <q-select dense clearable :color="$q.dark.isActive ? 'primary' : 'positive'" v-model="conditionResolution"
+                    :options="resolutionOptions" option-value="value" option-label="label" emit-value map-options
+                    behavior="menu">
+                    <template v-slot:prepend>
+                      <div class="text-subtitle2">
+                        {{ $t('resolution') }}:
+                      </div>
+                    </template>
+                  </q-select>
+                </div>
+                <div class="col">
+                  <q-select dense clearable :color="$q.dark.isActive ? 'primary' : 'positive'" v-model="conditionBrightness"
+                    :options="brightnessOptions" option-value="value" option-label="label" emit-value map-options
+                    behavior="menu">
+                    <template v-slot:prepend>
+                      <div class="text-subtitle2">
+                        {{ $t('brightness') }}:
+                      </div>
+                    </template>
+                  </q-select>
+                </div>
+              </div>
+            </div>
             <q-table v-show="selectedType" :data="tableData" :columns="columns"
               @row-click="(evt, row, index) => { chooseModel(row.modelName) }" row-key="name" dense
               :pagination="initialPagination" color="positive">
@@ -143,14 +130,6 @@
                 <q-th :props="props" style="font-size: 16px; padding:10px 0">
                   {{ props.col.label }}
                 </q-th>
-              </template>
-              <template v-slot:top-right v-if="$q.platform.is.mobile">
-                <q-input outlined dense debounce="150" v-model="filter" :placeholder="$t('search')">
-                  <template v-if="filter" v-slot:append>
-                    <q-icon name="cancel" @click.stop="filter = ``" class="cursor-pointer" />
-                  </template>
-                  <q-icon slot="append" name="search" />
-                </q-input>
               </template>
               <template v-slot:body-cell-image="props">
                 <q-td :props="props">
@@ -167,7 +146,10 @@
 </template>
 
 <script>
-import { unitRatio, unitType } from 'src/helper/enum'
+import {
+  filterModelName, filterOptionalLens, filterLensShift, filterThrowDistance,
+  filterThrowRatio, filterAspectRatio, filterResolution, filterBrightness
+} from 'src/helper/common'
 import { mapMutations } from 'vuex'
 
 export default {
@@ -177,23 +159,26 @@ export default {
     return {
       drawerLeft: true,
       aspectRatios: [
-        { label: '4:3', value: 4 / 3 },
-        { label: '16:9', value: 16 / 9 },
-        { label: '16:10', value: 16 / 10 }
+        { label: '4/3', value: 4 / 3 },
+        { label: '16/9', value: 16 / 9 },
+        { label: '16/10', value: 16 / 10 },
+        { label: '19/10', value: 19 / 10 }
       ],
-      showCondition: false,
       conditionOptionalLens: false,
       conditionLensShift: false,
-      conditionUnit: unitType.m,
-      conditionThrowDistance: 0,
-      conditionScreenSize: 0,
-      conditionScreen: 0,
-      conditionAspectRatio: 16 / 9,
+      conditionThrowDistance: '',
+      conditionThrowRatio: '',
+      throwRatioOptions: ['0-0.5', '0.5-1', '1-1.5', '1.5-2', '2-3', '3-5', '5-10'],
+      conditionAspectRatio: '',
+      conditionResolution: '',
+      resolutionOptions: ['480p', '720p', '1080p', 'XGA', 'WXGA', 'WUXGA', '4K-UHD'],
+      conditionBrightness: '',
+      brightnessOptions: ['0-2000', '2000-4000', '4000-6000', '6000-8000', '8000-10000', '10000-15000', '15000-20000', '20000-30000'],
       selectedType: 'all',
       initialPagination: {
         rowsPerPage: 30
       },
-      filter: '',
+      conditionModelName: '',
       typeImgCache: {},
       projectorImgCache: {}
     }
@@ -208,45 +193,6 @@ export default {
     }
   },
   computed: {
-    optionUnits() {
-      return [
-        { label: this.$t('m'), value: unitType.m, ratio: unitRatio.m },
-        { label: this.$t('cm'), value: unitType.cm, ratio: unitRatio.cm },
-        { label: this.$t('mm'), value: unitType.mm, ratio: unitRatio.mm },
-        { label: this.$t('inch'), value: unitType.inch, ratio: unitRatio.inch },
-        { label: this.$t('feet'), value: unitType.feet, ratio: unitRatio.feet }
-      ]
-    },
-    optionsScreen() {
-      return [
-        { label: this.$t('diagonal'), value: 0 },
-        { label: this.$t('width'), value: 1 },
-        { label: this.$t('height'), value: 2 }
-      ]
-    },
-    unitLabel() {
-      return this.optionUnits.find(o => o.value === this.conditionUnit)?.label
-    },
-    conditionThrowRatio() {
-      const conditionUnitRatio = this.optionUnits.find(o => o.value === this.conditionUnit)?.ratio
-      const throwDistance = this.conditionThrowDistance / conditionUnitRatio
-      let screenWidth
-      if (this.conditionScreen === 0) { // diagonal
-        const diagonal = this.conditionScreenSize / unitRatio.inch
-        const aspectAngle = Math.atan(this.conditionAspectRatio)
-        screenWidth = diagonal * Math.sin(aspectAngle)
-      } else if (this.conditionScreen === 1) { // width
-        screenWidth = this.conditionScreenSize / conditionUnitRatio
-      } else if (this.conditionScreen === 2) { // height
-        screenWidth = this.conditionScreenSize / conditionUnitRatio * this.conditionAspectRatio
-      }
-
-      if (screenWidth === 0) {
-        return 0
-      }
-
-      return throwDistance / screenWidth
-    },
     columns() {
       return [
         { name: 'image', label: this.$t('image'), field: 'image', align: 'center', style: 'min-width: 150px;width: 150px' },
@@ -291,65 +237,27 @@ export default {
     },
     tableData() {
       const _this = this
-      return _this.projectorModels.filter(o => o.ModelName.toUpperCase().includes(_this.filter.toUpperCase())).filter(o => {
-        if (!this.showCondition) {
-          return true
-        }
-        if (_this.conditionThrowRatio > 0) {
-          if (!o['Throw Ratio']) {
-            for (let i = 0; i < o['Optional Lens'].length; i++) {
-              const lens = _this.$store.state.dataSource.projectorLens.optionalLens.find(ls => ls['Part Name'] === o['Optional Lens'][i])
-              if (!lens) {
-                continue
-              } else if (lens['Throw Ratio'].max >= _this.conditionThrowRatio && lens['Throw Ratio'].min <= _this.conditionThrowRatio) {
-                return true
-              }
-            }
-            return false
+
+      const modelsFiltered = _this.projectorModels
+        .filter(o => !this.conditionModelName || filterModelName(o, this.conditionModelName))
+        .filter(o => !this.conditionOptionalLens || filterOptionalLens(o))
+        .filter(o => !this.conditionLensShift || filterLensShift(o))
+        .filter(o => !this.conditionThrowDistance || filterThrowDistance(o, this.conditionThrowDistance))
+        .filter(o => !this.conditionThrowRatio || filterThrowRatio(o, this.conditionThrowRatio))
+        .filter(o => !this.conditionAspectRatio || filterAspectRatio(o, this.conditionAspectRatio.label))
+        .filter(o => !this.conditionResolution || filterResolution(o, this.conditionResolution))
+        .filter(o => !this.conditionBrightness || filterBrightness(o, this.conditionBrightness))
+        .map(o => {
+          return {
+            image: o.img,
+            modelName: o.ModelName,
+            resolution: o.Resolution.Desc,
+            brightness: o.Brightness.value,
+            optionalLens: o['Optional Lens'] ? o['Optional Lens'].length : this.$t('fixed')
           }
-          return o['Throw Ratio'].max >= _this.conditionThrowRatio && o['Throw Ratio'].min <= _this.conditionThrowRatio
-        }
-        return true
-      }).filter(o => {
-        if (!this.showCondition) {
-          return true
-        }
-        const conditionUnitRatio = _this.optionUnits.find(o => o.value === _this.conditionUnit)?.ratio
-        const throwDistance = _this.conditionThrowDistance / conditionUnitRatio
-        if (throwDistance > 0) {
-          if (!o.Distance) {
-            for (let i = 0; i < o['Optional Lens'].length; i++) {
-              const lens = _this.$store.state.dataSource.projectorLens.optionalLens.find(ls => ls['Part Name'] === o['Optional Lens'][i])
-              if (!lens) {
-                continue
-              } else if (lens.Distance.max >= throwDistance && lens.Distance.min <= throwDistance) {
-                return true
-              }
-              return false
-            }
-          }
-          return o.Distance.max >= throwDistance && o.Distance.min <= throwDistance
-        }
-        return true
-      }).filter(o => {
-        if (!this.showCondition || !this.conditionLensShift) {
-          return true
-        }
-        return !!o['Lens Shift']
-      }).filter(o => {
-        if (!this.showCondition || !this.conditionOptionalLens) {
-          return true
-        }
-        return !!o['Optional Lens']
-      }).map(o => {
-        return {
-          image: o.img,
-          modelName: o.ModelName,
-          resolution: o.Resolution.Desc,
-          brightness: o.Brightness.value,
-          optionalLens: o['Optional Lens'] ? o['Optional Lens'].length : this.$t('fixed')
-        }
-      })
+        })
+
+      return modelsFiltered
     }
   },
   methods: {

@@ -56,7 +56,7 @@
       </div>
       <div class="tip_area">
         <p>
-          <q-icon name="lens" style="color:rgb(231 231 231);margin:0 5px;font-size: 14px;" />
+          <q-icon name="stop" style="color:rgb(231 231 231);margin:0 5px;font-size: 15px;" />
           <span style="font-size: 12px;">{{ $t('availableArea') }}</span>
         </p>
       </div>

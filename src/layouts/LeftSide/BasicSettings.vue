@@ -15,7 +15,6 @@
           </template>
         </q-field>
       </div>
-
     </q-card-section>
   </q-card>
 </template>

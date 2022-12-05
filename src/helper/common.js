@@ -118,3 +118,62 @@ export const GetQueryString = (name) => {
     const r = window.location.search.substr(1).match(reg)
     if (r != null) return unescape(r[2]); return null
 }
+
+export const filterLensShift = o => {
+    return !!o['Lens Shift']
+}
+
+export const filterOptionalLens = o => {
+    return !!o['Optional Lens']
+}
+
+export const filterThrowDistance = (o, input) => {
+    const throwDistance = input / store.state.common.unitRatio
+    if (!o.Distance) {
+        for (let i = 0; i < o['Optional Lens'].length; i++) {
+            const lens = store.state.dataSource.projectorLens.optionalLens.find(ls => ls['Part Name'] === o['Optional Lens'][i])
+            if (!lens) {
+                continue
+            } else if (lens.Distance.max >= throwDistance && lens.Distance.min <= throwDistance) {
+                return true
+            }
+            continue
+        }
+        return false
+    }
+    return o.Distance.min <= throwDistance && o.Distance.max >= throwDistance
+}
+
+export const filterModelName = (o, input) => {
+    return o.ModelName.toLowerCase().includes(input.toLowerCase())
+}
+
+export const filterBrightness = (o, input) => {
+    const [min, max] = input.split('-')
+    return o.Brightness.value >= +min && o.Brightness.value <= +max
+}
+
+export const filterResolution = (o, input) => {
+    return o.Resolution.Desc === input
+}
+
+export const filterAspectRatio = (o, input) => {
+    return o.AspectRatio === input
+}
+
+export const filterThrowRatio = (o, input) => {
+    const [min, max] = input.split('-')
+    if (!o['Throw Ratio']) {
+        for (let i = 0; i < o['Optional Lens'].length; i++) {
+            const lens = store.state.dataSource.projectorLens.optionalLens.find(ls => ls['Part Name'] === o['Optional Lens'][i])
+            if (!lens) {
+                continue
+            } else if ((lens['Throw Ratio'].min >= +min && lens['Throw Ratio'].min <= +max) || (lens['Throw Ratio'].max >= +min && lens['Throw Ratio'].max <= +max)) {
+                return true
+            }
+            continue
+        }
+        return false
+    }
+    return (o['Throw Ratio'].min >= +min && o['Throw Ratio'].min <= +max) || (o['Throw Ratio'].max >= +min && o['Throw Ratio'].max <= +max)
+}

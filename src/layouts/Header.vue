@@ -5,12 +5,46 @@
       <q-btn flat dense round :color="$q.dark.isActive ? 'white' : 'green'" icon="menu" aria-label="Menu"
         v-show="!leftDrawerOpen && $q.platform.is.mobile" @click="leftDrawerOpen = !leftDrawerOpen" />
 
-      <img :src="$q.dark.isActive ? logo_white : logo" :style="{ background: !$q.dark.isActive ? 'white' : '' }"
-        class="rounded-borders" style="height: 40px;padding: 2px; max-width: 150px;" />
-      <q-toolbar-title>
-        <div v-show="!$q.platform.is.mobile" style="font-weight:bold"
-          :style="{ color: $q.dark.isActive ? 'white' : '#595959' }">Projection Distance Calculator</div>
-      </q-toolbar-title>
+      <template v-if="isDP">
+        <q-form class="row" ref="contactForm">
+          <div class="col q-mr-md">
+            <q-input color="positive" dense v-model="formData.firstName" label="* First Name"
+              :rules="[val => !!val || '*']" />
+          </div>
+          <div class="col q-mr-md">
+            <q-input color="positive" dense v-model="formData.lastName" label="* Last Name"
+              :rules="[val => !!val || '*']" />
+          </div>
+          <div class="col q-mr-md">
+            <q-input color="positive" dense v-model="formData.email" label="* Email Address"
+              :rules="[val => !!val || '*']" />
+          </div>
+          <div class="col q-mr-md">
+            <q-select dense color="positive" v-model="formData.region" :options="['EMEA','Americas','Asia','China']">
+              <template v-slot:prepend>
+                <div class="text-subtitle2">
+                  {{$t('* Region')}}:
+                </div>
+              </template>
+            </q-select>
+          </div>
+          <div class="col q-mr-md">
+            <q-input style="width:250px" color="positive" dense v-model="formData.companyName"
+              label="Company/Organization Name" />
+          </div>
+
+        </q-form>
+      </template>
+      <template v-else>
+        <img :src="$q.dark.isActive ? logo_white : logo" :style="{ background: !$q.dark.isActive ? 'white' : '' }"
+          class="rounded-borders" style="height: 40px;padding: 2px; max-width: 150px;" />
+        <q-toolbar-title>
+          <div v-show="!$q.platform.is.mobile" style="font-weight:bold"
+            :style="{ color: $q.dark.isActive ? 'white' : '#595959' }">Projection Distance Calculator</div>
+        </q-toolbar-title>
+      </template>
+
+      <q-space />
 
       <q-btn flat round :icon="$q.dark.isActive ? `img:${iconRefresh_white}` : `img:${iconRefresh}`"
         @click="refreshViews">
@@ -23,7 +57,7 @@
         v-show="!$q.platform.is.mobile" @click="showHistory = true">
         <q-tooltip>{{ $t('snapshot') }}</q-tooltip>
       </q-btn>
-      <q-btn flat round :icon="$q.dark.isActive ? `img:${iconPDF_white}` : `img:${iconPDF}`" @click="showDlgPDF = true">
+      <q-btn flat round :icon="$q.dark.isActive ? `img:${iconPDF_white}` : `img:${iconPDF}`" @click="clickPDF">
         <q-tooltip>{{ $t('pdf') }}</q-tooltip>
       </q-btn>
 
@@ -74,7 +108,8 @@
       </q-btn>
     </q-toolbar>
 
-    <DlgPDF :showDialog.sync="showDlgPDF" />
+    <DlgPDF :showDialog.sync="showDlgPDF" :contactData="contactData" />
+    <DlgContact :showDialog.sync="showDlgContact" @messageCollected="messageCollected" />
     <History :showDialog.sync="showHistory" />
   </q-header>
 </template>
@@ -84,12 +119,14 @@ import { mapMutations } from 'vuex'
 import { i18n } from '../boot/i18n'
 import { GetQueryString } from 'src/helper/common'
 import DlgPDF from '../components/ExportPDF'
+import DlgContact from '../components/DlgContact'
 import History from '../components/History'
 
 export default {
   name: 'Header',
   components: {
     DlgPDF,
+    DlgContact,
     History
   },
   mounted() {
@@ -98,6 +135,8 @@ export default {
   data() {
     return {
       showDlgPDF: false,
+      showDlgContact: false,
+      contactData: null,
       showHistory: false,
       logo: require('../assets/Vivitek Logo.svg'),
       logo_white: require('../assets/Vivitek Logo_white.svg'),
@@ -116,10 +155,20 @@ export default {
       iconZoomout: require('../assets/icons/icon_zoom_out.svg'),
       iconZoomout_white: require('../assets/icons/icon_zoom_out_white.svg'),
       iconZoomin: require('../assets/icons/icon_zoom_in.svg'),
-      iconZoomin_white: require('../assets/icons/icon_zoom_in_white.svg')
+      iconZoomin_white: require('../assets/icons/icon_zoom_in_white.svg'),
+      formData: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        companyName: '',
+        region: 'EMEA'
+      }
     }
   },
   computed: {
+    isDP() {
+      return this.$store.state.dataSource.isDP
+    },
     leftDrawerOpen: {
       get() {
         return this.$store.state.common.leftDrawerOpen
@@ -158,6 +207,18 @@ export default {
       this.$q.dark.toggle()
       this.$root.$emit('resizeRoom')
       this.$root.$emit('setTheme')
+    },
+    clickPDF() {
+      if (this.isDP) {
+        this.showDlgPDF = true
+        this.contactData = this.formData
+      } else {
+        this.showDlgContact = true
+      }
+    },
+    messageCollected(formData) {
+      this.showDlgPDF = true
+      this.contactData = formData
     }
   }
 }

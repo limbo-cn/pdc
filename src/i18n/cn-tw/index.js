@@ -97,9 +97,9 @@ export default {
     actualContrast: '實際對比度',
     tooLow: '低',
     limit: '及格',
-    enough: '達標',
-    good: '好',
-    best: '最佳',
+    suitable: '合適',
+    bright: '明亮',
+    high: '太亮',
     // pdf
     exportPdf: '導出PDF',
     pdfTitle: '計算模擬報告',

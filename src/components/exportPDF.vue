@@ -15,7 +15,8 @@
           <div id="pdf-card-projector">
             <div class="q-pa-sm row items-start q-gutter-sm">
               <div class="text-h6">{{$t('pdfTitle')}}
-                <img src="../assets/Vivitek Logo.png" class="rounded-borders absolute-top-right" style="height: 30px;padding: 2px; margin:24px;">
+                <img src="../assets/Vivitek Logo.png" v-show="!isDP" class="rounded-borders absolute-top-right"
+                  style="height: 30px;padding: 2px; margin:24px;">
               </div>
             </div>
             <div class="q-pl-md row items-start q-gutter-sm">
@@ -23,36 +24,48 @@
             </div>
             <div class="q-pa-sm row items-start q-gutter-sm">
               <div class="col-2" style="margin:auto 20px">
-                <q-img id="projectorImage" :src="projectorImage" :img-style="{'background-size':'contain'}" style="height:100px;width:120px" />
+                <q-img id="projectorImage" :src="projectorImage" :img-style="{'background-size':'contain'}"
+                  style="height:100px;width:120px" />
               </div>
               <div class="col" style="margin:auto">
                 <div class="text-overline">{{selectedProjectorTypeName}}</div>
                 <div class="text-h5">{{selectedProjector.ModelName}}</div>
                 <div class="text-caption" id="projectorDetails">
-                  <span v-if="selectedProjector.Resolution"> {{ `${$t('resolution')}: ${selectedProjector.Resolution.Desc}(${selectedProjector.Resolution.width}*${selectedProjector.Resolution.height})` }}<br /></span>
-                  <span v-if="selectedProjector.Brightness"> {{ `${$t('brightness')}: ${selectedProjector.Brightness.value} ${selectedProjector.Brightness.unit}` }}<br /></span>
-                  <span v-if="selectedProjector['Contrast Ratio']"> {{ `${$t('contrastRatio')}: ${selectedProjector['Contrast Ratio']}` }}<br /></span>
-                  <span v-if="selectedProjector.Weight">{{ `${$t('weight')}: ${selectedProjector.Weight.value} ${selectedProjector.Weight.unit}` }}<br /></span>
+                  <span v-if="selectedProjector.Resolution"> {{ `${$t('resolution')}:
+                  ${selectedProjector.Resolution.Desc}(${selectedProjector.Resolution.width}*${selectedProjector.Resolution.height})`
+                  }}<br /></span>
+                  <span v-if="selectedProjector.Brightness"> {{ `${$t('brightness')}:
+                  ${selectedProjector.Brightness.value} ${selectedProjector.Brightness.unit}` }}<br /></span>
+                  <span v-if="selectedProjector['Contrast Ratio']"> {{ `${$t('contrastRatio')}:
+                  ${selectedProjector['Contrast Ratio']}` }}<br /></span>
+                  <span v-if="selectedProjector.Weight">{{ `${$t('weight')}: ${selectedProjector.Weight.value}
+                  ${selectedProjector.Weight.unit}` }}<br /></span>
                 </div>
               </div>
               <div class="col-2" style="margin:auto 20px">
-                <q-img id="lensImage" v-if="selectedLens" :src="lensImage" :img-style="{'background-size':'contain'}" style="height:120px;width:150px" />
-                <q-img id="lensImage" v-else style="width:100px;margin:auto 20px;background-color:black" class="rounded-borders" :src="svgSrc" />
+                <q-img id="lensImage" v-if="selectedLens" :src="lensImage" :img-style="{'background-size':'contain'}"
+                  style="height:120px;width:150px" />
+                <q-img id="lensImage" v-else style="width:100px;margin:auto 20px;" class="rounded-borders"
+                  :src="svgSrc" />
               </div>
               <div class="col" v-if="selectedLens" style="margin:auto">
                 <div class="text-h5">{{selectedLens['Part Name']}}</div>
                 <div class="text-caption" id="lensDetails">
                   <span v-if="selectedLens['Throw Ratio']">{{ `${$t('throwRatio')}: ${selectedLens['Throw Ratio'].min}-${selectedLens['Throw Ratio'].max}` }}</span><br />
-                  <span v-if="selectedLens.Distance">{{ `${$t('distance')}: ${selectedLens.Distance.min}-${selectedLens.Distance.max} ${$t('m')}` }}</span><br />
-                  <span v-if="selectedLens.Offset !== null">{{ `${$t('offset')}: ${selectedLens.Offset} %` }}<br /></span>
+                  <span v-if="selectedLens.Distance">{{ `${$t('distance')}:
+                  ${selectedLens.Distance.min}-${selectedLens.Distance.max} ${$t('m')}` }}</span><br />
+                  <span v-if="selectedLens.Offset !== null">{{ `${$t('offset')}: ${selectedLens.Offset} %`
+                  }}<br /></span>
                 </div>
               </div>
               <div class="col" v-else style="margin:auto">
                 <div class="text-h5 q-mt-sm q-mb-xs">{{$t('fixed')}}</div>
                 <div class="text-caption" id="lensDetails">
                   <span v-if="selectedProjector['Throw Ratio']">{{ `${$t('throwRatio')}: ${selectedProjector['Throw Ratio'].min}-${selectedProjector['Throw Ratio'].max}` }}<br /></span>
-                  <span v-if="selectedProjector.Distance">{{ `${$t('distance')}: ${selectedProjector.Distance.min}-${selectedProjector.Distance.max} mm` }}<br /></span>
-                  <span v-if="selectedProjector.Offset">{{ `${$t('offset')}: ${selectedProjector.Offset} %` }}<br /></span>
+                  <span v-if="selectedProjector.Distance">{{ `${$t('distance')}:
+                  ${selectedProjector.Distance.min}-${selectedProjector.Distance.max} mm` }}<br /></span>
+                  <span v-if="selectedProjector.Offset">{{ `${$t('offset')}: ${selectedProjector.Offset} %`
+                  }}<br /></span>
                 </div>
               </div>
             </div>
@@ -66,21 +79,25 @@
             <div class="q-pb-sm q-pl-md row items-start q-gutter-xs">
               <div class="col-12">
                 <div class="text-weight-bold"> {{$t('sideView')}}</div>
-                <q-img class="rounded-borders view-image" :class="{light:!$q.dark.isActive}" id="sideView-image" :src="sideViewImage" />
+                <q-img class="rounded-borders view-image" :class="{light:!$q.dark.isActive}" id="sideView-image"
+                  :src="sideViewImage" />
               </div>
               <div class="col-12">
                 <div class="text-weight-bold"> {{$t('frontView')}}</div>
-                <q-img class="rounded-borders view-image" :class="{light:!$q.dark.isActive}" id="frontView-image" :src="frontViewImage" />
+                <q-img class="rounded-borders view-image" :class="{light:!$q.dark.isActive}" id="frontView-image"
+                  :src="frontViewImage" />
               </div>
             </div>
             <div class="q-pb-sm q-pl-md row items-start q-gutter-xs">
               <div class="col-12">
                 <div class="text-weight-bold"> {{$t('topView')}}</div>
-                <q-img class="rounded-borders view-image" :class="{light:!$q.dark.isActive}" id="topView-image" :src="topViewImage" />
+                <q-img class="rounded-borders view-image" :class="{light:!$q.dark.isActive}" id="topView-image"
+                  :src="topViewImage" />
               </div>
               <div class="col-12">
                 <div class="text-weight-bold"> {{$t('threeView')}}</div>
-                <q-img class="rounded-borders view-image" :class="{light:!$q.dark.isActive}" id="threeView-image" :src="threeViewImage" />
+                <q-img class="rounded-borders view-image" :class="{light:!$q.dark.isActive}" id="threeView-image"
+                  :src="threeViewImage" />
               </div>
             </div>
           </div>
@@ -178,18 +195,76 @@
                 <li> {{$t('disclaimer4')}} </li>
               </ul>
             </div>
+            <div class="q-pa-md row q-gutter-sm" style="width:80%;justify-content: flex-end;">
+              <ul v-if="contactData">
+                <li>{{contactData.firstName}} . {{contactData.lastName}} </li>
+                <li>{{contactData.companyName}} </li>
+                <li>{{contactData.region}} </li>
+              </ul>
+            </div>
           </div>
         </q-page>
       </q-page-container>
 
       <q-footer class="delta-gradient-bg-2" :style="{background:$q.dark.isActive?'#445a4d':''}">
         <q-toolbar>
-          <q-input filled dense :color="$q.dark.isActive?'primary':'white'" dark v-model="pdfName" suffix=".pdf/.png"> </q-input>
+          <q-input filled dense :color="$q.dark.isActive?'primary':'white'" dark v-model="pdfName" suffix=".pdf/.png">
+          </q-input>
           <q-space />
-          <q-btn flat :color="$q.dark.isActive?'primary':'white'" :label="$t('exportPdf')" :loading="downloadingPDF" @click="exportPDF" />
-          <q-btn flat :color="$q.dark.isActive?'primary':'white'" :label="$t('saveAsImage')" :loading="savingImage" @click="saveAsImage" />
+          <q-btn flat :color="$q.dark.isActive?'primary':'white'" :label="$t('exportPdf')" :loading="downloadingPDF"
+            @click="exportPDF" />
+          <q-btn flat :color="$q.dark.isActive?'primary':'white'" :label="$t('saveAsImage')" :loading="savingImage"
+            @click="saveAsImage" />
         </q-toolbar>
       </q-footer>
+
+      <q-dialog v-model="showCollector" transition-show="scale" transition-hide="scale">
+        <q-card class="bg-positive text-white" style="min-width: 650px">
+          <q-card-section>
+            <div class="text-h6">Contact Us</div>
+          </q-card-section>
+
+          <q-card-section class="q-pt-none">
+            Leave Message To Let Us Provide More Support
+          </q-card-section>
+
+          <q-card-section class="q-pt-none bg-white">
+            <q-form class="row" ref="contactForm">
+              <div class="col-6 q-pl-sm q-pr-sm q-pt-md">
+                <q-input color="positive" dense v-model="formData.firstName" label="* First Name"
+                  :rules="[val => !!val || '*']" />
+              </div>
+              <div class="col-6 q-pl-sm q-pr-sm q-pt-md">
+                <q-input color="positive" dense v-model="formData.lastName" label="* Last Name"
+                  :rules="[val => !!val || '*']" />
+              </div>
+              <div class="col-6 q-pl-sm q-pr-sm q-pt-md">
+                <q-input color="positive" dense v-model="formData.email" label="* Email Address"
+                  :rules="[val => !!val || '*']" />
+              </div>
+              <div class="col-6 q-pl-sm q-pr-sm q-pt-md">
+                <q-input color="positive" dense v-model="formData.phoneNumber" label="* Phone Number"
+                  :rules="[val => !!val || '*']" />
+              </div>
+              <div class="col-6 q-pl-sm q-pr-sm q-pt-md">
+                <q-input color="positive" dense v-model="formData.region" label="* Region"
+                  :rules="[val => !!val || '*']" />
+              </div>
+              <div class="col-6 q-pl-sm q-pr-sm q-pt-md">
+                <q-input color="positive" dense v-model="formData.companyName" label="Company/Organization Name" />
+              </div>
+              <div class="col q-pl-sm q-pr-sm q-pt-md">
+                <q-input color="positive" dense v-model="formData.message" label="What's Your Need?" type="textarea" />
+              </div>
+            </q-form>
+
+            <div class="q-pl-sm q-pr-sm q-pt-md text-right">
+              <q-btn label="Submit" :loading="isPostingMessage" color="positive" @click="postCollector" />
+            </div>
+          </q-card-section>
+
+        </q-card>
+      </q-dialog>
 
     </q-layout>
   </q-dialog>
@@ -206,13 +281,14 @@ let pdf = null
 
 export default {
   name: 'Export-PDF',
-  props: ['showDialog'],
+  props: ['showDialog', 'contactData'],
   data() {
     return {
       aspectRatios: [
-        { label: '4/3', value: 4 / 3 },
-        { label: '16/9', value: 16 / 9 },
-        { label: '16/10', value: 16 / 10 }
+        { label: '4:3', value: 4 / 3 },
+        { label: '16:9', value: 16 / 9 },
+        { label: '16:10', value: 16 / 10 },
+        { label: '19:10', value: 19 / 10 }
       ],
       toFixedNumber: toFixedNumber,
       downloadingPDF: false,
@@ -220,10 +296,27 @@ export default {
       projectorImage: null,
       lensImage: null,
       svgSrc: require('../assets/Lens_fixed.svg'),
-      pdfName: ''
+      pdfName: '',
+      showCollector: false,
+      isCollected: false,
+      formData: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: '',
+        companyName: '',
+        region: '',
+        message: ''
+      },
+      isPdf: false,
+      isImage: false,
+      isPostingMessage: false
     }
   },
   computed: {
+    isDP() {
+      return this.$store.state.dataSource.isDP
+    },
     selectedProjectorTypeName() {
       let tpyeName = ''
       this.$store.state.dataSource.projectorType.projectorTypes.forEach(o => {
@@ -352,6 +445,38 @@ export default {
     hideDialog() {
       this.$emit('update:showDialog', false)
     },
+    postCollector() {
+      const param = new URLSearchParams()
+      param.append('fname', this.formData.firstName)
+      param.append('lname', this.formData.lastName)
+      param.append('email', this.formData.email)
+      param.append('phone', this.formData.phoneNumber)
+      param.append('region', this.formData.region)
+      param.append('company', this.formData.companyName)
+      param.append('need', this.formData.message)
+
+      this.$refs.contactForm.validate().then(isValidated => {
+        if (isValidated) {
+          this.isPostingMessage = true
+          this.$axios({
+            url: 'https://service.launchnovo.com/api/vivitek/service',
+            method: 'POST',
+            data: param,
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          }).then(() => {
+            if (this.isPdf) {
+              this.exportPDF()
+            } else {
+              this.saveAsImage()
+            }
+            this.isPostingMessage = false
+            this.showCollector = false
+          })
+        }
+      })
+    },
     showPDF() {
       this.$root.$emit('generatePDF')
       this.pdfName = this.$t('pdfTitle')
@@ -367,6 +492,11 @@ export default {
         return
       }
       this.lensImage = require(`../assets/${this.selectedLens.Picture}`)
+    },
+    clickPdf() {
+      this.isPdf = true
+      this.isImage = false
+      this.showCollector = true
     },
     async exportPDF() {
       pdf = new JsPDF()
@@ -392,6 +522,11 @@ export default {
 
       this.downloadingPDF = false
     },
+    clickImage() {
+      this.isPdf = false
+      this.isImage = true
+      this.showCollector = true
+    },
     async saveAsImage() {
       this.savingImage = true
       const dom = document.querySelector('#pdf-card')
@@ -402,7 +537,7 @@ export default {
     },
 
     generateTitle() {
-      pdf.addImage(logo.base64, 'PNG', 180, 5, 20, 8)
+      !this.isDP && pdf.addImage(logo.base64, 'PNG', 180, 5, 20, 8)
       pdf.setFontSize(12)
       pdf.text(10, 10, this.$t('pdfTitle'))
     },
@@ -518,14 +653,16 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.view-image{
+.view-image {
   background-color: #0b0c0e;
   width: 100%;
 }
-.light{
+
+.light {
   background-color: white;
 }
-ul{
+
+ul {
   list-style-type: none;
   padding-left: 5px;
 }

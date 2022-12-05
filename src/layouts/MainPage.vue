@@ -224,5 +224,4 @@ export default {
   background-image: url('../assets/gradient_2.svg');
   background-size: cover;
 }
-
 </style>

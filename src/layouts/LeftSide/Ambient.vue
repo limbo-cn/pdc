@@ -35,30 +35,34 @@
           <!-- {{$t('actualContrast')}}: {{toFixedNumber(actualContrast,2)}}:1 -->
         </div>
       </div>
-      <div class="q-pa-sm row items-start q-gutter-sm">
-        <div class="col-8" style="margin:5px 0">
-          <img src="../../assets/projection_best.jpg" v-show="arrowTop<12" style="background-size:contain;width:95%"
-            usemap="#projectionMap" />
-          <img src="../../assets/projection_good.jpg" v-show="arrowTop>=12 && arrowTop<33"
-            style="background-size:contain;width:95%" usemap="#projectionMap" />
-          <img src="../../assets/projection_enough.jpg" v-show="arrowTop>=33 && arrowTop<53"
-            style="background-size:contain;width:95%" usemap="#projectionMap" />
-          <img src="../../assets/projection_limit.jpg" v-show="arrowTop>=53 && arrowTop<73"
-            style="background-size:contain;width:95%" usemap="#projectionMap" />
-          <img src="../../assets/projection_low.jpg" v-show="arrowTop>=73" style="background-size:contain;width:95%"
-            usemap="#projectionMap" />
-        </div>
-        <div class="col relative-position" style="margin:5px 0">
-          <div class="ambient_ruler">
-            <div class="ambient_ruler_block" style="filter: brightness(1);"></div>
-            <div class="ambient_ruler_block" style="filter: brightness(0.8);"></div>
-            <div class="ambient_ruler_block" style="filter: brightness(0.6);"></div>
-            <div class="ambient_ruler_block" style="filter: brightness(0.4);"></div>
-            <div class="ambient_ruler_block" style="filter: brightness(0.2);"></div>
-            <div class="absolute" style="left:50px" :style="{top:`${arrowTop}%`}">
-              <span>
-                <q-icon name="arrow_left" />{{ambientLabel}}
-              </span>
+
+      <div class="row q-pt-sm q-pl-sm q-pr-sm row q-gutter-md"
+        :style="{visibility:isFloatingAmbient?'hidden':'visible'}">
+        <div class="col" style="margin:15px 5px;position: relative">
+          <div class="q-pa-sm text-h6" style="position:absolute;top:0;left:0;color:white">
+            {{ambientLabel}}
+          </div>
+          <div class="q-pa-xs" style="position:absolute;top:0;right:0;">
+            <q-btn round flat color="white" icon="call_made" @click="clickFloating" />
+          </div>
+          <img src="../../assets/projection_best.jpg" v-show="arrowTop>80"
+            style="background-size:contain;width:100%;height:100%" usemap="#projectionMap" />
+          <img src="../../assets/projection_good.jpg" v-show="arrowTop>=60 && arrowTop<80"
+            style="background-size:contain;width:100%;height:100%" usemap="#projectionMap" />
+          <img src="../../assets/projection_enough.jpg" v-show="arrowTop>=40 && arrowTop<60"
+            style="background-size:contain;width:100%;height:100%" usemap="#projectionMap" />
+          <img src="../../assets/projection_limit.jpg" v-show="arrowTop>=20 && arrowTop<40"
+            style="background-size:contain;width:100%;height:100%" usemap="#projectionMap" />
+          <img src="../../assets/projection_low.jpg" v-show="arrowTop>=0  && arrowTop< 20"
+            style="background-size:contain;width:100%;height:100%" usemap="#projectionMap" />
+          <div class="row" style="height: 10px;position: absolute;top: 100%;width: 100%;">
+            <div class="col" style="height:100%;background-color:rgb(32, 56, 100)" />
+            <div class="col" style="height:100%;background-color:rgb(47, 85, 151)" />
+            <div class="col" style="height:100%;background-color:rgb(143, 170, 220)" />
+            <div class="col" style="height:100%;background-color:rgb(180, 199, 231)" />
+            <div class="col" style="height:100%;background-color:rgb(218, 227, 243)" />
+            <div style="position: absolute;height: 100%;background:#1bff61;width: 6px;" :style="{left:`${arrowTop}%`}">
+              <div style="color:#1bff61;position: absolute;top: -20px;left: -3px;">⏷</div>
             </div>
           </div>
         </div>
@@ -73,6 +77,7 @@ import { mapMutations } from 'vuex'
 
 export default {
   name: 'LeftSide-Ambient',
+  props: ['isFloatingAmbient'],
   data() {
     return {
       application: 0,
@@ -127,25 +132,27 @@ export default {
       return (this.brightnessOnScreenLx + this.roomBrightness) / this.roomBrightness
     },
     arrowTop() {
-      let top = 90 - this.actualContrast * 5
+      let top = this.actualContrast * 6
       top < 0 && (top = 0)
+      top > 100 && (top = 100)
+      this.$emit('changeArrowtop', top)
       return top
     },
     ambientFilter() {
       return 1.2 - this.arrowTop / 100
     },
     ambientLabel() {
-      if (this.arrowTop < 12) {
-        return this.$t('best')
-      } else if (this.arrowTop < 33) {
-        return this.$t('good')
-      } else if (this.arrowTop < 53) {
-        return this.$t('enough')
-      } else if (this.arrowTop < 73) {
+      if (this.arrowTop < 20) {
+        return this.$t('tooLow')
+      } else if (this.arrowTop < 40) {
         return this.$t('limit')
+      } else if (this.arrowTop < 60) {
+        return this.$t('suitable')
+      } else if (this.arrowTop < 80) {
+        return this.$t('bright')
       }
 
-      return this.$t('tooLow')
+      return this.$t('high')
     }
   },
   methods: {
@@ -156,6 +163,9 @@ export default {
         return
       }
       this.roomBrightness = item.brightness
+    },
+    clickFloating() {
+      this.$emit('update:isFloatingAmbient', true)
     }
   }
 }

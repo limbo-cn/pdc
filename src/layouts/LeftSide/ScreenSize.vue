@@ -72,7 +72,8 @@ export default {
       aspectRatios: [
         { label: '16:9', value: 16 / 9 },
         { label: '16:10', value: 16 / 10 },
-        { label: '4:3', value: 4 / 3 }
+        { label: '4:3', value: 4 / 3 },
+        { label: '19:10', value: 19 / 10 }
       ]
     }
   },

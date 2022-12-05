@@ -33,6 +33,7 @@ export default class BaseView {
         this._hAxis = null
         this._vAxis = null
         this._ustAxis = null
+        this._offsetAxis = null
         this._rulers = []
 
         this._rulerTop = null
@@ -91,6 +92,23 @@ export default class BaseView {
     }
 
     _generateAxis(isUST = false) {
+        if (store.state.screen.screenOffset > 0) {
+            if (this._offsetAxis) {
+                this._canvas.remove(this._offsetAxis)
+                this._offsetAxis = null
+            }
+
+            this._offsetAxis = new fabric.Line([0, 0, 0, this._roomSize.drawY], {
+                left: store.state.screen.screenOffset * this._roomSize.ratio,
+                stroke: 'rgb(181,181,182)',
+                strokeWidth: 2,
+                strokeDashArray: [3, 3],
+                evented: false
+            })
+
+            this._canvas.add(this._offsetAxis)
+        }
+
         if ((!isUST && this._hAxis && this._vAxis) || (isUST && this._hAxis && this._vAxis && this._ustAxis)) {
             this._hAxis.setOptions({ top: this._projectorCenter.y, width: this._roomSize.drawX })
             this._vAxis.setOptions({ left: this._projectorCenter.x, height: isUST ? this._projectorCenter.y : this._roomSize.drawY })

@@ -61,7 +61,8 @@ export default {
         return []
       }
       const lenNames = model['Optional Lens']
-      const lens = lenNames.map(lenName => this.$store.state.dataSource.projectorLens.optionalLens.find(o => o['Part Name'] === lenName)).filter(o => o !== undefined)
+      const lens = lenNames.map(lenName => this.$store.state.dataSource.projectorLens.optionalLens.find(o => o['Part Name'] === lenName))
+      .filter(o => o !== undefined).sort((a, b) => (a['Throw Ratio'].min - b['Throw Ratio'].min))
       lens.forEach(o => {
         if (!this.lensImgCache[o['Part Name']]) {
           this.lensImgCache[o['Part Name']] = require(`../assets/${o.Picture}`)
